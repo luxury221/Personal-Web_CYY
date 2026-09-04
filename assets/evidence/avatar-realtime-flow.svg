@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Interactive Avatar realtime multimodal flow</title>
+  <desc id="desc">Four-step avatar creation workflow followed by realtime voice, gesture and session data flow using React Three Fiber, WebSocket, Qwen and MediaPipe.</desc>
+  <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#21484c" stroke-opacity=".05"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#21484c"/></marker></defs>
+  <rect width="1200" height="680" fill="#f1ece3"/><rect x="18" y="18" width="1164" height="644" rx="8" fill="url(#grid)" stroke="#8f846f" stroke-opacity=".42"/>
+  <text x="54" y="62" fill="#8c7153" font-family="monospace" font-size="14" letter-spacing="2">EVIDENCE / 06 · REALTIME MULTIMODAL</text>
+  <text x="54" y="101" fill="#243034" font-family="serif" font-size="30">Interactive Avatar — From Creation to Realtime Session</text>
+  <text x="54" y="128" fill="#6f746f" font-family="sans-serif" font-size="14">The product problem is state coordination across avatar generation, rigging, scenes, voice, gesture and session persistence.</text>
+
+  <text x="54" y="176" fill="#8c7153" font-family="monospace" font-size="12">4-STEP CREATION FLOW</text>
+  <g font-family="monospace" font-size="11" text-anchor="middle">
+    <g transform="translate(54 198)"><rect width="218" height="92" rx="6" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="109" y="27" fill="#8c7153">01 / CREATE</text><text x="109" y="51" fill="#243034">TEXT · IMAGE · PRESET</text><text x="109" y="72" fill="#6f746f">Meshy generation</text></g>
+    <g transform="translate(328 198)"><rect width="218" height="92" rx="6" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="109" y="27" fill="#8c7153">02 / RIG</text><text x="109" y="51" fill="#243034">8-POINT ASSIST</text><text x="109" y="72" fill="#6f746f">poll + motion preview</text></g>
+    <g transform="translate(602 198)"><rect width="218" height="92" rx="6" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="109" y="27" fill="#8c7153">03 / SCENE</text><text x="109" y="51" fill="#243034">R3F / BACKGROUND</text><text x="109" y="72" fill="#6f746f">library · upload · gen</text></g>
+    <g transform="translate(876 198)"><rect width="258" height="92" rx="6" fill="#21484c" fill-opacity=".08" stroke="#21484c" stroke-opacity=".62"/><text x="129" y="27" fill="#8c7153">04 / INTERACT</text><text x="129" y="51" fill="#243034">REALTIME SESSION</text><text x="129" y="72" fill="#6f746f">voice · gesture · state</text></g>
+  </g>
+  <g stroke="#21484c" stroke-width="1.2" fill="none" marker-end="url(#arrow)"><path d="M272 244H320"/><path d="M546 244H594"/><path d="M820 244H868"/></g>
+
+  <rect x="54" y="342" width="1080" height="210" rx="8" fill="#faf7f1" stroke="#21484c" stroke-opacity=".38"/>
+  <text x="78" y="374" fill="#8c7153" font-family="monospace" font-size="12">REALTIME SESSION / EVENT FLOW</text>
+
+  <g font-family="monospace" font-size="11" text-anchor="middle">
+    <g transform="translate(82 404)"><rect width="166" height="92" rx="5" fill="#f1ece3" stroke="#21484c" stroke-opacity=".35"/><text x="83" y="30" fill="#243034">MIC / SPEECH</text><text x="83" y="53" fill="#6f746f">browser audio</text><text x="83" y="73" fill="#6f746f">interrupt</text></g>
+    <g transform="translate(290 404)"><rect width="188" height="92" rx="5" fill="#21484c" fill-opacity=".07" stroke="#21484c" stroke-opacity=".55"/><text x="94" y="30" fill="#243034">WEBSOCKET</text><text x="94" y="53" fill="#6f746f">/ws/audio</text><text x="94" y="73" fill="#6f746f">bidirectional stream</text></g>
+    <g transform="translate(520 404)"><rect width="188" height="92" rx="5" fill="#21484c" fill-opacity=".09" stroke="#21484c" stroke-opacity=".62"/><text x="94" y="30" fill="#243034">QWEN REALTIME</text><text x="94" y="53" fill="#6f746f">voice / ASR</text><text x="94" y="73" fill="#6f746f">response state</text></g>
+    <g transform="translate(750 404)"><rect width="166" height="92" rx="5" fill="#f1ece3" stroke="#21484c" stroke-opacity=".35"/><text x="83" y="30" fill="#243034">MEDIAPIPE</text><text x="83" y="53" fill="#6f746f">gesture event</text><text x="83" y="73" fill="#6f746f">wave → motion</text></g>
+    <g transform="translate(958 404)"><rect width="150" height="92" rx="5" fill="#f1ece3" stroke="#21484c" stroke-opacity=".35"/><text x="75" y="30" fill="#243034">R3F SCENE</text><text x="75" y="53" fill="#6f746f">avatar state</text><text x="75" y="73" fill="#6f746f">animation</text></g>
+  </g>
+  <g stroke="#21484c" stroke-width="1.2" fill="none" marker-end="url(#arrow)"><path d="M248 450H282"/><path d="M478 450H512"/><path d="M708 450H742"/><path d="M916 450H950"/></g>
+  <path d="M614 404C614 370 374 370 374 398" fill="none" stroke="#21484c" stroke-width="1" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <text x="472" y="382" fill="#6f746f" font-family="monospace" font-size="9">INTERRUPTION / RESPONSE LOOP</text>
+
+  <rect x="878" y="574" width="256" height="46" rx="5" fill="#21484c" fill-opacity=".06" stroke="#21484c" stroke-opacity=".35"/>
+  <text x="894" y="592" fill="#8c7153" font-family="monospace" font-size="9">SESSION DATA</text><text x="894" y="609" fill="#243034" font-family="sans-serif" font-size="11">history · summary · recordings · dashboard</text>
+  <line x1="54" y1="584" x2="842" y2="584" stroke="#8f846f" stroke-opacity=".3"/>
+  <text x="54" y="614" fill="#6f746f" font-family="monospace" font-size="11">STACK / React 19 · Three.js · React Three Fiber · MediaPipe · FastAPI · WebSocket · SQLAlchemy</text>
+  <text x="54" y="640" fill="#8c7153" font-family="monospace" font-size="10">SOURCE / WaterXiao-git/AI-Avatar · README.md · main flow / interfaces / realtime interaction</text>
+</svg>
