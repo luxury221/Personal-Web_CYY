@@ -245,7 +245,7 @@ Selected recognition:
 - 国家奖学金
 - 中天科技奖学金
 - 一等奖学金
-- 中国计算机设计大赛 · 国家二等奖
+- 中国大学生计算机设计大赛 · 国家二等奖
 - MCM/ICM · Meritorious Winner
 
 ## `contact.html` — Contact
@@ -361,7 +361,7 @@ Then open:
 http://localhost:8000
 ```
 
-Use `Ctrl + F1` after pulling changes to bypass cached CSS/JS.
+Use `Ctrl + F5` after pulling changes to bypass cached CSS/JS.
 
 ## Deploy
 
