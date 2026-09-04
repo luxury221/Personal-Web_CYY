@@ -126,6 +126,18 @@
   transform: translateY(-1px);
 }
 
+.research-proof-source {
+  display: inline-flex;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(33,72,76,.18);
+  color: var(--signal, #21484c);
+  text-decoration: none;
+  font: 8px/1.2 "DM Mono", monospace;
+  letter-spacing: .07em;
+}
+.research-proof-source:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 .evidence-modal {
   position: fixed;
   inset: 0;
