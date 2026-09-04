@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#d8d1c5" />
   <script>try{sessionStorage.getItem('cyy-cover-label')&&document.documentElement.classList.add('cover-hold')}catch(e){}</script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f0e8'/%3E%3Ccircle cx='16' cy='16' r='12.5' fill='none' stroke='%2321484c' stroke-width='2'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='%2321484c' font-family='monospace'%3ECYY%3C/text%3E%3C/svg%3E" />
   <meta property="og:title" content="About · Yaoyang Chen — LLM Systems" />
   <meta property="og:description" content="陈耀洋｜重庆邮电大学｜LLM Systems · RAG · Agent Engineering" />
   <meta property="og:type" content="website" />
@@ -20,6 +19,7 @@
 </head>
 <body id="top">
   <div class="page-transition" id="pageTransition"><span class="transition-index">CYY / 26</span><span class="transition-title" id="transitionTitle">ABOUT</span></div>
+
   <header class="site-header">
     <a class="wordmark" href="index.html" data-transition-label="HOME">CYY / 26</a>
     <nav class="nav-links" aria-label="Primary navigation">
@@ -57,16 +57,25 @@
         <article class="content-block">
           <span class="system-label">POSITIONING</span>
           <h2>Yaoyang Chen / 陈耀洋</h2>
-          <p data-zh="我是一名面向 LLM Systems 方向学习和开发的本科生。相比“让模型生成更多内容”，我更关注如何把模型放进有数据来源、有状态、有工具、有边界、有评测的完整系统：MultiRank-RAG 研究复杂文档中的多模态证据检索与排序；孔明职配把 Agent、RAG、长期记忆和证据化决策放进求职工作流；AI Homework System 处理 Human-in-the-loop 与异步 AI 基础设施；Interactive Avatar 则把语言模型推进实时语音、3D 和手势交互环境。" data-en="I am an undergraduate focused on LLM systems. Rather than asking models to generate more content, I care about placing them inside complete systems with provenance, state, tools, boundaries and evaluation: MultiRank-RAG studies multimodal evidence retrieval and ranking in complex documents; Kongming combines agents, RAG, memory and evidence-based decisions in a career workflow; AI Homework System explores human-in-the-loop AI infrastructure; Interactive Avatar pushes language models into realtime speech, 3D and gesture interaction.">我是一名面向 LLM Systems 方向学习和开发的本科生。相比“让模型生成更多内容”，我更关注如何把模型放进有数据来源、有状态、有工具、有边界、有评测的完整系统：MultiRank-RAG 研究复杂文档中的多模态证据检索与排序；孔明职配把 Agent、RAG、长期记忆和证据化决策放进求职工作流；AI Homework System 处理 Human-in-the-loop 与异步 AI 基础设施；Interactive Avatar 则把语言模型推进实时语音、3D 和手势交互环境。</p>
+          <p data-zh="我是一名面向 LLM Systems 方向学习和开发的本科生。相比“让模型生成更多内容”，我更关注如何把模型放进有数据来源、有状态、有工具、有边界、有评测的完整系统。MultiRank-RAG 研究复杂文档中的多模态证据检索与排序；孔明职配把 Agent、RAG、长期记忆和证据化决策放进求职工作流；AI Homework System 处理 Human-in-the-loop 与异步 AI 基础设施；Interactive Avatar 则把语言模型推进实时语音、3D 和手势交互环境。" data-en="I am an undergraduate focused on LLM systems. Rather than asking models to generate more content, I care about placing them inside complete systems with provenance, state, tools, boundaries and evaluation. MultiRank-RAG studies multimodal evidence retrieval and ranking in complex documents; Kongming combines agents, RAG, memory and evidence-based decisions in a career workflow; AI Homework System explores human-in-the-loop AI infrastructure; Interactive Avatar pushes language models into realtime speech, 3D and gesture interaction.">我是一名面向 LLM Systems 方向学习和开发的本科生。相比“让模型生成更多内容”，我更关注如何把模型放进有数据来源、有状态、有工具、有边界、有评测的完整系统。MultiRank-RAG 研究复杂文档中的多模态证据检索与排序；孔明职配把 Agent、RAG、长期记忆和证据化决策放进求职工作流；AI Homework System 处理 Human-in-the-loop 与异步 AI 基础设施；Interactive Avatar 则把语言模型推进实时语音、3D 和手势交互环境。</p>
         </article>
 
         <article class="content-block">
           <span class="system-label">WORKING PRINCIPLES</span>
           <h2 data-zh="我如何做 AI 系统" data-en="How I Build AI Systems">我如何做 AI 系统</h2>
           <div class="profile-principles">
-            <section class="profile-principle"><span>01 / EVIDENCE</span><h3>Evidence First</h3><p data-zh="先确认依据是否足够，再生成结论；让答案、评分和 Agent 决策能够回到具体来源。" data-en="Verify that evidence is sufficient before generating conclusions; answers, scores and agent decisions should trace back to concrete sources.">先确认依据是否足够，再生成结论；让答案、评分和 Agent 决策能够回到具体来源。</p></section>
-            <section class="profile-principle"><span>02 / EVALUATION</span><h3>Measure the Gain</h3><p data-zh="固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把复杂度包装成创新。" data-en="Control baselines, run ablations and preserve failure cases. If metrics do not support a gain, added complexity should not be marketed as innovation.">固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把复杂度包装成创新。</p></section>
-            <section class="profile-principle"><span>03 / DELIVERY</span><h3>Ship the System</h3><p data-zh="模型能力必须进入能跑、能测、能部署、能回归的系统，工程约束本身也是研究问题的一部分。" data-en="Model capability must land in systems that run, test, deploy and regress reliably; engineering constraints are part of the research problem.">模型能力必须进入能跑、能测、能部署、能回归的系统，工程约束本身也是研究问题的一部分。</p></section>
+            <section class="profile-principle">
+              <span>01 / EVIDENCE</span><h3>Evidence First</h3>
+              <p data-zh="先确认依据是否足够，再生成结论；让答案、评分和 Agent 决策能够回到具体来源。" data-en="Verify that evidence is sufficient before generating conclusions; answers, scores and agent decisions should trace back to concrete sources.">先确认依据是否足够，再生成结论；让答案、评分和 Agent 决策能够回到具体来源。</p>
+            </section>
+            <section class="profile-principle">
+              <span>02 / EVALUATION</span><h3>Measure the Gain</h3>
+              <p data-zh="固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把复杂度包装成创新。" data-en="Control baselines, run ablations and preserve failure cases. If metrics do not support a gain, added complexity should not be marketed as innovation.">固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把复杂度包装成创新。</p>
+            </section>
+            <section class="profile-principle">
+              <span>03 / DELIVERY</span><h3>Ship the System</h3>
+              <p data-zh="模型能力必须进入能跑、能测、能部署、能回归的系统，工程约束本身也是研究问题的一部分。" data-en="Model capability must land in systems that run, test, deploy and regress reliably; engineering constraints are part of the research problem.">模型能力必须进入能跑、能测、能部署、能回归的系统，工程约束本身也是研究问题的一部分。</p>
+            </section>
           </div>
         </article>
 
@@ -74,18 +83,20 @@
           <span class="system-label">CURRENT TRAJECTORY</span>
           <h2 data-zh="正在形成的技术主线" data-en="A Technical Axis in Formation">正在形成的技术主线</h2>
           <div class="timeline">
-            <div class="timeline-item"><span class="timeline-date">2026.05</span><p data-zh="MultiRank-RAG · 从文本 RAG 扩展到多模态 evidence nodes、GraphRAG、MultiRank 与证据链评测。" data-en="MultiRank-RAG · from text RAG toward multimodal evidence nodes, GraphRAG, MultiRank and evidence-chain evaluation.">MultiRank-RAG · 从文本 RAG 扩展到多模态 evidence nodes、GraphRAG、MultiRank 与证据链评测。</p></div>
-            <style></style>
-            <div class="timeline-item"><span class="timeline-date">2026.07</span><p data-zh="孔明职配 · 用共享上下文、多 Agent、RAG 与长期记忆构建可验证的求职决策链。" data-en="Kongming · shared context, multi-agent orchestration, RAG and long-term memory for a verifiable career decision chain.">孔明职配 · 用共享上下文、多 Agent、RAG 与寄期记忆构建可验证的求职决策链。</p></div>
-            <div class="timeline-item"><span class="timeline-date">2026.08</span><p data-zh="Interactive Avatar · 进入实时语音、3D 场景与手势协同的多模态交互。" data-en="Interactive Avatar · realtime speech, 3D scenes and gesture-coordinated multimodal interaction.">Interactive Avatar · 进入实时语音、3D 场景与手势协同的多模态交互。</p></div>
-            <div class="timeline-item"><span class="timeline-date">NOW</span><p data-zh="继续围绕 Multimodal RAG、Agentic Systems 与 Evaluation 构建研究型项目，并寻找可形成论文的问题。" data-en="Continuing research-oriented projects around multimodal RAG, agentic systems and evaluation, with an emphasis on questions that can mature into publishable work.">继续围绕 Multimodal RAG、Agentic Systems 与 Evaluation 构建研究型项目，并寻找可形成论文的问题。</p></div>
+            <div class="timeline-item"><span class="timeline-date">2026.05</span><p>MultiRank-RAG · Multimodal evidence nodes / GraphRAG / MultiRank / evidence-chain evaluation.</p></div>
+            <div class="timeline-item"><span class="timeline-date">2026.07</span><p data-zh="孔明职配 · 多 Agent、岗位 RAG、长期记忆与证据化决策。" data-en="Kongming · multi-agent orchestration, job RAG, long-term memory and evidence-based decisions.">孔明职配 · 多 Agent、岗位 RAG、长期记忆与证据化决策。</p></div>
+            <div class="timeline-item"><span class="timeline-date">2026.08</span><p>Interactive Avatar · realtime speech / 3D / gesture-based multimodal interaction.</p></div>
+            <div class="timeline-item"><span class="timeline-date">NOW</span><p data-zh="继续围绕 Multimodal RAG、Agentic Systems 与 Evaluation 构建研究型项目。" data-en="Continuing research-oriented projects around multimodal RAG, agentic systems and evaluation.">继续围绕 Multimodal RAG、Agentic Systems 与 Evaluation 构建研究型项目。</p></div>
           </div>
         </article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="footer-row"><span>CYY / 26</span><span>LLLM SYSTEMS · ABOUT</span><span>© 2026 YAOYANG CHEN</span><a class="to-top" href="#top"><span data-zh="返回顶部" data-en="BACK TO TOP">返回顶部</span>&nbsp;↑</a></div><div class="footer-colophon"><span>RETRIEVE · REASON · BUILD</span><span>EDITION — CYY / 26 · 2026</span></div></footer>
+  <footer class="site-footer">
+    <div class="footer-row"><span>CYY / 26</span><span>LLM SYSTEMS · ABOUT</span><span>© 2026 YAOYANG CHEN</span><a class="to-top" href="#top"><span data-zh="返回顶部" data-en="BACK TO TOP">返回顶部</span>&nbsp;↑</a></div>
+    <div class="footer-colophon"><span>RETRIEVE · REASON · BUILD</span><span>EDITION — CYY / 26 · 2026</span></div>
+  </footer>
   <script src="assets/vendor/gsap.bundle.min.js"></script>
   <script src="script-core.js?v=20260904"></script>
   <script src="script.js"></script>
