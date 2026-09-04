@@ -20,7 +20,8 @@
     'assets/cys-pet/pet-v061.js?v=0.6.1',
     'assets/cys-pet/pet-v062.js?v=0.6.2.1',
     'assets/cys-pet/pet-v07.js?v=0.7.0',
-    'assets/cys-pet/research-assistant.js?v=1.0.0'
+    'assets/cys-pet/research-assistant.js?v=1.0.0',
+    'assets/cys-pet/research-greetings.js?v=1.0.0'
   ];
 
   sources.forEach((src) => {
