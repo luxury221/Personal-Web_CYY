@@ -53,25 +53,14 @@
     const meta = META[page] || META['index.html'];
     document.title = meta.title;
 
-    const description = ensureMeta('meta[name="description"]', { name: 'description' });
-    description.setAttribute('content', meta.description);
-
-    const robots = ensureMeta('meta[name="robots"]', { name: 'robots' });
-    robots.setAttribute('content', 'index,follow,max-image-preview:large');
-
-    const ogTitle = ensureMeta('meta[property="og:title"]', { property: 'og:title' });
-    ogTitle.setAttribute('content', meta.ogTitle);
-    const ogDescription = ensureMeta('meta[property="og:description"]', { property: 'og:description' });
-    ogDescription.setAttribute('content', meta.description);
-    const ogType = ensureMeta('meta[property="og:type"]', { property: 'og:type' });
-    ogType.setAttribute('content', 'website');
-
-    const twitterCard = ensureMeta('meta[name="twitter:card"]', { name: 'twitter:card' });
-    twitterCard.setAttribute('content', 'summary');
-    const twitterTitle = ensureMeta('meta[name="twitter:title"]', { name: 'twitter:title' });
-    twitterTitle.setAttribute('content', meta.ogTitle);
-    const twitterDescription = ensureMeta('meta[name="twitter:description"]', { name: 'twitter:description' });
-    twitterDescription.setAttribute('content', meta.description);
+    ensureMeta('meta[name="description"]', { name: 'description' }).setAttribute('content', meta.description);
+    ensureMeta('meta[name="robots"]', { name: 'robots' }).setAttribute('content', 'index,follow,max-image-preview:large');
+    ensureMeta('meta[property="og:title"]', { property: 'og:title' }).setAttribute('content', meta.ogTitle);
+    ensureMeta('meta[property="og:description"]', { property: 'og:description' }).setAttribute('content', meta.description);
+    ensureMeta('meta[property="og:type"]', { property: 'og:type' }).setAttribute('content', 'website');
+    ensureMeta('meta[name="twitter:card"]', { name: 'twitter:card' }).setAttribute('content', 'summary');
+    ensureMeta('meta[name="twitter:title"]', { name: 'twitter:title' }).setAttribute('content', meta.ogTitle);
+    ensureMeta('meta[name="twitter:description"]', { name: 'twitter:description' }).setAttribute('content', meta.description);
 
     if (!document.getElementById('cyy-person-schema')) {
       const schema = document.createElement('script');
@@ -100,29 +89,25 @@
     }
   }
 
-  function repairContentTypos(root = document) {
-    root.querySelectorAll?.('[data-enen]').forEach((el) => el.removeAttribute('data-enen'));
-
-    root.querySelectorAll?.('[data-zh]').forEach((el) => {
+  function repairContentTypos() {
+    document.querySelectorAll('[data-enen]').forEach((el) => el.removeAttribute('data-enen'));
+    document.querySelectorAll('[data-zh]').forEach((el) => {
       if (el.getAttribute('data-zh') === '孔杰职配') el.setAttribute('data-zh', '孔明职配');
     });
 
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     const nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach((node) => {
-      let next = node.nodeValue;
-      if (!next) return;
-      next = next.replace(/孔杰职配/g, '孔明职配').replace(/GRAPHRADI/g, 'GRAPHRAG');
-      if (next !== node.nodeValue) node.nodeValue = next;
+      const current = node.nodeValue;
+      if (!current || (!current.includes('孔杰职配') && !current.includes('GRAPHRADI'))) return;
+      node.nodeValue = current.replace(/孔杰职配/g, '孔明职配').replace(/GRAPHRADI/g, 'GRAPHRAG');
     });
   }
 
   function improveAccessibility() {
     const langToggle = document.getElementById('langToggle');
-    if (langToggle && !langToggle.getAttribute('aria-label')) {
-      langToggle.setAttribute('aria-label', 'Switch language');
-    }
+    if (langToggle && !langToggle.getAttribute('aria-label')) langToggle.setAttribute('aria-label', 'Switch language');
 
     document.querySelectorAll('a[target="_blank"]').forEach((link) => {
       const rel = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
@@ -131,14 +116,14 @@
       link.setAttribute('rel', [...rel].join(' '));
     });
 
-    document.querySelectorAll('.project-asset-card').forEach((card) => {
+    document.querySelectorAll('.project-asset-card:not([data-v6-a11y])').forEach((card) => {
+      card.dataset.v6A11y = '1';
       if (!card.hasAttribute('tabindex')) card.tabIndex = 0;
       if (!card.hasAttribute('role')) card.setAttribute('role', 'link');
       card.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          card.click();
-        }
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        card.click();
       });
     });
   }
@@ -169,8 +154,9 @@
   }
 
   function markProofRails() {
+    const english = document.documentElement.lang?.startsWith('en');
     document.querySelectorAll('#case-03 .product-screen-grid, #case-04 .product-screen-grid').forEach((grid) => {
-      grid.setAttribute('aria-label', document.documentElement.lang?.startsWith('en') ? 'Verified product screenshots' : '已验证的真实产品截图');
+      grid.setAttribute('aria-label', english ? 'Verified product screenshots' : '已验证的真实产品截图');
     });
   }
 
@@ -185,11 +171,8 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, { once: true });
   else run();
 
-  const observer = new MutationObserver((records) => {
-    if (!records.some((record) => record.addedNodes.length || record.type === 'attributes')) return;
-    repairContentTypos();
-    improveAccessibility();
-    markProofRails();
-  });
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['lang'] });
+  /* Language is the only late mutation V6 needs to observe. Pet UI mutations
+     should not trigger full-page QA work. */
+  const observer = new MutationObserver(() => markProofRails());
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 })();
