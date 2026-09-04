@@ -1,75 +1,179 @@
-# Yaoyang Chen · Personal Website
+# Yaoyang Chen · LLM Systems Portfolio
 
-A bilingual personal website for Yaoyang Chen, designed as an **Editorial AI × Personal Archive** portfolio rather than a conventional resume page. Built from the same design system as the CYS reference site (Personal-Web-cys), re-themed for an AI engineering direction.
+A bilingual personal website for **Yaoyang Chen / 陈耀洋**, focused on **LLM Systems, Multimodal RAG, Agentic Systems, Evaluation, and AI System Engineering**.
 
-## Current visual direction
+This redesign deliberately moves away from the original legal/archive reference and establishes a distinct **Editorial AI × Research Console** identity. The visual system keeps the restrained warm-paper palette, serif/mono typography, and editorial spacing, but replaces legal-document metaphors with **queries, retrieval traces, evidence graphs, ranking telemetry, system pipelines, and verification states**.
 
-- `CYY / 26` as the personal monogram
-- The same warm-paper background with muted teal, charcoal ink, and restrained brass details
-- Serif display typography + neutral sans-serif body + mono archive metadata
-- Paper layers, grid, seal (「智」), and archival composition instead of generic cards
-- No portrait image is required in the current version
+## Core identity
 
-## Motion system
+The site is organized around one technical axis:
 
-The site intentionally uses only a small set of motion patterns:
+**RETRIEVE · REASON · BUILD**
 
-1. **Reveal** — text and content enter with restrained vertical movement
-2. **Clip** — archive/paper details reveal through masked motion
-3. **Shared** — the exact same CYY archive card used in the loader moves into the homepage position
-4. **Cover** — internal-page navigation uses a muted-teal archive cover transition; the cover **continues** onto the destination subpage and slides away (via a `sessionStorage` handoff flag, key `cyy-cover-label`), so internal navigation reads as one continuous motion
-5. **Drift** — the homepage archive visual and the contact watermark have only 1–8 px of pointer parallax
+- **Retrieve** — multimodal retrieval, GraphRAG, hybrid search, reranking, evidence chains
+- **Reason** — agent orchestration, explicit state, evidence-constrained decisions, memory and verification
+- **Build** — FastAPI / React / WebSocket / async workers / deployment / realtime multimodal systems
 
-The intro sequence is approximately three seconds:
+The homepage positions the portfolio as **LLM Systems · RAG · Agent Engineering** rather than a generic AI application showcase.
 
-`ARCHIVE → 智 → YAOYANG CHEN → RETRIEVE / REASON / BUILD → CYY archive card → seal stamp → shared-card move → homepage`
+## Visual direction
 
-The intro intentionally **plays every time `index.html` is entered or refreshed**. The `SKIP` control immediately reveals the homepage.
+- `CYY / 26` as the personal system mark
+- warm paper + muted teal + charcoal + restrained brass
+- serif display typography for editorial hierarchy
+- DM Mono for system labels, traces, metrics and metadata
+- subtle technical grid instead of legal/case-document decoration
+- homepage **LLM Research Dossier**:
+  - Query
+  - Retrieval / Graph nodes
+  - Evidence
+  - Rerank state
+  - `VERIFIED` status
+- system diagrams and metrics are part of the content, not decorative illustrations
 
-## Scroll narrative (GSAP ScrollTrigger + SplitText)
-
-Subpages load the local GSAP bundle (`assets/vendor/gsap.bundle.min.js`, core + ScrollTrigger + SplitText):
-
-- **Split titles & leads** — the subpage title splits by character and the lead by line, each rising out of an overflow mask. Splits are reverted and rebuilt on every language toggle.
-- **Scroll reveals** — content blocks, case-card heads, case-grid cells, course rows, and rails reveal as they enter the viewport (`once: true`).
-- **Rule lines** — the 1 px separator above content blocks and case cards draws in left-to-right through a `--rule` CSS variable.
-- **Metric count-up** — the training page repository metric counts up on first view.
-
-All scroll narrative waits for the actual webfont faces with a hard timeout, a post-load failsafe force-reveals any element still hidden, and everything degrades to static content under `prefers-reduced-motion`. After pulling or editing, hard-refresh with `Ctrl + F5` to bypass cached CSS/JS.
-
-## Micro-interactions
-
-- **Mono metadata decode** — `.decode` labels resolve through a short character scramble on entrance
-- **Seal stamp** — the archive seal is pressed onto the card (scale 1.24 → 1)
-- **Copy email** — the contact page copies the address to the clipboard and flashes `COPIED ✓`
-- **Ink splash** — every click presses teal-ink droplets and an expanding ring into the page
-- **Language toggle stagger** — swapped strings re-enter with a light stagger; split titles re-split afterwards
-- **Custom cursor** — hovering links and buttons raises crop-mark corners around the target
-- **Water ripple** — a two-buffer wave simulation rendered as faint wet-ink shading (energy-tracking, sleeps when settled)
-- **Magnetic nav** — nav links lean up to 6 px toward the pointer
-
-## Shared archive card
-
-The built-in CSS archive card carries the AI-direction labels: document lines `RETRIEVAL-AUGMENTED GENERATION / LLM AGENT SYSTEMS / MODEL EVALUATION & INTERPRETABILITY`, watermark 智, seal `VERITAS · RATIO · ARCHIVE`, monogram `CYY`, and axis `RETRIEVE / REASON / BUILD`. Dropping an image at `assets/archive-card.webp` (1.2:1, site palette) re-enables the optional picture card on loader, transition, and homepage at once; delete the file to return to the built-in card.
-
-The primary navigation includes 首页 / Home (`00`) alongside the five section pages (`01`–`05`), with the active page underlined.
+The old floral drift and click-ink splash are hidden in the AI redesign. Motion is kept where it supports hierarchy, navigation, system tracing, or continuity.
 
 ## Pages
 
-- `index.html` — animated intro + one-screen homepage
-- `profile.html` — profile and positioning (Retrieve / Reason / Build), with an at-a-glance archive rail and an archive timeline
-- `experience.html` — full-width case deck with four AI projects: `01` 孔明职配 (student job-matching agent), `02` Interactive Avatar (digital human), `03` GROVE-AI (Anker-track evidence-driven product definition), `04` AIMO Interpretability Challenge; switchable by tab click or pointer drag
-- `education.html` — project-driven training archive: repository metric and a four-group toolchain list (Retrieval & RAG / Agents & Backend / Frontend & Interaction / Modeling & Evaluation)
-- `focus.html` — the slide-deck pattern for Retrieve / Reason / Build with keyword tags per panel
-- `contact.html` — minimal contact page over a grid-and-watermark texture with a slow marquee
+### `index.html` — Home
 
-Experience and focus share the reusable **slide-deck component** (`[data-deck]`). The archive companion pet (`assets/cys-pet/`, folder name kept from the shared asset pipeline) speaks page-specific greetings in both languages and routes keyword questions to the right page.
+One-screen positioning page with the animated intro and shared Research Dossier card.
 
-## Performance
+The hero contains:
 
-- **Self-hosted Latin fonts** ship from `assets/fonts/`; CJK loads from Google Fonts asynchronously with system-font fallbacks.
-- **Local GSAP bundles** replace CDN requests.
-- **Water ripple sleeps** once the field settles.
+- LLM Systems · RAG · Agent Engineering
+- Retrieve / Reason / Build
+- four flagship-system count
+- selected public MultiRank-RAG evidence:
+  - FinQA `nDCG@5 = 0.878` for V5
+  - MultiHop-RAG evidence-chain score `0.890`
+
+### `profile.html` — About
+
+Personal positioning and systems mindset:
+
+- 陈耀洋 / Yaoyang Chen
+- 重庆邮电大学
+- Intelligence Science & Technology + Mathematics and Applied Mathematics
+- Evidence First
+- Measure the Gain
+- Ship the System
+- current technical trajectory
+
+### `experience.html` — Projects
+
+Four flagship systems, each presented with its own technical pipeline, evidence, role and engineering emphasis:
+
+1. **MultiRank-RAG** — research flagship
+   - complex-PDF multimodal RAG
+   - evidence nodes
+   - GraphRAG
+   - hybrid retrieval
+   - MultiRank G0–G4
+   - evidence-chain self-correction
+   - public V0–V5 evaluation
+
+2. **孔明职配 / Kongming Agentic Career System** — agent flagship
+   - job knowledge RAG
+   - six agent roles
+   - shared AgentContext / AgentEvent / AgentArtifact
+   - evidence-based matching and interview logic
+   - long-term memory and verifiable growth loop
+
+3. **AI Homework System** — production AI infrastructure
+   - AI-first grading + teacher review
+   - human-in-the-loop final control
+   - Redis queue
+   - default 8 AI workers
+   - MinIO private object storage
+   - Theia + Judge0 execution chain
+   - Docker/private deployment
+
+4. **Interactive Avatar** — realtime multimodal system
+   - text/image/preset → 3D avatar
+   - assisted 8-point rigging
+   - Three.js / React Three Fiber
+   - Qwen realtime voice over WebSocket
+   - MediaPipe gesture interaction
+   - session history and recordings
+
+GROVE-AI and the AIMO interpretability work are no longer forced into the main project deck; they are used where they support the research narrative instead.
+
+## `focus.html` — Research
+
+The previous skill-oriented page is now a **research agenda** built around questions rather than technology labels:
+
+1. **Multimodal RAG** — retrieval and grounding across text, tables, figures and cross-page relations
+2. **Agentic Systems** — planning, tools, memory, state and controllability
+3. **Evaluation & Interpretability** — ablation, robustness, uncertainty and reproducibility
+4. **Multimodal Interaction** — speech, vision, 3D, gesture and realtime state
+
+Each research direction links the question to evidence from an existing project.
+
+## `education.html` — Academic
+
+Academic identity is restored instead of treating toolchains as a substitute for education:
+
+- 重庆邮电大学 / CQUPT
+- 智能科学与技术
+- 数学与应用数学
+- four training axes:
+  - Mathematics
+  - LLM Systems
+  - AI System Engineering
+  - Research & Evaluation
+- selected academic recognition
+
+## `contact.html` — Contact
+
+Dark-console ending page for research collaboration, AI engineering projects and internship opportunities.
+
+Only the email route is exposed publicly; no phone or WeChat ID is shown.
+
+## Motion system
+
+The stable GSAP architecture from the earlier site is retained where it improves continuity:
+
+1. **Reveal** — restrained vertical content entrance
+2. **Clip** — masked title / intro reveals
+3. **Shared object** — the same homepage dossier card travels from loader to final position
+4. **Cover transition** — internal navigation continues across pages through `sessionStorage`
+5. **Drift** — low-amplitude parallax only
+6. **Slide deck** — project and research panels support click and pointer drag
+
+Subpages use the local GSAP bundle with ScrollTrigger and SplitText. `prefers-reduced-motion` falls back to static content.
+
+## Project evidence used on the site
+
+MultiRank-RAG public ablation results are taken from the repository's reproducible benchmark report. Under a fixed BM25 candidate set:
+
+- FinQA: V0 `nDCG@5 0.678` → V5 `0.878`
+- MultiHop-RAG: V5 evidence-chain score `0.890`
+- MultiHop-RAG: V5 gold-node coverage `0.730`
+
+These metrics are deliberately shown as proof of method behavior, not as generic marketing counters.
+
+## Styling architecture
+
+The original stable stylesheet remains in `styles.css`.
+
+The LLM-specific redesign is layered in:
+
+```text
+styles-ai.css
+```
+
+This keeps the existing motion/layout infrastructure stable while allowing the CYY design language to evolve independently.
+
+## Companion
+
+The existing companion asset pipeline is still located under:
+
+```text
+assets/cys-pet/
+```
+
+The folder name is legacy only. It is loaded by `script.js`; future iterations can fully reframe it as a **CYY Research Assistant** without changing the core site architecture.
 
 ## Run locally
 
@@ -79,17 +183,22 @@ No build step is required.
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Then open:
+
+```text
+http://localhost:8000
+```
+
+Use `Ctrl + F5` after pulling changes to bypass cached CSS/JS.
 
 ## Deploy
 
-This is a static site and can be deployed directly to GitHub Pages, Vercel, Netlify, Cloudflare Pages, or any static host. For GitHub Pages: **Settings → Pages → Deploy from a branch**, select `main`, use `/ (root)`.
+The site is static and can be deployed directly to GitHub Pages, Vercel, Netlify, or Cloudflare Pages.
 
-## Content note — verify before public deployment
+For GitHub Pages:
 
-- **Chinese name characters** — the site currently uses the pinyin name “Yaoyang Chen”; the official Chinese characters are not yet filed.
-- **Education** — school, program, degree, and GPA are not yet filed (the Training page is intentionally project-driven until confirmed).
-- **Contact email** — `3138402129@qq.com` was taken from the local git identity; confirm it is the address you want public.
-- **City/base** — currently shown as “中国 / China”; replace with the city you want public.
-- **Project roles and dates** — Kongming and Interactive Avatar are team projects; the exact individual roles and start/end dates are placeholders to confirm. MultiRank-RAG and ai-homework-system are private or inaccessible and therefore not yet featured as cases.
-- The public UI shows only the email as the contact route; no phone or WeChat ID is exposed.
+**Settings → Pages → Deploy from a branch → `main` → `/ (root)`**
+
+## Public-content note
+
+Before final public deployment, verify that `3138402129@qq.com` is the email address intended for public use. Team-project role descriptions on Kongming and Interactive Avatar should continue to be kept specific to the work actually owned by Yaoyang Chen.
