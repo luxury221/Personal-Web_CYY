@@ -1,106 +1,69 @@
 # Yaoyang Chen · LLM Systems Portfolio
 
-Bilingual personal portfolio for **陈耀洋 / Yaoyang Chen**, focused on:
+Bilingual personal portfolio for **陈耀洋 / Yaoyang Chen**, focused on LLM Systems, Multimodal RAG, Agentic Systems, Evaluation & Interpretability, Multimodal Interaction, and AI System Engineering.
 
-- LLM Systems
-- Multimodal RAG
-- Agentic Systems
-- Evaluation & Interpretability
-- Multimodal Interaction
-- AI System Engineering
-
-The site uses an **Editorial AI × Research Console** visual language and is organized around one technical axis:
-
-**RETRIEVE · REASON · BUILD**
+Visual language: **Editorial AI × Research Console**  
+Technical axis: **RETRIEVE · REASON · BUILD**
 
 > **Building LLM systems around evidence, reasoning and measurable improvement.**
 
 ## Portfolio structure
 
-The content follows a research-oriented case-study pattern:
+Each major project follows a research-oriented case-study pattern:
 
 **Problem → Insight → System → Contribution → Evidence → Limitation / Next**
 
-The goal is to show not only what technologies were used, but also why the problem matters, why a design decision was made, what Yaoyang personally contributed, what evidence supports a claimed improvement, where a system still fails, and what should be tried next.
+The portfolio is designed to show why a problem matters, what was actually built, what Yaoyang personally contributed, what evidence supports a claim, and where the system still fails.
 
 ## Pages
 
-### Home — `index.html`
+- `index.html` — Home / research thesis and selected evidence
+- `profile.html` — About / systems mindset
+- `experience.html` — Projects / four flagship systems
+- `education.html` — Academic / Mathematics × AI Systems
+- `focus.html` — Research / current research questions
+- `contact.html` — Contact / collaboration and internship channel
 
-Establishes the research thesis and selected evidence.
+## Flagship systems
 
-Current highlighted MultiRank-RAG results:
+### 01 · MultiRank-RAG — Primary Research Flagship
 
-- FinQA nDCG@5: `0.678 → 0.878`
+Complex-PDF multimodal RAG with structured evidence nodes, hybrid retrieval, GraphRAG, MultiRank reranking and evidence-chain verification.
+
+Public highlighted results:
+
+- FinQA V0→V5 nDCG@5: `0.678 → 0.878`
 - MultiHop-RAG V5 evidence-chain score: `0.890`
+- MultiHop-RAG V5 gold-node coverage: `0.730`
 
-### About — `profile.html`
+Public benchmark setup uses a fixed **BM25** candidate retriever for controlled V0–V5 comparison, candidate/rerank `k = 50 / 10`, and retrieval evaluation without answer generation.
 
-Systems mindset and working principles:
+Source evidence:
 
-1. **Evidence First**
-2. **Measure the Gain**
-3. **Ship the System**
+```text
+MultiRank-RAG/docs/PUBLIC_BENCHMARK_RESULTS.md
+MultiRank-RAG/docs/EXPERIMENTS.md
+MultiRank-RAG/docs/ARCHITECTURE.md
+scripts/40_run_main_experiment.py
+backend/services/pipeline.py
+backend/services/retrieval.py
+```
 
-### Projects — `experience.html`
+### 02 · Kongming — Agentic System
 
-#### 01 · MultiRank-RAG
-Primary personal research and engineering flagship.
+Six explicit career-agent roles, shared `AgentContext / AgentEvent / AgentArtifact`, job RAG, evidence-based matching, structured long-term state and regression verification.
 
-- complex-PDF multimodal RAG
-- structured evidence nodes
-- GraphRAG
-- hybrid retrieval
-- MultiRank G0–G4
-- evidence-chain verification
-- public V0–V5 evaluation
+### 03 · AI Homework System — AI Infrastructure
 
-#### 02 · Kongming
-Agentic-system flagship.
+Production-oriented AI workflow with AI-first grading, teacher final review, Redis asynchronous workers, MinIO private object storage, Theia + Judge0 and Docker/private deployment.
 
-- six explicit agent roles
-- `AgentContext / AgentEvent / AgentArtifact`
-- job RAG
-- evidence-based matching
-- structured long-term state
-- regression verification
+### 04 · Interactive Avatar — Multimodal Realtime
 
-#### 03 · AI Homework System
-Production-oriented AI infrastructure case.
-
-- AI-first grading + teacher final review
-- Redis asynchronous workers
-- MinIO private object storage
-- Theia + Judge0
-- Docker / private deployment
-
-The portfolio presents verified system architecture without claiming unspecified team modules as individual ownership.
-
-#### 04 · Interactive Avatar
-Realtime multimodal interaction case.
-
-- text / image / preset → 3D avatar
-- assisted 8-point rigging
-- Three.js / React Three Fiber
-- Qwen realtime voice via WebSocket
-- MediaPipe gesture events
-- session history / summaries / recordings
-
-### Academic — `education.html`
-
-Frames the dual-degree background as **Mathematics × AI Systems** rather than two-lists.
-
-### Research — `focus.html`
-
-Research questions are organized around Multimodal RAG, Agentic Systems, Evaluation & Interpretability, and Multimodal Interaction. Each direction includes method, evidence and a current bottleneck / next-step section.
-
-### Contact — `contact.html`
-
-Research collaboration, AI engineering projects, open-source collaboration and internship opportunities.
+Text/image/preset → 3D avatar, assisted 8-point rigging, Three.js / React Three Fiber, realtime voice over WebSocket, MediaPipe gesture events and persistent session history.
 
 ## Evidence Assets V4
 
-Projects include repository-grounded visual proof rather than prose-only descriptions.
+Repository-grounded explanatory assets live under:
 
 ```text
 assets/evidence/
@@ -112,89 +75,47 @@ assets/evidence/
 └── avatar-realtime-flow.svg
 ```
 
-The evidence layer is implemented by:
+Implemented by:
 
 ```text
 styles-evidence-v4.css
 evidence-v4.js
 ```
 
-It provides architecture diagrams, benchmark / ablation visualization, evidence-node and graph views, workflow diagrams, direct source links, evidence bars and a zoomable proof modal.
-
-These diagrams are explanatory assets derived from public repository documentation, not fabricated screenshots.
+These are explanatory diagrams derived from public repository documentation, not fabricated product screenshots.
 
 ## Project Showcase V5
 
-V5 adds a second proof layer that distinguishes three evidence types explicitly:
+V5 distinguishes three evidence types explicitly:
 
-1. **REAL PRODUCT SCREEN** — an actual interface screenshot already published in the source repository.
-2. **PROJECT ASSET** — a genuine visual/product asset from the repository, clearly labeled as *not* a UI screenshot.
-3. **RUNTIME / SOURCE PROOF** — direct links to experiment runners, services, state protocols, components or documentation that verify the implementation.
-
-This distinction is intentional: repositories without verified product screenshots do not receive manufactured screenshots just to make the portfolio look fuller.
+1. **REAL PRODUCT SCREEN** — an actual UI screenshot already published in the source repository.
+2. **PROJECT ASSET** — a genuine repository visual asset, explicitly labeled as not being a UI screenshot.
+3. **RUNTIME / SOURCE PROOF** — direct links to experiment runners, services, protocols, components or documentation.
 
 ### MultiRank-RAG
-
-The repository currently provides stronger research/runtime evidence than UI screenshots, so V5 shows:
-
-- `scripts/40_run_main_experiment.py`
-- `backend/services/pipeline.py`
-- `backend/services/retrieval.py`
-- `docs/PUBLIC_BENCHMARK_RESULTS.md`
-
-This complements the V4 architecture, evidence-node and ablation visuals.
+Uses research/runtime proof instead of manufactured UI screenshots.
 
 ### Kongming
+Uses genuine product assets plus direct links to:
 
-The repository does not currently expose a formal UI-screenshot set. V5 therefore separates:
-
-**Project assets**
-- `public/kongming-ip.png`
-- `public/avatars/interviewer/interview-room.png`
-
-from **implementation proof**
-- `src/lib/agentRuntime.ts`
-- `src/lib/agents.ts`
-- `src/lib/matchEngine.ts`
-- `docs/08-multi-agent-multimodal-architecture.md`
-
-The visual assets are explicitly labeled as project assets, not interface screenshots.
+```text
+src/lib/agentRuntime.ts
+src/lib/agents.ts
+src/lib/matchEngine.ts
+docs/08-multi-agent-multimodal-architecture.md
+```
 
 ### AI Homework System
-
-V5 uses real product screenshots already published in the repository README, including:
-
-- platform overview
-- teacher workspace
-- AI grading + teacher review
-- teaching assistant
-
-The same section also links the documented HITL workflow, default 8-worker Redis setup, MinIO signed-URL storage and Theia + Judge0 execution chain.
+Uses real product screenshots published in the project README: platform overview, teacher workspace, AI grading + teacher review and teaching assistant.
 
 ### Interactive Avatar
-
-V5 uses real product screens already stored in:
+Uses real product screens under:
 
 ```text
 frontend/public/intro-real/
 ```
 
-Selected screens cover:
-
-- Create
-- Rig Assist
-- Scene
-- Realtime Interact
-- Dashboard
-
-Runtime proof links directly to:
-
-- `frontend/src/audio/voiceWsClient.js`
-- `frontend/src/components/avatar/InteractiveAvatarScene.jsx`
-- `frontend/src/components/avatar/GestureDetector.jsx`
-- `frontend/src/hooks/useSessionMachine.js`
-
-Showcase screenshots support lazy loading, source links, image-failure fallback, bilingual captions and a large-screen modal.
+covering Create, Rig Assist, Scene, Realtime Interact and Dashboard.
 
 V5 implementation:
 
@@ -208,17 +129,18 @@ showcase-v5-guard.js
 
 V6 is a reduction and publishing pass rather than a new content layer.
 
-Primary changes:
+Changes include:
 
-- strengthens **MultiRank-RAG** as the single research flagship
-- turns AI Homework / Avatar screenshots into compact desktop **proof rails** instead of long vertical screenshot walls
-- keeps mobile project proofs single-column to avoid nested horizontal gesture conflicts
-- reduces repeated homepage copy on shorter laptop screens and phones
-- retires the legacy petal / click-ink visual direction and suppresses the old petal RAF compatibility loop
-- repairs legacy visible typos and malformed bilingual attributes at runtime
-- adds page-specific description, Open Graph, Twitter summary and `Person` JSON-LD metadata
-- improves keyboard access and external-link safety
-- adds `robots.txt`
+- stronger **MultiRank-RAG** flagship hierarchy
+- desktop screenshot **proof rails** for AI Homework and Interactive Avatar
+- single-column mobile proofs to avoid nested horizontal-gesture conflicts
+- reduced repeated homepage copy on short laptop screens and phones
+- retirement of the legacy petal / click-ink visual direction
+- compatibility suppression of the old petal RAF loop
+- runtime repair for legacy visible typos and malformed bilingual attributes
+- page-specific descriptions, Open Graph metadata, Twitter summary metadata and `Person` JSON-LD
+- keyboard-access improvements and safer external links
+- `robots.txt`
 
 V6 implementation:
 
@@ -228,49 +150,23 @@ final-v6.js
 robots.txt
 ```
 
-## MultiRank-RAG public evidence
-
-Source documents:
-
-```text
-MultiRank-RAG/docs/PUBLIC_BENCHMARK_RESULTS.md
-MultiRank-RAG/docs/EXPERIMENTS.md
-MultiRank-RAG/docs/ARCHITECTURE.md
-```
-
-Public benchmark setup:
-
-- retriever fixed to BMX for V0–V5
-- candidate / rerank k: `50 / 10`
-- answer generation disabled for retrieval evaluation
-
-Key results:
-
-- FinQA V0→V5 nDCG@5: `0.678 → 0.678`
-- MultiHop-RAG V4→V5 chain score: `0.864 → 0.890`
-- MultiHop-RAG V4→V5 gold-node coverage: `0.662 → 0.730`
-- MMLongBench-Doc remains limited by first-stage candidate retrieval
-- RAGBench eManual acts as a useful saturated simple-text negative control
-
-## Styling architecture
+## Styling / runtime architecture
 
 ```text
 styles.css              # stable layout / typography / shared components
-styles-ai.css            # LLM Systems visual identity
-styles-ai-v2.css         # semantic trace / research-console motion
-styles-content-v3.css    # research narrative / case-study hierarchy
-styles-evidence-v4.css   # visual proof / evidence gallery
-styles-showcase-v5.css   # real screens / runtime proof / project showcase
-styles-final-v6.css      # reduction / hierarchy / publishing QA
+styles-ai.css           # LLM Systems visual identity
+styles-ai-v2.css        # semantic trace / research-console motion
+styles-content-v3.css   # research narrative / case-study hierarchy
+styles-evidence-v4.css  # architecture / benchmark / evidence visuals
+styles-showcase-v5.css  # real screens / runtime proof
+styles-final-v6.css     # final hierarchy / reduction / publishing QA
 ```
-
-Runtime layers:
 
 ```text
 script-core.js
 script.js
+content-v3-fixes.js
 cyy-ai-v2.js
-content-v3.js
 evidence-v4.js
 showcase-v5.js
 showcase-v5-guard.js
@@ -279,7 +175,7 @@ final-v6.js
 
 ## CYY Research Assistant
 
-The companion remains under the legacy path:
+The companion remains under:
 
 ```text
 assets/cys-pet/
@@ -295,13 +191,9 @@ No build step is required.
 python -m http.server 8000
 ```
 
-Open:
+Open `http://localhost:8000`.
 
-```text
-http://localhost:8000
-```
-
-Use `Ctrl + F X` after pulling changes if cached CSS or JavaScript is still visible.
+Use **Ctrl + F5** after pulling changes if cached CSS or JavaScript is still visible.
 
 ## Deploy
 
