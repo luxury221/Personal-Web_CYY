@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">AI Homework System infrastructure</title>
+  <desc id="desc">Human-in-the-loop grading workflow with Redis-backed workers, MinIO storage, Theia and Judge0 execution, teacher review and private deployment.</desc>
+  <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#21484c" stroke-opacity=".05"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#21484c"/></marker></defs>
+  <rect width="1200" height="680" fill="#f1ece3"/><rect x="18" y="18" width="1164" height="644" rx="8" fill="url(#grid)" stroke="#8f846f" stroke-opacity=".42"/>
+  <text x="54" y="62" fill="#8c7153" font-family="monospace" font-size="14" letter-spacing="2">EVIDENCE / 05 · AI INFRASTRUCTURE</text>
+  <text x="54" y="101" fill="#243034" font-family="serif" font-size="30">AI Homework — Human-Controlled Grading System</text>
+  <text x="54" y="128" fill="#6f746f" font-family="sans-serif" font-size="14">AI capability is placed inside grading snapshots, asynchronous workers, storage, sandboxing and teacher final control.</text>
+
+  <g font-family="monospace" font-size="11" text-anchor="middle">
+    <g transform="translate(54 184)"><rect width="156" height="84" rx="6" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="78" y="29" fill="#8c7153">01 / ASSIGN</text><text x="78" y="51" fill="#243034">RUBRIC SNAPSHOT</text><text x="78" y="69" fill="#6f746f">question / answer</text></g>
+    <g transform="translate(240 184)"><rect width="156" height="84" rx="6" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="78" y="29" fill="#8c7153">02 / SUBMIT</text><text x="78" y="51" fill="#243034">TEXT / IMAGE</text><text x="78" y="69" fill="#6f746f">student answer</text></g>
+    <g transform="translate(426 184)"><rect width="156" height="84" rx="6" fill="#21484c" fill-opacity=".07" stroke="#21484c" stroke-opacity=".6"/><text x="78" y="29" fill="#8c7153">03 / AI FIRST</text><text x="78" y="51" fill="#243034">SUGGEST SCORE</text><text x="78" y="69" fill="#6f746f">+ rationale</text></g>
+    <g transform="translate(612 184)"><rect width="156" height="84" rx="6" fill="#21484c" fill-opacity=".1" stroke="#21484c" stroke-opacity=".7"/><text x="78" y="29" fill="#8c7153">04 / TEACHER</text><text x="78" y="51" fill="#243034">FINAL REVIEW</text><text x="78" y="69" fill="#6f746f">accept / adjust</text></g>
+    <g transform="translate(798 184)"><rect width="156" height="84" rx="6" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="78" y="29" fill="#8c7153">05 / PUBLISH</text><text x="78" y="51" fill="#243034">RESULT</text><text x="78" y="69" fill="#6f746f">student visible</text></g>
+    <g transform="translate(984 184)"><rect width="150" height="84" rx="6" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="75" y="29" fill="#8c7153">06 / ANALYZE</text><text x="75" y="51" fill="#243034">COURSE DATA</text><text x="75" y="69" fill="#6f746f">matrix / trend</text></g>
+  </g>
+  <g stroke="#21484c" stroke-width="1.2" fill="none" marker-end="url(#arrow)"><path d="M210 226H232"/><path d="M396 226H418"/><path d="M582 226H604"/><path d="M768 226H790"/><path d="M954 226H976"/></g>
+
+  <rect x="54" y="328" width="1080" height="214" rx="8" fill="#faf7f1" stroke="#21484c" stroke-opacity=".38"/>
+  <text x="78" y="360" fill="#8c7153" font-family="monospace" font-size="12">DELIVERY / INFRASTRUCTURE LAYER</text>
+  <g font-family="monospace" font-size="11">
+    <rect x="78" y="386" width="184" height="118" rx="5" fill="#f1ece3" stroke="#21484c" stroke-opacity=".35"/>
+    <text x="96" y="414" fill="#243034">REDIS QUEUE</text><text x="96" y="438" fill="#6f746f">shared async jobs</text><text x="96" y="462" fill="#243034">8 AI WORKERS</text><text x="96" y="484" fill="#6f746f">parallel consume</text>
+
+    <rect x="286" y="386" width="184" height="118" rx="5" fill="#f1ece3" stroke="#21484c" stroke-opacity=".35"/>
+    <text x="304" y="414" fill="#243034">MINIO</text><text x="304" y="438" fill="#6f746f">private objects</text><text x="304" y="462" fill="#243034">SIGNED URL</text><text x="304" y="484" fill="#6f746f">controlled access</text>
+
+    <rect x="494" y="386" width="184" height="118" rx="5" fill="#f1ece3" stroke="#21484c" stroke-opacity=".35"/>
+    <text x="512" y="414" fill="#243034">THEIA</text><text x="512" y="438" fill="#6f746f">workspace</text><text x="512" y="462" fill="#243034">JUDGE0</text><text x="512" y="484" fill="#6f746f">isolated execution</text>
+
+    <rect x="702" y="386" width="184" height="118" rx="5" fill="#f1ece3" stroke="#21484c" stroke-opacity=".35"/>
+    <text x="720" y="414" fill="#243034">API / AUTH</text><text x="720" y="438" fill="#6f746f">separate services</text><text x="720" y="462" fill="#243034">ASSISTANT</text><text x="720" y="484" fill="#6f746f">teaching service</text>
+
+    <rect x="910" y="386" width="200" height="118" rx="5" fill="#21484c" fill-opacity=".07" stroke="#21484c" stroke-opacity=".55"/>
+    <text x="928" y="414" fill="#243034">PRIVATE DEPLOY</text><text x="928" y="438" fill="#6f746f">single-host / split</text><text x="928" y="462" fill="#243034">DOCKER COMPOSE</text><text x="928" y="484" fill="#6f746f">service boundaries</text>
+  </g>
+
+  <line x1="54" y1="584" x2="1134" y2="584" stroke="#8f846f" stroke-opacity=".3"/>
+  <text x="54" y="614" fill="#6f746f" font-family="monospace" font-size="11">CONTROL PRINCIPLE / AI suggests · teacher decides · every stage remains auditable</text>
+  <text x="54" y="640" fill="#8c7153" font-family="monospace" font-size="10">SOURCE / pythc/ai-homework-system · README.md · deployment and grading workflow</text>
+</svg>
