@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">MultiRank evidence node schema</title>
+  <desc id="desc">Structured evidence node model preserving page, bounding box, section, type, visual fields and graph relations across complex documents.</desc>
+  <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#21484c" stroke-opacity=".05"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#21484c"/></marker></defs>
+  <rect width="1200" height="680" fill="#f1ece3"/><rect x="18" y="18" width="1164" height="644" rx="8" fill="url(#grid)" stroke="#8f846f" stroke-opacity=".42"/>
+  <text x="54" y="62" fill="#8c7153" font-family="monospace" font-size="14" letter-spacing="2">EVIDENCE / 03 · REPRESENTATION</text>
+  <text x="54" y="101" fill="#243034" font-family="serif" font-size="30">Evidence Node — Unified Document Interface</text>
+  <text x="54" y="128" fill="#6f746f" font-family="sans-serif" font-size="14">Preserve structure before retrieval: type, page, bbox, section, visual fields and relations remain addressable.</text>
+
+  <g font-family="monospace" font-size="12">
+    <rect x="64" y="190" width="220" height="326" rx="8" fill="#faf7f1" stroke="#21484c" stroke-opacity=".45"/>
+    <text x="84" y="222" fill="#8c7153">NODE / TABLE_008</text><text x="84" y="254" fill="#243034" font-size="18">TABLE</text>
+    <text x="84" y="286" fill="#6f746f">doc_id</text><text x="178" y="286" fill="#243034">finqa_021</text>
+    <text x="84" y="312" fill="#6f746f">page</text><text x="178" y="312" fill="#243034">08</text>
+    <text x="84" y="338" fill="#6f746f">section</text><text x="178" y="338" fill="#243034">Results</text>
+    <text x="84" y="364" fill="#6f746f">bbox</text><text x="178" y="364" fill="#243034">[94,212,…]</text>
+    <text x="84" y="390" fill="#6f746f">source_ref</text><text x="178" y="390" fill="#243034">p08/t02</text>
+    <line x1="84" y1="410" x2="264" y2="410" stroke="#8f846f" stroke-opacity=".25"/>
+    <text x="84" y="438" fill="#6f746f">content</text><text x="84" y="462" fill="#243034">Revenue / Cost /</text><text x="84" y="482" fill="#243034">Margin table…</text>
+  </g>
+
+  <g font-family="monospace" font-size="12">
+    <rect x="330" y="190" width="220" height="326" rx="8" fill="#faf7f1" stroke="#21484c" stroke-opacity=".45"/>
+    <text x="350" y="222" fill="#8c7153">NODE / FIGURE_014</text><text x="350" y="254" fill="#243034" font-size="18">FIGURE</text>
+    <text x="350" y="286" fill="#6f746f">page</text><text x="444" y="286" fill="#243034">12</text>
+    <text x="350" y="312" fill="#6f746f">caption</text><text x="444" y="312" fill="#243034">Figure 4</text>
+    <text x="350" y="338" fill="#6f746f">ocr_text</text><text x="444" y="338" fill="#243034">enabled</text>
+    <text x="350" y="364" fill="#6f746f">key_objects</text><text x="444" y="364" fill="#243034">chart</text>
+    <line x1="350" y1="388" x2="530" y2="388" stroke="#8f846f" stroke-opacity=".25"/>
+    <text x="350" y="416" fill="#6f746f">visual_summary</text><text x="350" y="442" fill="#243034">trend ↑ after Q2</text>
+    <text x="350" y="468" fill="#6f746f">qa_evidence</text><text x="350" y="492" fill="#243034">supports growth</text>
+  </g>
+
+  <rect x="608" y="190" width="526" height="326" rx="8" fill="#21484c" fill-opacity=".055" stroke="#21484c" stroke-opacity=".5"/>
+  <text x="632" y="222" fill="#8c7153" font-family="monospace" font-size="12">RELATION GRAPH</text>
+  <g stroke="#21484c" stroke-width="1.3" fill="none" marker-end="url(#arrow)"><path d="M716 304C780 250 848 250 900 300"/><path d="M716 304C782 360 846 365 904 336"/><path d="M900 300C960 282 1006 302 1044 342"/><path d="M904 336C960 376 1002 374 1044 342"/></g>
+  <g font-family="monospace" text-anchor="middle">
+    <g><circle cx="716" cy="304" r="48" fill="#faf7f1" stroke="#21484c" stroke-opacity=".55"/><text x="716" y="300" fill="#243034" font-size="13">TEXT</text><text x="716" y="318" fill="#6f746f" font-size="10">P11 / ¶3</text></g>
+    <g><circle cx="900" cy="300" r="48" fill="#faf7f1" stroke="#21484c" stroke-opacity=".55"/><text x="900" y="296" fill="#243034" font-size="13">FIGURE</text><text x="900" y="314" fill="#6f746f" font-size="10">P12 / F4</text></g>
+    <g><circle cx="904" cy="394" r="48" fill="#faf7f1" stroke="#21484c" stroke-opacity=".55"/><text x="904" y="390" fill="#243034" font-size="13">CAPTION</text><text x="904" y="408" fill="#6f746f" font-size="10">P12 / C4</text></g>
+    <g><circle cx="1044" cy="342" r="54" fill="#21484c" fill-opacity=".11" stroke="#21484c" stroke-opacity=".7"/><text x="1044" y="338" fill="#243034" font-size="13">EVIDENCE</text><text x="1044" y="356" fill="#6f746f" font-size="10">CHAIN</text></g>
+  </g>
+  <g fill="#6f746f" font-family="monospace" font-size="10"><text x="778" y="262">text_ref_figure</text><text x="771" y="383">same_section</text><text x="950" y="277">figure_caption</text><text x="958" y="406">bridge</text></g>
+
+  <rect x="632" y="448" width="478" height="46" rx="5" fill="#faf7f1" stroke="#21484c" stroke-opacity=".25"/>
+  <text x="648" y="467" fill="#8c7153" font-family="monospace" font-size="10">WHY THIS MATTERS</text><text x="648" y="486" fill="#243034" font-family="sans-serif" font-size="12">Retrieval can reason over document identity and relations instead of anonymous chunks.</text>
+
+  <line x1="54" y1="570" x2="1134" y2="570" stroke="#8f846f" stroke-opacity=".3"/>
+  <text x="54" y="604" fill="#6f746f" font-family="monospace" font-size="11">NODE TYPES / title · text · table · figure · caption · equation · page</text>
+  <text x="54" y="632" fill="#8c7153" font-family="monospace" font-size="10">SOURCE / MultiRank-RAG · docs/ARCHITECTURE.md · evidence node layer / document graph</text>
+</svg>
