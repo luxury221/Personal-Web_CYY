@@ -30,6 +30,18 @@
       titleZh: '多 Agent Workflow / Structured State', titleEn: 'Multi-Agent Workflow / Structured State',
       noteZh: '六类角色通过共享 Context / Event / Artifact 传递状态。', noteEn: 'Six roles pass state through shared Context / Event / Artifact.',
       href: `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`, source: '08-multi-agent-multimodal-architecture.md'
+    },
+    homeworkInfra: {
+      src: 'assets/evidence/homework-infrastructure.svg',
+      titleZh: 'HITL / 异步 AI 基础设施', titleEn: 'HITL / Asynchronous AI Infrastructure',
+      noteZh: '从评分细则快照、AI 建议到教师复核、Redis Worker、MinIO 与 Judge0。', noteEn: 'From rubric snapshots and AI suggestions to teacher review, Redis workers, MinIO and Judge0.',
+      href: `${ROOT}pythc/ai-homework-system`, source: 'README.md / deployment'
+    },
+    avatarRealtime: {
+      src: 'assets/evidence/avatar-realtime-flow.svg',
+      titleZh: 'Realtime Multimodal / 会话状态链路', titleEn: 'Realtime Multimodal / Session State Flow',
+      noteZh: '四步数字人流程进入语音、打断、手势、3D 场景与会话数据闭环。', noteEn: 'The four-step avatar flow continues into voice, interruption, gesture, 3D scene state and session data.',
+      href: `${ROOT}WaterXiao-git/AI-Avatar`, source: 'README.md / main flow'
     }
   };
 
@@ -151,42 +163,69 @@
 
   function applyLanguage() {
     document.querySelectorAll('.evidence-gallery').forEach((galleryEl) => galleryEl.remove());
-    enhanceProjects();
+    enhanceEvidence();
   }
 
-  function enhanceProjects() {
+  function enhanceEvidence() {
     const multi = document.getElementById('case-01');
     const kongming = document.getElementById('case-02');
-    if (multi || kongming) {
-      addEvidenceBar(multi, [
-        ['CODE', `${ROOT}luxury221/MultiRank-RAG`],
-        ['BENCHMARK / V0–V5', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/PUBLIC_BENCHMARK_RESULTS.md`],
-        ['EXPERIMENTS', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/EXPERIMENTS.md`],
-        ['ARCHITECTURE', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/ARCHITECTURE.md`]
-      ]);
-      gallery(multi, {
-        titleZh: '把方法、结构和结果放到同一组证据里',
-        titleEn: 'Method, architecture and results in one evidence set',
-        noteZh: '图示内容直接根据 MultiRank-RAG 仓库架构文档与公开 benchmark 报告整理。',
-        noteEn: 'Visuals are derived directly from the MultiRank-RAG architecture and public benchmark documentation.',
-        after: '.evidence-strip',
-        items: [[assets.multirankArchitecture, true], [assets.multirankAblation, false], [assets.multirankNode, false]]
-      });
+    const homework = document.getElementById('case-03');
+    const avatar = document.getElementById('case-04');
 
-      addEvidenceBar(kongming, [
-        ['CODE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent`],
-        ['AGENT ARCHITECTURE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`],
-        ['OCR DESIGN', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/12-ocr-integration.md`]
-      ]);
-      gallery(kongming, {
-        titleZh: 'Agent 不是数量展示，而是职责与状态边界',
-        titleEn: 'Agents are role and state boundaries, not a count',
-        noteZh: 'Workflow 对应项目文档中输入层、编排层、智能体层、产物层与展示层的分层设计。',
-        noteEn: 'The workflow maps to the documented input, orchestration, agent, artifact and presentation layers.',
-        after: '.project-story-grid',
-        items: [[assets.kongmingFlow, true]]
-      });
-    }
+    addEvidenceBar(multi, [
+      ['CODE', `${ROOT}luxury221/MultiRank-RAG`],
+      ['BENCHMARK / V0–V5', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/PUBLIC_BENCHMARK_RESULTS.md`],
+      ['EXPERIMENTS', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/EXPERIMENTS.md`],
+      ['ARCHITECTURE', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/ARCHITECTURE.md`]
+    ]);
+    gallery(multi, {
+      titleZh: '把方法、结构和结果放到同一组证据里',
+      titleEn: 'Method, architecture and results in one evidence set',
+      noteZh: '图示内容直接根据 MultiRank-RAG 仓库架构文档与公开 benchmark 报告整理。',
+      noteEn: 'Visuals are derived directly from the MultiRank-RAG architecture and public benchmark documentation.',
+      after: '.evidence-strip',
+      items: [[assets.multirankArchitecture, true], [assets.multirankAblation, false], [assets.multirankNode, false]]
+    });
+
+    addEvidenceBar(kongming, [
+      ['CODE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent`],
+      ['AGENT ARCHITECTURE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`],
+      ['OCR DESIGN', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/12-ocr-integration.md`]
+    ]);
+    gallery(kongming, {
+      titleZh: 'Agent 不是数量展示，而是职责与状态边界',
+      titleEn: 'Agents are role and state boundaries, not a count',
+      noteZh: 'Workflow 对应项目文档中输入层、编排层、智能体层、产物层与展示层的分层设计。',
+      noteEn: 'The workflow maps to the documented input, orchestration, agent, artifact and presentation layers.',
+      after: '.project-story-grid',
+      items: [[assets.kongmingFlow, true]]
+    });
+
+    addEvidenceBar(homework, [
+      ['CODE', `${ROOT}pythc/ai-homework-system`],
+      ['README / WORKFLOW', `${ROOT}pythc/ai-homework-system/blob/main/README.md`]
+    ]);
+    gallery(homework, {
+      titleZh: 'AI 能力必须进入可审计、可部署的业务约束',
+      titleEn: 'AI capability must live inside auditable, deployable constraints',
+      noteZh: '图示根据项目 README 中的完整批改闭环、默认 8 Worker、MinIO、Judge0 与部署说明整理。',
+      noteEn: 'The diagram follows the documented grading loop, eight default workers, MinIO, Judge0 and deployment architecture.',
+      after: '.project-story-grid',
+      items: [[assets.homeworkInfra, true]]
+    });
+
+    addEvidenceBar(avatar, [
+      ['CODE', `${ROOT}WaterXiao-git/AI-Avatar`],
+      ['README / MAIN FLOW', `${ROOT}WaterXiao-git/AI-Avatar/blob/main/README.md`]
+    ]);
+    gallery(avatar, {
+      titleZh: '从“生成数字人”到实时多模态状态协调',
+      titleEn: 'From avatar generation to realtime multimodal state coordination',
+      noteZh: '图示对应仓库中的四步主流程、Qwen 实时语音、WebSocket、MediaPipe 和会话数据沉淀。',
+      noteEn: 'The diagram follows the documented four-step flow, Qwen realtime voice, WebSocket, MediaPipe and session persistence.',
+      after: '.project-story-grid',
+      items: [[assets.avatarRealtime, true]]
+    });
 
     addResearchSource('research-01', 'SOURCE / PUBLIC BENCHMARK', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/PUBLIC_BENCHMARK_RESULTS.md`);
     addResearchSource('research-02', 'SOURCE / AGENT ARCHITECTURE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`);
@@ -194,7 +233,7 @@
   }
 
   function boot() {
-    enhanceProjects();
+    enhanceEvidence();
     const observer = new MutationObserver(() => requestAnimationFrame(applyLanguage));
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   }
