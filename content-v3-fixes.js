@@ -1,5 +1,4 @@
-/* Content V3 normalization guard.
-   Keeps bilingual source attributes and visible labels consistent across the static pages. */
+/* Content V3 normalization guard + evidence-link enrichment. */
 (() => {
   'use strict';
 
@@ -21,8 +20,7 @@
     const nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
     nodes.forEach((node) => {
-      const trimmed = node.nodeValue?.trim();
-      if (!trimmed) return;
+      if (!node.nodeValue?.trim()) return;
       TEXT_FIXES.forEach((next, prev) => {
         if (node.nodeValue.includes(prev)) node.nodeValue = node.nodeValue.replaceAll(prev, next);
       });
@@ -38,9 +36,28 @@
     });
   }
 
+  function addLink(host, href, label) {
+    if (!host || host.querySelector(`a[href="${href}"]`)) return;
+    const link = document.createElement('a');
+    link.className = 'case-link';
+    link.href = href;
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.textContent = label;
+    host.appendChild(link);
+  }
+
+  function enrichEvidenceLinks() {
+    const multirank = document.querySelector('#case-01 .case-links');
+    addLink(multirank, 'https://github.com/luxury221/MultiRank-RAG/blob/main/docs/PUBLIC_BENCHMARK_RESULTS.md', 'BENCHMARK / V0–V5 ↗');
+    addLink(multirank, 'https://github.com/luxury221/MultiRank-RAG/blob/main/docs/EXPERIMENTS.md', 'EXPERIMENTS ↗');
+    addLink(multirank, 'https://github.com/luxury221/MultiRank-RAG/blob/main/docs/ARCHITECTURE.md', 'ARCHITECTURE ↗');
+  }
+
   function boot() {
     normalizeText();
     normalizeAttributes();
+    enrichEvidenceLinks();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
