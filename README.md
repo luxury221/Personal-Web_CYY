@@ -2,7 +2,7 @@
 
 A bilingual personal website for **Yaoyang Chen / 陈耀洋**, focused on **LLM Systems, Multimodal RAG, Agentic Systems, Evaluation, and AI System Engineering**.
 
-This redesign deliberately moves away from the original legal/archive reference and establishes a distinct **Editorial AI × Research Console** identity. The visual system keeps the restrained warm-paper palette, serif/mono typography, and editorial spacing, but replaces legal-document metaphors with **queries, retrieval traces, evidence graphs, ranking telemetry, system pipelines, and verification states**.
+The site establishes a distinct **Editorial AI × Research Console** identity. It keeps a restrained warm-paper palette, serif/mono typography, and editorial spacing, but the visual language is built from **queries, retrieval traces, evidence graphs, ranking telemetry, system pipelines, and verification states** rather than legal/archive metaphors.
 
 ## Core identity
 
@@ -31,7 +31,7 @@ The homepage positions the portfolio as **LLM Systems · RAG · Agent Engineerin
   - `VERIFIED` status
 - system diagrams and metrics are part of the content, not decorative illustrations
 
-The old floral drift and click-ink splash are hidden in the AI redesign. Motion is kept where it supports hierarchy, navigation, system tracing, or continuity.
+The old floral drift and click-ink splash are hidden in the AI redesign. Motion is kept where it supports hierarchy, navigation, tracing, evidence flow, or continuity.
 
 ## Pages
 
@@ -47,6 +47,8 @@ The hero contains:
 - selected public MultiRank-RAG evidence:
   - FinQA `nDCG@5 = 0.878` for V5
   - MultiHop-RAG evidence-chain score `0.890`
+
+The second-pass refinement adds a live-system framing around the dossier and animates the graph/evidence state as a trace rather than as decorative motion.
 
 ### `profile.html` — About
 
@@ -97,7 +99,9 @@ Four flagship systems, each presented with its own technical pipeline, evidence,
    - MediaPipe gesture interaction
    - session history and recordings
 
-GROVE-AI and the AIMO interpretability work are no longer forced into the main project deck; they are used where they support the research narrative instead.
+The project diagrams now animate as semantic traces: pipeline nodes enter in order, arrows pulse as information flow, core stages receive stronger emphasis, and metric cards resolve after the pipeline becomes active.
+
+GROVE-AI and the AIMO interpretability work are not forced into the main project deck; they are used where they support the research narrative.
 
 ## `focus.html` — Research
 
@@ -108,7 +112,7 @@ The previous skill-oriented page is now a **research agenda** built around quest
 3. **Evaluation & Interpretability** — ablation, robustness, uncertainty and reproducibility
 4. **Multimodal Interaction** — speech, vision, 3D, gesture and realtime state
 
-Each research direction links the question to evidence from an existing project.
+Each direction is visually centered on a **Research Question**, then expands into representation/method/verification blocks and project evidence. Slide activation replays the research hierarchy so the motion follows the argument rather than simply revealing cards.
 
 ## `education.html` — Academic
 
@@ -132,7 +136,7 @@ Only the email route is exposed publicly; no phone or WeChat ID is shown.
 
 ## Motion system
 
-The stable GSAP architecture from the earlier site is retained where it improves continuity:
+The stable GSAP architecture remains the base layer:
 
 1. **Reveal** — restrained vertical content entrance
 2. **Clip** — masked title / intro reveals
@@ -140,6 +144,13 @@ The stable GSAP architecture from the earlier site is retained where it improves
 4. **Cover transition** — internal navigation continues across pages through `sessionStorage`
 5. **Drift** — low-amplitude parallax only
 6. **Slide deck** — project and research panels support click and pointer drag
+
+The second-pass AI motion layer adds:
+
+7. **Trace** — project pipeline nodes activate in execution order
+8. **Signal** — arrows pulse to communicate information flow
+9. **Verification** — evidence metrics and verified states resolve after the trace
+10. **Research hierarchy** — research-question → method blocks → proof
 
 Subpages use the local GSAP bundle with ScrollTrigger and SplitText. `prefers-reduced-motion` falls back to static content.
 
@@ -151,33 +162,71 @@ MultiRank-RAG public ablation results are taken from the repository's reproducib
 - MultiHop-RAG: V5 evidence-chain score `0.890`
 - MultiHop-RAG: V5 gold-node coverage `0.730`
 
-These metrics are deliberately shown as proof of method behavior, not as generic marketing counters.
+These metrics are shown as evidence of method behavior, not as generic marketing counters.
 
 ## Styling architecture
 
-The original stable stylesheet remains in `styles.css`.
-
-The LLM-specific redesign is layered in:
+The visual system is layered so the stable site foundation stays separate from the evolving CYY AI language:
 
 ```text
-styles-ai.css
+styles.css          # base layout / typography / stable components
+styles-ai.css       # first LLM Systems redesign layer
+styles-ai-v2.css    # second-pass research-console refinement and semantic motion states
 ```
 
-This keeps the existing motion/layout infrastructure stable while allowing the CYY design language to evolve independently.
+The corresponding semantic motion runtime is:
 
-## Companion
+```text
+cyy-ai-v2.js
+```
 
-The existing companion asset pipeline is still located under:
+It uses IntersectionObserver and lightweight DOM state rather than replacing the existing GSAP navigation system.
+
+## CYY Research Assistant
+
+The floating companion is now framed as a **CYY Research Assistant**, not an archive navigator.
+
+The existing renderer and state machine are preserved under the legacy folder:
 
 ```text
 assets/cys-pet/
 ```
 
-The folder name is legacy only. It is loaded by `script.js`; future iterations can fully reframe it as a **CYY Research Assistant** without changing the core site architecture.
+The current product layer adds:
+
+```text
+assets/cys-pet/research-assistant.js
+assets/cys-pet/research-greetings.js
+```
+
+The assistant is intentionally deterministic and local in this version. It answers from a compact portfolio knowledge base covering:
+
+- MultiRank-RAG
+- Kongming / Agentic Systems
+- AI Homework System
+- Interactive Avatar
+- research interests
+- academic background
+- technology stack
+- contact
+
+A normal question produces a concise grounded answer. Navigation only occurs when the user explicitly asks to **open / show / take me to / 查看 / 带我去** a relevant section. This keeps the companion useful without turning every query into an automatic page jump.
+
+The first-page greeting and legacy labels are also normalized to the Research Assistant identity.
+
+## Runtime loading
+
+`script.js` is the enhancement loader. It:
+
+- enables AI mode and hides legacy decorative effects
+- loads `styles-ai-v2.css`
+- loads `cyy-ai-v2.js`
+- preserves the existing companion renderer layers
+- loads the Research Assistant knowledge and greeting layers last
+
+No build system is required.
 
 ## Run locally
-
-No build step is required.
 
 ```bash
 python -m http.server 8000
