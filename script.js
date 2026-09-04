@@ -16,6 +16,7 @@
   });
 
   const sources = [
+    'content-v3-fixes.js?v=20260904.1',
     'cyy-ai-v2.js?v=20260904.2',
     'assets/cys-pet/pet.js?v=0.5.0',
     'assets/cys-pet/pet-v06.js?v=0.6.0',
