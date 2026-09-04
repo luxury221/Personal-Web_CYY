@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Kongming multi-agent architecture</title>
+  <desc id="desc">Input, orchestration, six agents, structured artifacts, and user-facing outputs for the Kongming career assistant.</desc>
+  <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#21484c" stroke-opacity=".05"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#21484c"/></marker></defs>
+  <rect width="1200" height="680" fill="#f1ece3"/><rect x="18" y="18" width="1164" height="644" rx="8" fill="url(#grid)" stroke="#8f846f" stroke-opacity=".42"/>
+  <text x="54" y="62" fill="#8c7153" font-family="monospace" font-size="14" letter-spacing="2">EVIDENCE / 04 · AGENT ORCHESTRATION</text>
+  <text x="54" y="101" fill="#243034" font-family="serif" font-size="30">Kongming — Structured Multi-Agent Workflow</text>
+  <text x="54" y="128" fill="#6f746f" font-family="sans-serif" font-size="14">Roles share AgentContext / AgentEvent / AgentArtifact instead of relying on unconstrained agent-to-agent chat.</text>
+
+  <rect x="54" y="176" width="180" height="332" rx="8" fill="#faf7f1" stroke="#21484c" stroke-opacity=".38"/>
+  <text x="76" y="208" fill="#8c7153" font-family="monospace" font-size="12">INPUT LAYER</text>
+  <g font-family="sans-serif" font-size="13" fill="#243034"><text x="76" y="247">Resume text / file</text><text x="76" y="281">Job description</text><text x="76" y="315">Job corpus</text><text x="76" y="349">Preferences</text><text x="76" y="383">Interview answer</text></g>
+  <line x1="76" y1="410" x2="212" y2="410" stroke="#8f846f" stroke-opacity=".3"/>
+  <text x="76" y="439" fill="#6f746f" font-family="monospace" font-size="10">MULTIMODAL EXTENSIONS</text><text x="76" y="461" fill="#6f746f" font-family="sans-serif" font-size="12">PDF / OCR / voice</text>
+
+  <rect x="286" y="176" width="628" height="332" rx="8" fill="#21484c" fill-opacity=".045" stroke="#21484c" stroke-opacity=".45"/>
+  <text x="310" y="208" fill="#8c7153" font-family="monospace" font-size="12">ORCHESTRATION + AGENT LAYER</text>
+  <rect x="310" y="226" width="580" height="54" rx="5" fill="#faf7f1" stroke="#21484c" stroke-opacity=".35"/>
+  <text x="330" y="250" fill="#243034" font-family="monospace" font-size="13">WORKFLOW ORCHESTRATOR</text><text x="330" y="268" fill="#6f746f" font-family="monospace" font-size="10">AgentContext · AgentEvent · AgentArtifact</text>
+
+  <g font-family="monospace" font-size="11" text-anchor="middle">
+    <g transform="translate(310 312)"><rect width="174" height="68" rx="5" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="87" y="27" fill="#243034">RESUME INTAKE</text><text x="87" y="48" fill="#6f746f">profile / gaps</text></g>
+    <g transform="translate(504 312)"><rect width="174" height="68" rx="5" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="87" y="27" fill="#243034">JOB DISCOVERY</text><text x="87" y="48" fill="#6f746f">search / candidates</text></g>
+    <g transform="translate(698 312)"><rect width="192" height="68" rx="5" fill="#21484c" fill-opacity=".09" stroke="#21484c" stroke-opacity=".62"/><text x="96" y="27" fill="#243034">MATCH REASONING</text><text x="96" y="48" fill="#6f746f">score / evidence</text></g>
+    <g transform="translate(310 404)"><rect width="174" height="68" rx="5" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="87" y="27" fill="#243034">RESUME STRATEGY</text><text x="87" y="48" fill="#6f746f">rewrite / actions</text></g>
+    <g transform="translate(504 404)"><rect width="174" height="68" rx="5" fill="#faf7f1" stroke="#21484c" stroke-opacity=".4"/><text x="87" y="27" fill="#243034">INTERVIEW COACH</text><text x="87" y="48" fill="#6f746f">question / feedback</text></g>
+    <g transform="translate(698 404)"><rect width="192" height="68" rx="5" fill="#21484c" fill-opacity=".09" stroke="#21484c" stroke-opacity=".62"/><text x="96" y="27" fill="#243034">SUPERVISOR</text><text x="96" y="48" fill="#6f746f">priority / next action</text></g>
+  </g>
+  <g stroke="#21484c" stroke-width="1.2" fill="none" marker-end="url(#arrow)"><path d="M484 346H496"/><path d="M678 346H690"/><path d="M794 380V396"/><path d="M698 438H686"/><path d="M504 438H492"/></g>
+
+  <rect x="966" y="176" width="168" height="332" rx="8" fill="#faf7f1" stroke="#21484c" stroke-opacity=".38"/>
+  <text x="988" y="208" fill="#8c7153" font-family="monospace" font-size="12">ARTIFACTS</text>
+  <g font-family="sans-serif" font-size="12" fill="#243034"><text x="988" y="247">Profile summary</text><text x="988" y="279">Search plan</text><text x="988" y="311">Match evidence</text><text x="988" y="343">Resume strategy</text><text x="988" y="375">Interview feedback</text><text x="988" y="407">Final report</text></g>
+  <line x1="988" y1="432" x2="1112" y2="432" stroke="#8f846f" stroke-opacity=".3"/>
+  <text x="988" y="459" fill="#6f746f" font-family="monospace" font-size="10">DISPLAY</text><text x="988" y="480" fill="#6f746f" font-family="sans-serif" font-size="11">workbench / report</text>
+
+  <g stroke="#21484c" stroke-width="1.5" fill="none" marker-end="url(#arrow)"><path d="M234 342H278"/><path d="M914 342H958"/></g>
+  <line x1="54" y1="570" x2="1134" y2="570" stroke="#8f846f" stroke-opacity=".3"/>
+  <text x="54" y="604" fill="#6f746f" font-family="monospace" font-size="11">DESIGN PRINCIPLE / explicit role · input · output · evidence · next action</text>
+  <text x="54" y="632" fill="#8c7153" font-family="monospace" font-size="10">SOURCE / Kongming · docs/08-multi-agent-multimodal-architecture.md</text>
+</svg>
