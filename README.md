@@ -12,7 +12,7 @@ The portfolio is organized around:
 
 - **Retrieve** — multimodal retrieval, GraphRAG, hybrid search, reranking, evidence chains
 - **Reason** — agent orchestration, explicit state, evidence-constrained decisions, memory and verification
-- **Build** — FastAI / React / WebSocket / async workers / deployment / realtime multimodal systems
+- **Build** — FastAPI / React / WebSocket / async workers / deployment / realtime multimodal systems
 
 The current personal thesis is:
 
@@ -69,7 +69,7 @@ Evidence V4 adds:
 - zoomable visual-proof modal
 - source links inside Research proof blocks
 
-The visual assets are intentionally explanatory diagrams rather than fabricated screenshots. Their metrics and architecture labels are grounded in the corresponding public repositories.
+The visual assets are explanatory diagrams rather than fabricated screenshots. Their metrics and architecture labels are grounded in the corresponding public repositories.
 
 ## Page hierarchy
 
@@ -245,7 +245,7 @@ Selected recognition:
 - 国家奖学金
 - 中天科技奖学金
 - 一等奖学金
-- 中国目学生计算机设计大赛 · 国家二等奖
+- 中国计算机设计大赛 · 国家二等奖
 - MCM/ICM · Meritorious Winner
 
 ## `contact.html` — Contact
@@ -289,7 +289,7 @@ Motion is used to explain system state, not as decoration.
 styles.css              # stable base layout / typography / components
 styles-ai.css           # first LLM Systems redesign
 styles-ai-v2.css        # semantic research-console motion states
-styles-content-v3.css   '+
+styles-content-v3.css   # research narrative / case-study hierarchy
 styles-evidence-v4.css  # visual proof / evidence gallery / source links
 ```
 
@@ -298,7 +298,7 @@ Runtime enhancement layers:
 ```text
 script-core.js
 script.js
-cyy-ai-system.js
+cyy-ai-v2.js
 content-v3-fixes.js
 evidence-v4.js
 ```
@@ -361,7 +361,7 @@ Then open:
 http://localhost:8000
 ```
 
-Use `Ctrl + F5` after pulling changes to bypass cached CSS/JS.
+Use `Ctrl + F1` after pulling changes to bypass cached CSS/JS.
 
 ## Deploy
 
