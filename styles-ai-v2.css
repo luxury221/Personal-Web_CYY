@@ -1,0 +1,286 @@
+/* CYY 2026 — second-pass refinement
+   Adds system-oriented motion, stronger research hierarchy, and product-level polish. */
+
+:root {
+  --trace-faint: rgba(33,72,76,.075);
+  --trace-mid: rgba(33,72,76,.24);
+  --trace-strong: rgba(33,72,76,.58);
+}
+
+/* -------------------------- Home composition -------------------------- */
+.home-cover {
+  width: min(100%, 1680px);
+  margin: 0 auto;
+  align-items: center;
+  padding-top: clamp(46px, 5vh, 74px);
+  padding-bottom: 24px;
+}
+.home-left { align-self: center; }
+.home-visual {
+  position: relative;
+  align-self: center;
+  min-height: 0;
+  aspect-ratio: 1.2 / 1;
+}
+.home-visual::before,
+.home-visual::after {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: .12em;
+  color: rgba(33,72,76,.48);
+}
+.home-visual::before {
+  content: "LIVE SYSTEM VIEW / EVIDENCE TRACE";
+  left: 0;
+  top: -24px;
+}
+.home-visual::after {
+  content: "QUERY → RETRIEVE → RERANK → VERIFY";
+  right: 0;
+  bottom: -22px;
+}
+.archive-card-home { min-height: 0; }
+.home-proof-item { transition: background .25s ease, transform .25s ease; }
+.home-proof-item:hover { background: rgba(244,240,232,.48); transform: translateY(-2px); }
+.home-actions { margin-top: 30px; }
+
+/* -------------------------- Dossier graph motion -------------------------- */
+.archive-graph .graph-node,
+.archive-graph .graph-edge,
+.archive-metric,
+.archive-query {
+  will-change: transform, opacity;
+}
+.cyy-motion-ready .archive-card .graph-node {
+  transition: opacity .42s ease, transform .42s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, border-color .3s ease;
+}
+.cyy-motion-ready .archive-card:not(.is-live) .graph-node { opacity: .48; transform: scale(.86); }
+.archive-card.is-live .graph-node { opacity: 1; transform: scale(1); }
+.archive-card.is-live .graph-node.n1 { transition-delay: .02s; }
+.archive-card.is-live .graph-node.n2 { transition-delay: .12s; }
+.archive-card.is-live .graph-node.n3 { transition-delay: .18s; }
+.archive-card.is-live .graph-node.n4 { transition-delay: .28s; }
+.archive-card.is-live .graph-node.n5 { transition-delay: .38s; }
+
+.archive-card.is-live .graph-edge::after { animation: cyy-trace-dot 2.2s ease-in-out infinite; }
+.archive-card.is-live .graph-edge.e2::after { animation-delay: .32s; }
+.archive-card.is-live .graph-edge.e3::after { animation-delay: .64s; }
+.archive-card.is-live .graph-edge.e4::after { animation-delay: .96s; }
+.archive-card.is-live .graph-edge.e5::after { animation-delay: 1.28s; }
+.archive-card.is-live .archive-metric .ok { animation: cyy-verified 2.8s ease-in-out infinite; }
+
+@keyframes cyy-trace-dot {
+  0%, 100% { opacity: .3; box-shadow: 0 0 0 0 rgba(154,128,96,0); }
+  45% { opacity: 1; box-shadow: 0 0 0 5px rgba(154,128,96,.10); }
+}
+@keyframes cyy-verified {
+  0%,100% { opacity: .68; }
+  45% { opacity: 1; }
+}
+
+/* -------------------------- Project system traces -------------------------- */
+.system-viz {
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.system-viz::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: .72;
+  transition: width 1.15s cubic-bezier(.2,.8,.2,1);
+}
+.system-viz.is-live {
+  border-color: rgba(33,72,76,.36);
+  box-shadow: 0 14px 38px rgba(36,48,52,.055);
+  background: rgba(244,240,232,.64);
+}
+.system-viz.is-live::before { width: 100%; }
+
+.cyy-motion-ready .system-viz .pipeline-node,
+.cyy-motion-ready .system-viz .pipeline-arrow,
+.cyy-motion-ready .system-viz .metric-card {
+  opacity: .34;
+  transform: translateY(8px);
+  transition: opacity .38s ease, transform .46s cubic-bezier(.2,.8,.2,1), border-color .25s ease, background .25s ease;
+  transition-delay: calc(var(--step, 0) * 82ms);
+}
+.system-viz.is-live .pipeline-node,
+.system-viz.is-live .pipeline-arrow,
+.system-viz.is-live .metric-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+.system-viz.is-live .pipeline-node.core {
+  box-shadow: inset 0 0 0 1px rgba(33,72,76,.08), 0 6px 14px rgba(33,72,76,.04);
+}
+.system-viz.is-live .pipeline-arrow {
+  color: var(--accent);
+  animation: cyy-arrow-pulse 2.4s ease-in-out infinite;
+  animation-delay: calc(var(--step, 0) * 120ms);
+}
+@keyframes cyy-arrow-pulse {
+  0%,100% { opacity: .42; transform: translateX(0); }
+  45% { opacity: 1; transform: translateX(2px); }
+}
+.metric-card { position: relative; overflow: hidden; }
+.metric-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width .7s ease;
+  transition-delay: calc(var(--step, 0) * 90ms + 240ms);
+}
+.system-viz.is-live .metric-card::after { width: 100%; }
+
+/* -------------------------- Research: question-first hierarchy -------------------------- */
+#research-01,
+#research-02,
+#research-03,
+#research-04 { isolation: isolate; }
+.research-question {
+  position: relative;
+  max-width: 1000px !important;
+  margin: 22px 0 34px !important;
+  padding: 28px 28px 28px 78px;
+  border-top: 1px solid var(--trace-mid);
+  border-bottom: 1px solid var(--trace-mid);
+  background: linear-gradient(90deg, rgba(214,223,219,.22), rgba(244,240,232,.18));
+  color: var(--ink) !important;
+  font-family: "Noto Serif SC", "Playfair Display", serif;
+  font-size: clamp(21px, 2vw, 32px);
+  line-height: 1.65 !important;
+}
+.research-question::before {
+  content: "Q";
+  position: absolute;
+  left: 22px;
+  top: 25px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+}
+.research-question::after {
+  content: "RESEARCH QUESTION";
+  position: absolute;
+  right: 18px;
+  top: -8px;
+  padding: 0 8px;
+  background: var(--paper);
+  color: var(--muted);
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: .13em;
+}
+.research-stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1px;
+  border: 1px solid rgba(33,72,76,.16);
+  background: rgba(33,72,76,.16);
+}
+.research-stack > div {
+  position: relative;
+  min-height: 190px;
+  padding: 24px;
+  background: rgba(244,240,232,.80);
+  transition: background .25s ease, transform .25s ease;
+}
+.research-stack > div:hover { background: var(--paper-light); transform: translateY(-2px); z-index: 2; }
+.research-stack > div > span {
+  display: block;
+  margin-bottom: 24px;
+  color: var(--gold);
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+.research-stack > div > b {
+  display: block;
+  margin-bottom: 12px;
+  font-family: "Noto Serif SC", serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+.research-stack > div > p { margin: 0; color: var(--ink-soft); line-height: 1.78; }
+.research-proof {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 26px;
+  margin-top: 26px;
+  padding: 20px 0 4px;
+  border-top: 1px dashed var(--trace-mid);
+}
+.research-proof b { color: var(--accent); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .1em; }
+.research-proof p { margin: 0; color: var(--ink-soft); }
+
+.cyy-motion-ready .slide-panel[id^="research-"] .research-stack > div,
+.cyy-motion-ready .slide-panel[id^="research-"] .research-proof {
+  opacity: .42;
+  transform: translateY(10px);
+  transition: opacity .42s ease, transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.slide-panel[id^="research-"].is-live .research-stack > div,
+.slide-panel[id^="research-"].is-live .research-proof { opacity: 1; transform: translateY(0); }
+.slide-panel[id^="research-"].is-live .research-stack > div:nth-child(1) { transition-delay: .06s; }
+.slide-panel[id^="research-"].is-live .research-stack > div:nth-child(2) { transition-delay: .14s; }
+.slide-panel[id^="research-"].is-live .research-stack > div:nth-child(3) { transition-delay: .22s; }
+.slide-panel[id^="research-"].is-live .research-proof { transition-delay: .30s; }
+
+/* -------------------------- Research assistant visual identity -------------------------- */
+.cys-pet-root[data-assistant="research"] .cys-pet-panel-title { letter-spacing: .08em; }
+.cys-pet-root[data-assistant="research"] .cys-pet-panel-sub { color: rgba(33,72,76,.58); }
+.cys-pet-root[data-assistant="research"] .cys-pet-bubble-head span { color: var(--accent); }
+.cys-pet-root[data-assistant="research"] .cys-pet-hint { line-height: 1.55; }
+.cys-pet-root[data-assistant="research"] .cys-pet-action b { color: var(--ink); }
+.cys-pet-root[data-assistant="research"] .cys-pet-action.is-current b { color: var(--accent); }
+
+/* -------------------------- Responsive refinement -------------------------- */
+@media (max-width: 1180px) {
+  .home-cover { grid-template-columns: 1fr; width: min(100%, 980px); }
+  .home-visual { width: min(100%, 820px); margin: 22px auto 0; }
+  .home-left { padding-left: 0; }
+  .home-intro { max-width: 580px; }
+  .research-stack { grid-template-columns: 1fr; }
+  .research-stack > div { min-height: 0; }
+}
+
+@media (max-width: 720px) {
+  .home-visual::before { top: -18px; }
+  .home-visual::after { display: none; }
+  .home-proof { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .home-proof-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+  .home-proof-item:nth-child(4) { border-top: 1px solid var(--line); }
+  .research-question { padding: 22px 16px 22px 58px; font-size: 19px; }
+  .research-question::before { left: 14px; top: 22px; width: 28px; height: 28px; }
+  .research-proof { grid-template-columns: 1fr; gap: 10px; }
+  .system-viz { padding: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive-card.is-live .graph-edge::after,
+  .archive-card.is-live .archive-metric .ok,
+  .system-viz.is-live .pipeline-arrow { animation: none !important; }
+  .cyy-motion-ready .system-viz .pipeline-node,
+  .cyy-motion-ready .system-viz .pipeline-arrow,
+  .cyy-motion-ready .system-viz .metric-card,
+  .cyy-motion-ready .slide-panel[id^="research-"] .research-stack > div,
+  .cyy-motion-ready .slide-panel[id^="research-"] .research-proof { opacity: 1; transform: none; }
+}
