@@ -12,7 +12,7 @@ The portfolio is organized around:
 
 - **Retrieve** — multimodal retrieval, GraphRAG, hybrid search, reranking, evidence chains
 - **Reason** — agent orchestration, explicit state, evidence-constrained decisions, memory and verification
-- **Build** — FastAPI / React / WebSocket / async workers / deployment / realtime multimodal systems
+- **Build** — FastAI / React / WebSocket / async workers / deployment / realtime multimodal systems
 
 The current personal thesis is:
 
@@ -22,13 +22,9 @@ The goal is not to present a collection of AI demos, but to show how evidence en
 
 ## Content architecture V3
 
-The portfolio content now follows a research-oriented case-study structure:
+The portfolio content follows a research-oriented case-study structure:
 
 **Problem → Insight → System → Contribution → Evidence → Limitation / Next**
-
-This is especially visible on the Projects and Research pages.
-
-### Why this structure
 
 A technology list answers **what was used**. A case study should also answer:
 
@@ -41,6 +37,39 @@ A technology list answers **what was used**. A case study should also answer:
 - What should be tried next?
 
 The site intentionally keeps limitations and negative controls visible instead of presenting every system as complete.
+
+## Evidence Assets V4
+
+The portfolio now includes repository-grounded visual proof instead of relying only on prose descriptions.
+
+Current assets:
+
+```text
+assets/evidence/multirank-architecture.svg
+assets/evidence/multirank-ablation.svg
+assets/evidence/multirank-evidence-node.svg
+assets/evidence/kongming-agent-flow.svg
+```
+
+They are rendered inside the project cases through:
+
+```text
+styles-evidence-v4.css
+evidence-v4.js
+```
+
+Evidence V4 adds:
+
+- architecture diagrams derived from repository documentation
+- public benchmark / ablation visualization
+- evidence-node / document-graph representation
+- multi-agent workflow visualization
+- direct `SOURCE` links back to repository documents
+- `CODE / BENCHMARK / EXPERIMENTS / ARCHITECTURE` evidence bars
+- zoomable visual-proof modal
+- source links inside Research proof blocks
+
+The visual assets are intentionally explanatory diagrams rather than fabricated screenshots. Their metrics and architecture labels are grounded in the corresponding public repositories.
 
 ## Page hierarchy
 
@@ -75,7 +104,7 @@ Working principles:
 
 ### `experience.html` — Projects
 
-The project hierarchy is intentionally asymmetric:
+The project hierarchy is intentionally asymmetric.
 
 #### 01 · MultiRank-RAG — Primary Research Flagship
 
@@ -87,16 +116,18 @@ Narrative:
 - **Insight** — retrieval should operate on structured evidence rather than anonymous chunks
 - **System** — evidence nodes → hybrid retrieval → GraphRAG → MultiRank → evidence-chain verification
 - **Contribution** — system architecture, evidence-node schema, GraphRAG, multi-route retrieval, MultiRank, verification and V0–V5 evaluation
-- **Evidence** — controlled benchmark results
+- **Evidence** — controlled benchmark results and repository-grounded diagrams
 - **Limitation** — absolute visual recall is still constrained by first-stage candidate retrieval
 - **Next** — visual-first candidate generation, adaptive multimodal routing, learned evidence graphs
 
 External evidence links are exposed directly from the case study:
 
-- `CODE / GITHUB`
+- `CODE`
 - `BENCHMARK / V0–V5`
 - `EXPERIMENTS`
 - `ARCHITECTURE`
+
+Visual proof includes the full evidence flow, public benchmark ablation, and evidence-node representation.
 
 #### 02 · Kongming — Agentic System Flagship
 
@@ -110,7 +141,7 @@ Key points:
 - long-term state rather than chat-log memory
 - regression verification scripts
 
-The core design principle is that **multi-agent value comes from explicit boundaries, state ownership and verification standards**.
+The visual proof maps the documented Input → Orchestration → Agents → Artifacts layers.
 
 #### 03 · AI Homework System — AI Infrastructure Case
 
@@ -183,6 +214,8 @@ Focus:
 
 Question: how should timing, interruption, scene state, speech and gesture events be coordinated in realtime multimodal systems?
 
+Core Research proof blocks now carry direct repository source links where a public source is available.
+
 ## `education.html` — Academic
 
 Academic identity is framed as **Mathematics × AI Systems** rather than two unrelated degree labels.
@@ -212,12 +245,12 @@ Selected recognition:
 - 国家奖学金
 - 中天科技奖学金
 - 一等奖学金
-- 中国大学生计算机设计大赛 · 国家二等奖
+- 中国目学生计算机设计大赛 · 国家二等奖
 - MCM/ICM · Meritorious Winner
 
 ## `contact.html` — Contact
 
-The final page now continues the research narrative rather than falling back to a generic contact page.
+The final page continues the research narrative rather than falling back to a generic contact page.
 
 It invites conversations around:
 
@@ -256,7 +289,8 @@ Motion is used to explain system state, not as decoration.
 styles.css              # stable base layout / typography / components
 styles-ai.css           # first LLM Systems redesign
 styles-ai-v2.css        # semantic research-console motion states
-styles-content-v3.css   # research narrative / case-study hierarchy
+styles-content-v3.css   '+
+styles-evidence-v4.css  # visual proof / evidence gallery / source links
 ```
 
 Runtime enhancement layers:
@@ -264,11 +298,10 @@ Runtime enhancement layers:
 ```text
 script-core.js
 script.js
-cyy-ai-v2.js
+cyy-ai-system.js
 content-v3-fixes.js
+evidence-v4.js
 ```
-
-`content-v3-fixes.js` also enriches the MultiRank-RAG case with verified external repository evidence links.
 
 ## CYY Research Assistant
 
@@ -298,11 +331,19 @@ docs/EXPERIMENTS.md
 docs/ARCHITECTURE.md
 ```
 
-Under a fixed BM25 candidate set:
+Public benchmark setup:
+
+- retriever: BM25 fixed for all V0–V5 variants
+- candidate / rerank k: `50 / 10`
+- answer generation disabled during retrieval evaluation
+
+Key results:
 
 - FinQA: V0 `nDCG@5 = 0.678` → V5 `0.878`
-- MultiHop-RAG: V5 evidence-chain score `0.890`
-- MultiHop-RAG: V5 gold-node coverage `0.730`
+- MultiHop-RAG: V4→V5 chain score `0.864 → 0.890`
+- MultiHop-RAG: V4→V5 gold-node coverage `0.662 → 0.730`
+- MMLongBench-Doc: modality / visual indicators recover, while absolute retrieval remains low under the BM25 candidate set
+- RAGBench eManual: simple-text setting remains saturated and acts as a useful negative control
 
 These are presented as controlled evidence of method behavior, not generic marketing counters.
 
