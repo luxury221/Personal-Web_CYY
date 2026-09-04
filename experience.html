@@ -5,165 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#d8d1c5" />
   <script>try{sessionStorage.getItem('cyy-cover-label')&&document.documentElement.classList.add('cover-hold')}catch(e){}</script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f0e8'/%3E%3Ccircle cx='16' cy='16' r='12.5' fill='none' stroke='%2321484c' stroke-width='2'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='14' fill='%2321484c' font-family='serif'%3E%E6%99%BA%3C/text%3E%3C/svg%3E" />
-  <meta property="og:title" content="经历 · Yaoyang Chen — 检索增强生成 · LLM 智能体 · 全栈工程" />
-  <meta property="og:description" content="检索增强生成 · LLM 智能体 · 全栈工程 — AI 方向学生开发者个人主页" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f0e8'/%3E%3Ccircle cx='16' cy='16' r='12.5' fill='none' stroke='%2321484c' stroke-width='2'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='%2321484c' font-family='monospace'%3ECYY%3C/text%3E%3C/svg%3E" />
+  <meta property="og:title" content="Projects · Yaoyang Chen — LLM Systems Portfolio" />
+  <meta property="og:description" content="MultiRank-RAG、Agentic Career System、AI Grading Infrastructure 与 Interactive Avatar" />
   <meta property="og:type" content="website" />
-  <title>Experience · Yaoyang Chen</title>
+  <title>Projects · Yaoyang Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500&display=swap" /></noscript>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-ai.css" />
 </head>
 <body id="top">
-  <div class="page-transition" id="pageTransition"><span class="transition-index">CYY / 26</span><span class="transition-title" id="transitionTitle">EXPERIENCE</span></div>
+  <div class="page-transition" id="pageTransition"><span class="transition-index">CYY / 26</span><span class="transition-title" id="transitionTitle">PROJECTS</span></div>
   <header class="site-header">
     <a class="wordmark" href="index.html" data-transition-label="HOME">CYY / 26</a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html" data-transition-label="HOME" data-index="00" data-zh="首页" data-en="Home">首页</a>
-      <a href="profile.html" data-transition-label="PROFILE" data-index="01" data-zh="简介" data-en="Profile">简介</a>
-      <a href="experience.html" class="active" aria-current="page" data-transition-label="EXPERIENCE" data-index="02" data-zh="经历" data-en="Experience">经历</a>
-      <a href="education.html" data-transition-label="EDUCATION" data-index="03" data-zh="训练" data-en="Training">训练</a>
-      <a href="focus.html" data-transition-label="FOCUS" data-index="04" data-zh="方向" data-en="Focus">方向</a>
+      <a href="profile.html" data-transition-label="ABOUT" data-index="01" data-zh="关于" data-en="About">关于</a>
+      <a href="experience.html" class="active" aria-current="page" data-transition-label="PROJECTS" data-index="02" data-zh="项目" data-en="Projects">项目</a>
+      <a href="education.html" data-transition-label="ACADEMIC" data-index="03" data-zh="学术" data-en="Academic">学术</a>
+      <a href="focus.html" data-transition-label="RESEARCH" data-index="04" data-zh="研究" data-en="Research">研究</a>
       <a href="contact.html" data-transition-label="CONTACT" data-index="05" data-zh="联系" data-en="Contact">联系</a>
     </nav>
     <button id="langToggle" class="language-toggle" type="button">EN</button>
   </header>
+
   <main class="subpage">
     <section class="subpage-hero">
       <div class="sub-index">02</div>
-      <div><p class="sub-kicker decode">EXPERIENCE</p><h1 class="sub-title" data-zh="经历" data-en="Experience">经历</h1></div>
-      <p class="sub-lead" data-zh="四个现场，一套方法：可溯源的检索，证据化的判断，可验证的交付。" data-en="Four rooms, one method: traceable retrieval, evidence-based judgment, verifiable delivery.">四个现场，一套方法：可溯源的检索，证据化的判断，可验证的交付。</p>
+      <div><p class="sub-kicker decode">FLAGSHIP SYSTEMS</p><h1 class="sub-title" data-zh="项目" data-en="Projects">项目</h1></div>
+      <p class="sub-lead" data-zh="不是把模型接进页面，而是把检索、推理、工具、评测与工程约束组织成完整系统。" data-en="Not models plugged into interfaces, but retrieval, reasoning, tools, evaluation and engineering constraints assembled into complete systems.">不是把模型接进页面，而是把检索、推理、工具、评测与工程约束组织成完整系统。</p>
     </section>
-    <section class="sub-content" data-margin="SEC. 02 — EXPERIENCE">
+
+    <section class="sub-content" data-margin="SEC. 02 — PROJECTS">
       <div></div>
       <div class="content-main content-main--wide">
         <div class="slide-index">
-          <nav class="slide-tabs" aria-label="Case index">
-            <button class="slide-tab active" type="button" data-slide="0">
-              <span>01</span>
-              <span class="slide-tab-label"><b data-zh="孔明职配 · 求职智能体" data-en="Kongming · Job-Matching Agent">孔明职配 · 求职智能体</b><small>2026</small></span>
-            </button>
-            <button class="slide-tab" type="button" data-slide="1">
-              <span>02</span>
-              <span class="slide-tab-label"><b>INTERACTIVE AVATAR</b><small>2026.08</small></span>
-            </button>
-            <button class="slide-tab" type="button" data-slide="2">
-              <span>03</span>
-              <span class="slide-tab-label"><b>GROVE-AI</b><small>2026</small></span>
-            </button>
-            <button class="slide-tab" type="button" data-slide="3">
-              <span>04</span>
-              <span class="slide-tab-label"><b>AIMO INTERP</b><small>2026</small></span>
-            </button>
+          <nav class="slide-tabs" aria-label="Project index">
+            <button class="slide-tab active" type="button" data-slide="0"><span>01</span><span class="slide-tab-label"><b>MULTIRANK-RAG</b><small>RESEARCH FLAGSHIP</small></span></button>
+            <button class="slide-tab" type="button" data-slide="1"><span>02</span><span class="slide-tab-label"><b data-zh="孔明职配" data-en="KONGMING AGENT">孔明职配</b><small>AGENTIC SYSTEM</small></span></button>
+            <button class="slide-tab" type="button" data-slide="2"><span>03</span><span class="slide-tab-label"><b>AI HOMEWORK</b><small>AI INFRASTRUCTURE</small></span></button>
+            <button class="slide-tab" type="button" data-slide="3"><span>04</span><span class="slide-tab-label"><b>INTERACTIVE AVATAR</b><small>MULTIMODAL REALTIME</small></span></button>
           </nav>
-          <div class="slide-meta">
-            <p class="slide-progress"><b>01</b> / 04</p>
-            <span class="slide-hint" data-zh="拖拽切换" data-en="DRAG">拖拽切换</span>
-          </div>
+          <div class="slide-meta"><p class="slide-progress"><b>01</b> / 04</p><span class="slide-hint" data-zh="拖拽 / 点击切换" data-en="DRAG / CLICK">拖拽 / 点击切换</span></div>
         </div>
+
         <div class="slide-slider" data-deck>
           <div class="slide-track">
             <article class="slide-panel" id="case-01">
               <div class="case-head">
-                <span class="case-no">CASE 01</span>
-                <div class="case-title">
-                  <h2 data-zh="孔明职配 · 学生求职匹配智能体" data-en="Kongming · Student Job-Matching Agent">孔明职配 · 学生求职匹配智能体</h2>
-                  <p class="case-role" data-zh="全栈 · 智能体开发成员（团队项目）" data-en="Full-Stack & Agent Developer (team project)">全栈 · 智能体开发成员（团队项目）</p>
-                </div>
+                <span class="case-no">CASE 01 / RETRIEVE</span>
+                <div class="case-title"><h2>MultiRank-RAG</h2><p class="case-role" data-zh="复杂 PDF 多模态 RAG · GraphRAG · 证据链问答系统" data-en="Multimodal RAG · GraphRAG · evidence-chain QA for complex PDFs">复杂 PDF 多模态 RAG · GraphRAG · 证据链问答系统</p></div>
                 <span class="case-date">2026</span>
               </div>
-              <p class="case-file"><span>SECTOR — <i data-zh="AI 求职服务" data-en="AI Career Services">AI 求职服务</i></span><span>ROLE — <i data-zh="全栈 · 智能体开发" data-en="Full-Stack & Agent Development">全栈 · 智能体开发</i></span><span>FOCUS — <i data-zh="RAG · 匹配 · 面试" data-en="RAG · Matching · Interview">RAG · 匹配 · 面试</i></span></p>
+              <p class="case-file"><span>TYPE — <i>RESEARCH & ENGINEERING</i></span><span>CORE — <i>MULTIMODAL RAG · GRAPHRAG · RERANK</i></span><span>STATUS — <i>PUBLIC / REPRODUCIBLE</i></span></p>
+
+              <div class="project-lede">
+                <div class="project-lede-copy">
+                  <span class="system-label">WHY IT MATTERS</span>
+                  <p data-zh="它不是只返回一个答案，而是把文本、表格、图片、图注、公式与页面结构统一成 evidence nodes，通过混合召回、GraphRAG、查询自适应重排与证据链自修正，让最终回答能够回到具体页码、节点与多模态证据。" data-en="Rather than returning only an answer, the system unifies text, tables, figures, captions, equations and layout as evidence nodes, then combines hybrid retrieval, GraphRAG, query-adaptive reranking and evidence-chain self-correction so every answer can trace back to pages, nodes and multimodal evidence.">它不是只返回一个答案，而是把文本、表格、图片、图注、公式与页面结构统一成 evidence nodes，通过混合召回、GraphRAG、查询自适应重排与证据链自修正，让最终回答能够回到具体页码、节点与多模态证据。</p>
+                  <div class="case-links"><a class="case-link" href="https://github.com/luxury221/MultiRank-RAG" target="_blank" rel="noreferrer">GITHUB ↗</a></div>
+                  <div class="role-proof"><b>MY ROLE</b><span data-zh="个人研究与工程主项目：系统架构、证据节点设计、GraphRAG、多路召回、MultiRank 重排、证据链与评测闭环。" data-en="Personal research/engineering flagship: system architecture, evidence-node design, GraphRAG, multi-route retrieval, MultiRank reranking, evidence chains and evaluation loop.">个人研究与工程主项目：系统架构、证据节点设计、GraphRAG、多路召回、MultiRank 重排、证据链与评测闭环。</span></div>
+                </div>
+                <div class="system-viz">
+                  <div class="system-viz-head"><span>PIPELINE / V5</span><span>EVIDENCE FIRST</span></div>
+                  <div class="pipeline-flow"><div class="pipeline-node"><b>PDF</b>LAYOUT</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>NODES</b>TEXT · TABLE · FIG</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>HYBRID</b>BM25 · EMB · VIS</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>GRAPH</b>PPR · BRIDGE</div><span class="pipeline-arrow">→</span><div class="pipeline-node core"><b>MULTIRANK</b>G0 → G4</div><span class="pipeline-arrow">→</span><div class="pipeline-node core"><b>CHAIN</b>VERIFY</div></div>
+                  <div class="metric-cluster"><div class="metric-card"><span>.878</span><small>FINQA<br />nDCG@5 · V5</small></div><div class="metric-card"><span>.890</span><small>MULTIHOP<br />CHAIN SCORE</small></div><div class="metric-card"><span>.730</span><small>MULTIHOP<br />GOLD COVERAGE</small></div></div>
+                </div>
+              </div>
+
               <div class="case-sections">
-                <section class="case-section">
-                  <h3>JOB KNOWLEDGE RAG</h3>
-                  <p data-zh="基于 500 条带官方来源链接的岗位数据搭建知识库：LlamaIndex 编排索引，Qdrant 向量召回与 BM25 关键词召回并行，可选 CrossEncoder 二阶段重排——每个岗位都保留来源、时间与内容哈希，结论可以回链到原文。" data-en="Built the job knowledge base on 500 postings with official source links: LlamaIndex orchestrates the index, Qdrant vector recall runs beside BM25 keyword recall, with optional CrossEncoder two-stage reranking — every posting keeps its source, timestamp, and content hash, so any conclusion links back to the original text.">基于 500 条带官方来源链接的岗位数据搭建知识库：LlamaIndex 编排索引，Qdrant 向量召回与 BM25 关键词召回并行，可选 CrossEncoder 二阶段重排——每个岗位都保留来源、时间与内容哈希，结论可以回链到原文。</p>
-                </section>
-                <section class="case-section">
-                  <h3>EVIDENCE-BASED MATCHING & INTERVIEW</h3>
-                  <p data-zh="简历解析以 PDF.js 优先、RapidOCR 与视觉模型回退；人岗匹配从能力、经历、关键词、意向与成长潜力五个维度评分，每个维度都附岗位依据与简历证据；模拟面试为五类岗位建立六维胜任力模型，由追问控制器按上一轮证据决定澄清、深挖或切换维度，评分不经大模型自由发挥。" data-en="Resume parsing prefers PDF.js text layers, falling back to RapidOCR and a vision model; matching scores five dimensions — ability, experience, keywords, intent, and growth potential — each anchored to job criteria and resume evidence; mock interviews run on six-dimension competency models across five job families, where a question controller chooses to clarify, dig deeper, or switch dimensions based on the last answer's evidence, never letting the LLM freestyle its scoring.">简历解析以 PDF.js 优先、RapidOCR 与视觉模型回退；人岗匹配从能力、经历、关键词、意向与成长潜力五个维度评分，每个维度都附岗位依据与简历证据；模拟面试为五类岗位建立六维胜任力模型，由追问控制器按上一轮证据决定澄清、深挖或切换维度，评分不经大模型自由发挥。</p>
-                </section>
-                <section class="case-section">
-                  <h3>GROWTH LOOP & MEMORY</h3>
-                  <p data-zh="成长规划把「预测分」与「实证分」分离：任务证据先经本地审核才更新预测分，重新解析简历或完成新面试后才更新实证分，杜绝勾选式涨分；智能体长期记忆保存偏好、多轮会话与反馈并支持跨会话恢复；十余个 verify 回归脚本覆盖面试评分、成长闭环与完整用户流程。" data-en="The growth engine separates predicted scores from empirical ones: task evidence updates a predicted score only after local review, while the empirical score moves only when the resume is re-parsed or a new interview completes — no checkbox leveling-up. Agent memory keeps preferences, multi-turn sessions, and feedback across visits; a dozen verify regression scripts cover interview scoring, the growth loop, and the full user flow.">成长规划把「预测分」与「实证分」分离：任务证据先经本地审核才更新预测分，重新解析简历或完成新面试后才更新实证分，杜绝勾选式涨分；智能体长期记忆保存偏好、多轮会话与反馈并支持跨会话恢复；十余个 verify 回归脚本覆盖面试评分、成长闭环与完整用户流程。</p>
-                </section>
+                <section class="case-section"><h3>01 / STRUCTURED RETRIEVAL</h3><p data-zh="MinerU / 本地解析保留页码、bbox、阅读顺序与版面关系；文本、标题、表格、图片、图注和公式统一进入 evidence node schema，再建立 structure / reference / entity / semantic edges。" data-en="MinerU/local parsing preserves pages, bounding boxes, reading order and layout relations; text, titles, tables, figures, captions and equations enter one evidence-node schema with structure, reference, entity and semantic edges.">MinerU / 本地解析保留页码、bbox、阅读顺序与版面关系；文本、标题、表格、图片、图注和公式统一进入 evidence node schema，再建立 structure / reference / entity / semantic edges。</p></section>
+                <section class="case-section"><h3>02 / ADAPTIVE RERANK</h3><p data-zh="Query Planner 根据文本、表格、视觉与跨模态桥接问题改变召回路线；G0–G4 逐层加入语义、图传播、bridge evidence、reference matching、visual grounding 与证据链约束，并用 primary / fallback / merge verifier 做证据自修正。" data-en="A Query Planner changes retrieval routes for text, table, visual and cross-modal bridge questions; G0–G4 progressively add semantics, graph propagation, bridge evidence, reference matching, visual grounding and chain constraints, followed by primary/fallback/merge verification.">Query Planner 根据文本、表格、视觉与跨模态桥接问题改变召回路线；G0–G4 逐层加入语义、图传播、bridge evidence、reference matching、visual grounding 与证据链约束，并用 primary / fallback / merge verifier 做证据自修正。</p></section>
+                <section class="case-section"><h3>03 / EVALUATION</h3><p data-zh="公开 V0–V5 消融覆盖 RAGBench eManual、FinQA、MMLongBench-Doc 与 MultiHop-RAG。简单文本任务用作负对照，结构化、多跳和多模态任务用于验证新增模块的真实贡献，而不是只展示单次 Demo。" data-en="Public V0–V5 ablations span RAGBench eManual, FinQA, MMLongBench-Doc and MultiHop-RAG. Simple text QA acts as a negative control while structured, multi-hop and multimodal tasks test the actual contribution of added modules beyond a one-off demo.">公开 V0–V5 消融覆盖 RAGBench eManual、FinQA、MMLongBench-Doc 与 MultiHop-RAG。简单文本任务用作负对照，结构化、多跳和多模态任务用于验证新增模块的真实贡献，而不是只展示单次 Demo。</p></section>
               </div>
             </article>
+
             <article class="slide-panel" id="case-02">
               <div class="case-head">
-                <span class="case-no">CASE 02</span>
-                <div class="case-title">
-                  <h2>Interactive Avatar</h2>
-                  <p class="case-role" data-zh="前后端分离的数字人交互系统 · 团队项目" data-en="Front/back-end digital human system · team project">前后端分离的数字人交互系统 · 团队项目</p>
-                </div>
-                <span class="case-date">2026.08</span>
+                <span class="case-no">CASE 02 / REASON</span>
+                <div class="case-title"><h2 data-zh="孔明职配 · Agentic Career System" data-en="Kongming · Agentic Career System">孔明职配 · Agentic Career System</h2><p class="case-role" data-zh="岗位知识 RAG · 多智能体协作 · 证据化匹配与面试" data-en="Job RAG · multi-agent orchestration · evidence-based matching and interview">岗位知识 RAG · 多智能体协作 · 证据化匹配与面试</p></div>
+                <span class="case-date">2026</span>
               </div>
-              <p class="case-file"><span>SECTOR — <i data-zh="多模态交互" data-en="Multimodal Interaction">多模态交互</i></span><span>ROLE — <i data-zh="前端 · 交互开发成员" data-en="Frontend & Interaction Developer">前端 · 交互开发成员</i></span><span>FOCUS — <i data-zh="3D · 语音 · 实时" data-en="3D · Voice · Real-time">3D · 语音 · 实时</i></span></p>
+              <p class="case-file"><span>TYPE — <i>TEAM PROJECT</i></span><span>ROLE — <i>AGENT · RAG · FULL STACK</i></span><span>PRINCIPLE — <i>EVIDENCE BEFORE SCORE</i></span></p>
+
+              <div class="project-lede">
+                <div class="project-lede-copy">
+                  <span class="system-label">AGENT ORCHESTRATION</span>
+                  <p data-zh="系统把求职流程拆成 Resume Intake、Job Discovery、Match Reasoning、Resume Strategy、Interview Coach 与 Supervisor 六类角色，并用共享 AgentContext / AgentEvent / AgentArtifact 传递结构化状态；目标不是让多个模型自由聊天，而是让每一步都有输入、证据、输出和下一动作。" data-en="The workflow separates Resume Intake, Job Discovery, Match Reasoning, Resume Strategy, Interview Coach and Supervisor roles, passing structured state through AgentContext, AgentEvent and AgentArtifact. The point is not free-form multi-agent chat, but explicit inputs, evidence, outputs and next actions.">系统把求职流程拆成 Resume Intake、Job Discovery、Match Reasoning、Resume Strategy、Interview Coach 与 Supervisor 六类角色，并用共享 AgentContext / AgentEvent / AgentArtifact 传递结构化状态；目标不是让多个模型自由聊天，而是让每一步都有输入、证据、输出和下一动作。</p>
+                  <div class="case-links"><a class="case-link" href="https://github.com/lljjcc426/Kongming-Student-Job-Matching-Agent" target="_blank" rel="noreferrer">GITHUB ↗</a></div>
+                  <div class="role-proof"><b>MY ROLE</b><span data-zh="团队项目中的全栈与智能体开发：岗位 RAG、证据化匹配、面试流程与成长闭环相关实现。" data-en="Full-stack and agent development in a team project, focused on job RAG, evidence-based matching, interview flow and the growth loop.">团队项目中的全栈与智能体开发：岗位 RAG、证据化匹配、面试流程与成长闭环相关实现。</span></div>
+                </div>
+                <div class="system-viz">
+                  <div class="system-viz-head"><span>AGENT TRACE</span><span>SHARED CONTEXT</span></div>
+                  <div class="pipeline-flow"><div class="pipeline-node"><b>RESUME</b>INTAKE</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>JOB</b>DISCOVERY</div><span class="pipeline-arrow">→</span><div class="pipeline-node core"><b>MATCH</b>REASON</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>STRATEGY</b>RESUME</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>INTERVIEW</b>COACH</div><span class="pipeline-arrow">→</span><div class="pipeline-node core"><b>SUPERVISOR</b>NEXT</div></div>
+                  <div class="metric-cluster"><div class="metric-card"><span>500</span><small>JOB POSTS<br />WITH SOURCES</small></div><div class="metric-card"><span>06</span><small>AGENT<br />ROLES</small></div><div class="metric-card"><span>10+</span><small>VERIFY<br />REGRESSION</small></div></div>
+                </div>
+              </div>
+
               <div class="case-sections">
-                <section class="case-section">
-                  <h3>3D AVATAR PIPELINE</h3>
-                  <p data-zh="从文本、图片或预设三种入口生成 3D 角色（Meshy 文生 3D / 图生 3D），再进入辅助绑骨流程：8 点位标注、任务轮询与动作预览，让非技术用户也能在四步之内得到一个可动的数字人。" data-en="3D characters are generated from text, images, or presets (Meshy text-to-3D / image-to-3D), then enter an assisted rigging flow — 8-point annotation, task polling, and motion preview — so a non-technical user can get a movable avatar within four steps.">从文本、图片或预设三种入口生成 3D 角色（Meshy 文生 3D / 图生 3D），再进入辅助绑骨流程：8 点位标注、任务轮询与动作预览，让非技术用户也能在四步之内得到一个可动的数字人。</p>
-                </section>
-                <section class="case-section">
-                  <h3>REAL-TIME MULTIMODAL SESSION</h3>
-                  <p data-zh="交互页以 Three.js 与 React Three Fiber 渲染场景：Qwen 实时语音通过 WebSocket 双向流转，ASR 负责语音转写，MediaPipe 识别挥手手势触发动作；会话支持打断与自动结束，提示词润色与文生图场景由 DashScope 提供。" data-en="The interaction page renders with Three.js and React Three Fiber: Qwen realtime voice flows over WebSocket, ASR handles transcription, MediaPipe detects a wave gesture to trigger animation; sessions support interruption and auto-close, with DashScope powering prompt polishing and text-to-image scenes.">交互页以 Three.js 与 React Three Fiber 渲染场景：Qwen 实时语音通过 WebSocket 双向流转，ASR 负责语音转写，MediaPipe 识别挥手手势触发动作；会话支持打断与自动结束，提示词润色与文生图场景由 DashScope 提供。</p>
-                </section>
-                <section class="case-section">
-                  <h3>SYSTEM & DATA</h3>
-                  <p data-zh="前端 Vite + React 19 + React Router，后端 FastAPI + SQLAlchemy 2 + Alembic + SQLite：模型记录、会话事件、摘要与录屏上传全部落库，Dashboard 支持检索、回看与录屏重放，把一次会话沉淀为可复查的数据。" data-en="Frontend on Vite + React 19 + React Router; backend on FastAPI + SQLAlchemy 2 + Alembic + SQLite: model records, session events, summaries, and screen recordings all persist, and the Dashboard supports search, replay, and review — every session becomes inspectable data.">前端 Vite + React 19 + React Router，后端 FastAPI + SQLAlchemy 2 + Alembic + SQLite：模型记录、会话事件、摘要与录屏上传全部落库，Dashboard 支持检索、回看与录屏重放，把一次会话沉淀为可复查的数据。</p>
-                </section>
+                <section class="case-section"><h3>01 / JOB KNOWLEDGE RAG</h3><p data-zh="岗位库保留官方来源、抓取时间与内容哈希；LlamaIndex 编排索引，Qdrant 与 BM25 并行召回并可接 CrossEncoder 二阶段重排，让匹配结论能够回链原始 JD。" data-en="The job corpus keeps official sources, timestamps and content hashes; LlamaIndex orchestrates Qdrant and BM25 retrieval with optional CrossEncoder reranking so matching conclusions can link back to original job descriptions.">岗位库保留官方来源、抓取时间与内容哈希；LlamaIndex 编排索引，Qdrant 与 BM25 并行召回并可接 CrossEncoder 二阶段重排，让匹配结论能够回链原始 JD。</p></section>
+                <section class="case-section"><h3>02 / EVIDENCE-BASED DECISION</h3><p data-zh="简历解析优先 PDF.js，必要时回退 RapidOCR / 视觉模型；能力、经历、关键词、意向与成长潜力五维评分都绑定岗位依据和简历证据，面试追问根据上一轮证据选择澄清、深挖或换维度。" data-en="Resume parsing prefers PDF.js with RapidOCR/vision fallback. Five matching dimensions — ability, experience, keywords, intent and growth potential — bind scores to job criteria and resume evidence; interview follow-ups choose clarification, deeper probing or dimension switching from prior evidence.">简历解析优先 PDF.js，必要时回退 RapidOCR / 视觉模型；能力、经历、关键词、意向与成长潜力五维评分都绑定岗位依据和简历证据，面试追问根据上一轮证据选择澄清、深挖或换维度。</p></section>
+                <section class="case-section"><h3>03 / MEMORY & GROWTH LOOP</h3><p data-zh="长期记忆保存偏好、会话与反馈；成长系统把预测分和实证分拆开，只有新简历解析或新面试完成后才更新实证状态，避免“勾选任务就涨分”的伪成长。" data-en="Long-term memory preserves preferences, sessions and feedback. The growth system separates predicted from empirical scores; empirical state updates only after new resume evidence or interview results, avoiding checkbox-driven fake progress.">长期记忆保存偏好、会话与反馈；成长系统把预测分和实证分拆开，只有新简历解析或新面试完成后才更新实证状态，避免“勾选任务就涨分”的伪成长。</p></section>
               </div>
             </article>
+
             <article class="slide-panel" id="case-03">
               <div class="case-head">
-                <span class="case-no">CASE 03</span>
-                <div class="case-title">
-                  <h2>GROVE-AI</h2>
-                  <p class="case-role" data-zh="证据驱动的 AI 产品定义决策系统 · 方案设计与实现" data-en="Evidence-driven product-definition decision system · design & implementation">证据驱动的 AI 产品定义决策系统 · 方案设计与实现</p>
-                </div>
+                <span class="case-no">CASE 03 / BUILD</span>
+                <div class="case-title"><h2>AI Homework System</h2><p class="case-role" data-zh="高校 AI 作业管理 · AI 先批 · 教师复核 · 私有化部署" data-en="University AI grading · AI-first review · teacher approval · private deployment">高校 AI 作业管理 · AI 先批 · 教师复核 · 私有化部署</p></div>
                 <span class="case-date">2026</span>
               </div>
-              <p class="case-file"><span>FORMAT — <i data-zh="2026 AI 先锋未来人才大赛 · 安克创新赛道（入围）" data-en="2026 AI Pioneer Competition · Anker Track (shortlisted)">2026 AI 先锋未来人才大赛 · 安克创新赛道（入围）</i></span><span>FOCUS — <i data-zh="证据链 · 多角色 · 回测" data-en="Evidence · Roles · Backtesting">证据链 · 多角色 · 回测</i></span></p>
+              <p class="case-file"><span>TYPE — <i>PRODUCTION AI SYSTEM</i></span><span>FLOW — <i>HUMAN IN THE LOOP</i></span><span>INFRA — <i>QUEUE · OBJECT STORAGE · SANDBOX</i></span></p>
+
+              <div class="project-lede">
+                <div class="project-lede-copy">
+                  <span class="system-label">AI INFRASTRUCTURE</span>
+                  <p data-zh="这个项目把“大模型批改”放进真实教学工作流：作业发布后固化题目、答案与评分细则快照，AI 生成建议评分与依据，教师复核后再发布；同时用异步 Worker、对象存储、代码沙箱和私有化部署解决规模化交付问题。" data-en="This project places LLM grading inside a real teaching workflow: assignment prompts, answers and rubrics are snapshotted at publication, AI produces suggested scores with rationale, teachers review before release, while async workers, object storage, code sandboxes and private deployment address system-scale delivery.">这个项目把“大模型批改”放进真实教学工作流：作业发布后固化题目、答案与评分细则快照，AI 生成建议评分与依据，教师复核后再发布；同时用异步 Worker、对象存储、代码沙箱和私有化部署解决规模化交付问题。</p>
+                  <div class="case-links"><a class="case-link" href="https://github.com/pythc/ai-homework-system" target="_blank" rel="noreferrer">GITHUB ↗</a></div>
+                  <div class="role-proof"><b>CASE POSITION</b><span data-zh="用于展示面向真实业务的 AI System Engineering：Human-in-the-loop、异步任务、资源隔离、私有化部署与可追溯流程。" data-en="Shows production-oriented AI system engineering: human-in-the-loop control, asynchronous jobs, resource isolation, private deployment and auditable workflows.">用于展示面向真实业务的 AI System Engineering：Human-in-the-loop、异步任务、资源隔离、私有化部署与可追溯流程。</span></div>
+                </div>
+                <div class="system-viz">
+                  <div class="system-viz-head"><span>GRADING WORKFLOW</span><span>HUMAN CONTROLLED</span></div>
+                  <div class="pipeline-flow"><div class="pipeline-node"><b>ASSIGN</b>SNAPSHOT</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>QUEUE</b>REDIS</div><span class="pipeline-arrow">→</span><div class="pipeline-node core"><b>AI WORKER</b>GRADE</div><span class="pipeline-arrow">→</span><div class="pipeline-node core"><b>TEACHER</b>REVIEW</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>PUBLISH</b>RESULT</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>ANALYTICS</b>COURSE</div></div>
+                  <div class="metric-cluster"><div class="metric-card"><span>08</span><small>DEFAULT AI<br />WORKERS</small></div><div class="metric-card"><span>03</span><small>STUDENT · TEACHER<br />ADMIN ROLES</small></div><div class="metric-card"><span>HITL</span><small>TEACHER<br />FINAL CONTROL</small></div></div>
+                </div>
+              </div>
+
               <div class="case-sections">
-                <section class="case-section">
-                  <h3>EVIDENCE LEDGER & GATES</h3>
-                  <p data-zh="把分散的用户反馈、竞品规格、独立评测与工程约束统一编码进 Evidence Ledger：来源、时间、产品版本与置信度全程绑定；证据 Gate 未通过时流程禁止进入概念生成——系统先判断证据是否足以支持决策，再生成答案。" data-en="Scattered user feedback, competitor specs, independent reviews, and engineering constraints are unified into an Evidence Ledger with bound source, time, product version, and confidence; while an evidence Gate is unmet, the pipeline is barred from concept generation — the system first decides whether the evidence supports a decision, then produces an answer.">把分散的用户反馈、竞品规格、独立评测与工程约束统一编码进 Evidence Ledger：来源、时间、产品版本与置信度全程绑定；证据 Gate 未通过时流程禁止进入概念生成——系统先判断证据是否足以支持决策，再生成答案。</p>
-                </section>
-                <section class="case-section">
-                  <h3>SEPARATION OF ROLES</h3>
-                  <p data-zh="提案者、工程与商业审查者、红队与审计者五种角色分离编排：同一模型不得既提出方案又证明自己正确；角色间以结构化交接流转，风险与争议全程留痕，人工决策 Gate 保留产品负责人的最终裁量权。" data-en="Five roles — proposer, engineering and business reviewers, red team, and auditor — run in separation: the same model never proposes a plan and certifies it. Roles exchange structured handoffs, risks and disputes stay on record, and a human decision Gate keeps final judgment with the product owner.">提案者、工程与商业审查者、红队与审计者五种角色分离编排：同一模型不得既提出方案又证明自己正确；角色间以结构化交接流转，风险与争议全程留痕，人工决策 Gate 保留产品负责人的最终裁量权。</p>
-                </section>
-                <section class="case-section">
-                  <h3>HISTORICAL BACKTESTING</h3>
-                  <p data-zh="用历史时间切分回测检验预测：只使用历史时点之前的信息生成结论，再用时点之后的真实观察核对，辅以留出产品族与消融实验，避免事后合理化。首个验证品类为 10,000mAh 磁吸无线充电宝，产出 Compass 10K 示范概念。" data-en="Predictions are verified by historical time-split backtesting: conclusions use only information available before a cutoff, then face real observations from after it, alongside held-out product families and ablations to block hindsight bias. The first validation category is the 10,000mAh magnetic power bank, yielding the Compass 10K demonstration concept.">用历史时间切分回测检验预测：只使用历史时点之前的信息生成结论，再用时点之后的真实观察核对，辅以留出产品族与消融实验，避免事后合理化。首个验证品类为 10,000mAh 磁吸无线充电宝，产出 Compass 10K 示范概念。</p>
-                </section>
+                <section class="case-section"><h3>01 / CONTROLLED GRADING</h3><p data-zh="AI 只输出建议评分和依据，最终成绩由教师确认；发布时固定评分细则快照，降低不同批次、不同助教和模型变化导致的评分漂移，并保留全过程记录用于复盘。" data-en="AI produces suggested scores and rationale while teachers retain final authority. Rubrics are snapshotted at publication to reduce drift across batches, assistants and model updates, with a full trace for later review.">AI 只输出建议评分和依据，最终成绩由教师确认；发布时固定评分细则快照，降低不同批次、不同助教和模型变化导致的评分漂移，并保留全过程记录用于复盘。</p></section>
+                <section class="case-section"><h3>02 / ASYNC & STORAGE</h3><p data-zh="默认 8 路 AI Worker 共享 Redis 队列并行消费；MinIO 负责私有对象存储与签名 URL，API / Auth / Worker 分离，既能单机部署也能拆成公网边缘机与内网业务机。" data-en="Eight default AI workers consume a shared Redis queue; MinIO provides private object storage and signed URLs, while API, auth and worker processes are separated for single-host or edge/internal split deployment.">默认 8 路 AI Worker 共享 Redis 队列并行消费；MinIO 负责私有对象存储与签名 URL，API / Auth / Worker 分离，既能单机部署也能拆成公网边缘机与内网业务机。</p></section>
+                <section class="case-section"><h3>03 / CODE EXECUTION & DEPLOYMENT</h3><p data-zh="代码题通过 Theia 工作区与 Judge0 执行链路隔离运行环境，生产变量从统一配置生成，Docker Compose 固化依赖与服务边界，使“AI 功能”能够作为真正的平台能力而不是单次接口调用。" data-en="Programming assignments use isolated Theia workspaces and Judge0 execution; production variables are generated from unified configuration and Docker Compose fixes dependencies and service boundaries, turning AI from an API call into platform capability.">代码题通过 Theia 工作区与 Judge0 执行链路隔离运行环境，生产变量从统一配置生成，Docker Compose 固化依赖与服务边界，使“AI 功能”能够作为真正的平台能力而不是单次接口调用。</p></section>
               </div>
             </article>
+
             <article class="slide-panel" id="case-04">
               <div class="case-head">
-                <span class="case-no">CASE 04</span>
-                <div class="case-title">
-                  <h2>AIMO Interpretability Challenge</h2>
-                  <p class="case-role" data-zh="模型鲁棒性预测 · 个人参赛" data-en="Model robustness prediction · individual entry">模型鲁棒性预测 · 个人参赛</p>
-                </div>
-                <span class="case-date">2026</span>
+                <span class="case-no">CASE 04 / INTERACT</span>
+                <div class="case-title"><h2>Interactive Avatar</h2><p class="case-role" data-zh="3D 数字人生成 · 实时语音 · 手势交互 · 会话数据闭环" data-en="3D avatar generation · realtime voice · gesture interaction · session data loop">3D 数字人生成 · 实时语音 · 手势交互 · 会话数据闭环</p></div>
+                <span class="case-date">2026.08</span>
               </div>
-              <p class="case-file"><span>FORMAT — <i data-zh="国际可解释性竞赛（Codabench）" data-en="International interpretability challenge (Codabench)">国际可解释性竞赛（Codabench）</i></span><span>FOCUS — <i data-zh="探针 · 不确定性 · 离线评测" data-en="Probes · Uncertainty · Offline eval">探针 · 不确定性 · 离线评测</i></span></p>
+              <p class="case-file"><span>TYPE — <i>TEAM PROJECT</i></span><span>ROLE — <i>FRONTEND · INTERACTION</i></span><span>STACK — <i>THREE.JS · FASTAPI · WEBSOCKET</i></span></p>
+
+              <div class="project-lede">
+                <div class="project-lede-copy">
+                  <span class="system-label">REALTIME MULTIMODAL</span>
+                  <p data-zh="用户可以从文本、图片或预设生成 3D 角色，完成 8 点位辅助绑骨与场景配置，再进入实时会话：Three.js / React Three Fiber 渲染角色，Qwen 实时语音经 WebSocket 双向传输，MediaPipe 用手势触发动作，最终沉淀会话历史、摘要与录屏。" data-en="Users create 3D characters from text, images or presets, complete assisted 8-point rigging and scene setup, then enter realtime sessions: Three.js/React Three Fiber render the avatar, Qwen realtime voice streams bidirectionally over WebSocket, MediaPipe gestures trigger motion, and session history, summaries and recordings are retained.">用户可以从文本、图片或预设生成 3D 角色，完成 8 点位辅助绑骨与场景配置，再进入实时会话：Three.js / React Three Fiber 渲染角色，Qwen 实时语音经 WebSocket 双向传输，MediaPipe 用手势触发动作，最终沉淀会话历史、摘要与录屏。</p>
+                  <div class="case-links"><a class="case-link" href="https://github.com/WaterXiao-git/AI-Avatar" target="_blank" rel="noreferrer">GITHUB ↗</a></div>
+                  <div class="role-proof"><b>MY ROLE</b><span data-zh="团队项目中的前端与交互开发，聚焦 3D 场景、实时会话与多模态交互链路。" data-en="Frontend and interaction development in a team project, focused on 3D scenes, realtime sessions and multimodal interaction flow.">团队项目中的前端与交互开发，聚焦 3D 场景、实时会话与多模态交互链路。</span></div>
+                </div>
+                <div class="system-viz">
+                  <div class="system-viz-head"><span>MULTIMODAL FLOW</span><span>REALTIME SESSION</span></div>
+                  <div class="pipeline-flow"><div class="pipeline-node"><b>TEXT / IMG</b>INPUT</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>3D</b>MESHY</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>RIG</b>8 POINTS</div><span class="pipeline-arrow">→</span><div class="pipeline-node"><b>SCENE</b>R3F</div><span class="pipeline-arrow">→</span><div class="pipeline-node core"><b>VOICE</b>WS · QWEN</div><span class="pipeline-arrow">↔</span><div class="pipeline-node core"><b>GESTURE</b>MEDIAPIPE</div></div>
+                  <div class="metric-cluster"><div class="metric-card"><span>03</span><small>AVATAR<br />INPUT MODES</small></div><div class="metric-card"><span>04</span><small>END-TO-END<br />STEPS</small></div><div class="metric-card"><span>RT</span><small>VOICE · GESTURE<br />INTERACTION</small></div></div>
+                </div>
+              </div>
+
               <div class="case-sections">
-                <section class="case-section">
-                  <h3>REPRESENTATION PROBES</h3>
-                  <p data-zh="对每道数学题提取语言模型的最终提示词表征，用一组线性探针的集成给出「该模型在此题上是否鲁棒」的布尔预测：权重、偏置、阈值与所选层全部序列化进探针工件，推理完全离线自足。" data-en="For each math problem, the model's final prompt-token representation is extracted and an ensemble of linear probes predicts whether the model is robust on that problem: weights, biases, thresholds, and the selected layer serialize into a probe artifact — inference is fully offline and self-contained.">对每道数学题提取语言模型的最终提示词表征，用一组线性探针的集成给出「该模型在此题上是否鲁棒」的布尔预测：权重、偏置、阈值与所选层全部序列化进探针工件，推理完全离线自足。</p>
-                </section>
-                <section class="case-section">
-                  <h3>UNCERTAINTY PROFILING</h3>
-                  <p data-zh="另一条路线从推理轨迹入手：对每题生成确定性回答，汇总 14 项 token 分布的置信与不确定性统计，用预训练回归器映射为预测的绝对准确率衰减，再经交叉验证阈值转换为鲁棒性判断。" data-en="A second route reads the reasoning trace: a deterministic answer per problem is summarized into 14 confidence and uncertainty statistics over the generated-token distributions, mapped by a pretrained regressor to predicted absolute accuracy decay, then converted to a robustness boolean through a cross-validated threshold.">另一条路线从推理轨迹入手：对每题生成确定性回答，汇总 14 项 token 分布的置信与不确定性统计，用预训练回归器映射为预测的绝对准确率衰减，再经交叉验证阈值转换为鲁棒性判断。</p>
-                </section>
-                <section class="case-section">
-                  <h3>OFFLINE EVALUATION ENGINEERING</h3>
-                  <p data-zh="评测在离线 GPU 容器内进行：模型权重只读缓存、网络禁用、运行时库版本固定（PyTorch / Transformers / scikit-learn），提交须在竞赛镜像内可复现，并满足覆盖率 1.0 与零无效预测的硬约束。" data-en="Evaluation runs inside an offline GPU container: a read-only model cache, disabled networking, and pinned runtime versions (PyTorch / Transformers / scikit-learn); submissions must reproduce inside the competition image and satisfy hard constraints of 1.0 coverage and zero invalid predictions.">评测在离线 GPU 容器内进行：模型权重只读缓存、网络禁用、运行时库版本固定（PyTorch / Transformers / scikit-learn），提交须在竞赛镜像内可复现，并满足覆盖率 1.0 与零无效预测的硬约束。</p>
-                </section>
+                <section class="case-section"><h3>01 / AVATAR PIPELINE</h3><p data-zh="文本、图片、预设三入口进入 Meshy 生成，再通过 8 点位标注、任务轮询与动作预览完成辅助绑骨，把复杂的 3D 流程收敛成普通用户可操作的四步工作流。" data-en="Text, image and preset inputs enter Meshy generation, followed by 8-point annotation, task polling and motion preview for assisted rigging, compressing a complex 3D process into a four-step user workflow.">文本、图片、预设三入口进入 Meshy 生成，再通过 8 点位标注、任务轮询与动作预览完成辅助绑骨，把复杂的 3D 流程收敛成普通用户可操作的四步工作流。</p></section>
+                <section class="case-section"><h3>02 / REALTIME SESSION</h3><p data-zh="Qwen 实时语音、ASR 与 WebSocket 构成双向会话链路，支持打断和自动结束；MediaPipe 识别挥手等手势触发 3D 动作，使语言模型开始进入视觉、空间和实时交互环境。" data-en="Qwen realtime voice, ASR and WebSocket form a bidirectional conversation loop with interruption and auto-close; MediaPipe detects gestures such as waving to trigger 3D motion, moving the language model into visual, spatial and realtime interaction.">Qwen 实时语音、ASR 与 WebSocket 构成双向会话链路，支持打断和自动结束；MediaPipe 识别挥手等手势触发 3D 动作，使语言模型开始进入视觉、空间和实时交互环境。</p></section>
+                <section class="case-section"><h3>03 / DATA LOOP</h3><p data-zh="FastAPI、SQLAlchemy 与 Alembic 管理用户、模型和会话，Dashboard 汇总模型记录、会话事件、摘要与录屏，使一次实时交互变成可查询、可复盘的数据资产。" data-en="FastAPI, SQLAlchemy and Alembic manage users, models and sessions; the dashboard consolidates model records, session events, summaries and recordings so realtime interaction becomes queryable, reviewable data.">FastAPI、SQLAlchemy 与 Alembic 管理用户、模型和会话，Dashboard 汇总模型记录、会话事件、摘要与录屏，使一次实时交互变成可查询、可复盘的数据资产。</p></section>
               </div>
             </article>
           </div>
@@ -171,17 +175,10 @@
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
-    <div class="footer-row">
-      <span>CYY / 26</span>
-      <span data-zh="中国" data-en="CHINA">中国</span>
-      <span>© 2026 YAOYANG CHEN</span>
-      <a class="to-top" href="#top"><span data-zh="返回顶部" data-en="BACK TO TOP">返回顶部</span>&nbsp;↑</a>
-    </div>
-    <div class="footer-colophon">
-      <span class="colophon-left"><svg class="colophon-seal" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#9a8060"/><circle cx="12" cy="12" r="8" fill="none" stroke="#9a8060" stroke-width=".6"/><text x="12" y="15.5" text-anchor="middle" font-size="8.5" fill="#9a8060" font-family="'Noto Serif SC',serif">智</text></svg><span>TYPE — PLAYFAIR DISPLAY · NOTO SERIF SC · DM MONO</span></span>
-      <span>EDITION — CYY / 26 · 2026</span>
-    </div>
+    <div class="footer-row"><span>CYY / 26</span><span>LLM SYSTEMS · PROJECT ARCHIVE</span><span>© 2026 YAOYANG CHEN</span><a class="to-top" href="#top"><span data-zh="返回顶部" data-en="BACK TO TOP">返回顶部</span>&nbsp;↑</a></div>
+    <div class="footer-colophon"><span class="colophon-left"><svg class="colophon-seal" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#9a8060"/><text x="12" y="15" text-anchor="middle" font-size="7" fill="#9a8060" font-family="monospace">CYY</text></svg><span>RETRIEVE · REASON · BUILD</span></span><span>EDITION — CYY / 26 · 2026</span></div>
   </footer>
   <script src="assets/vendor/gsap.bundle.min.js"></script>
   <script src="script-core.js?v=20260904"></script>
