@@ -21,14 +21,7 @@ The content follows a research-oriented case-study pattern:
 
 **Problem → Insight → System → Contribution → Evidence → Limitation / Next**
 
-The goal is to show not only what technologies were used, but also:
-
-- why the problem matters
-- why a design decision was made
-- what Yaoyang personally contributed
-- what evidence supports the claimed improvement
-- where the system still fails
-- what should be tried next
+The goal is to show not only what technologies were used, but also why the problem matters, why a design decision was made, what Yaoyang personally contributed, what evidence supports a claimed improvement, where a system still fails, and what should be tried next.
 
 ## Pages
 
@@ -99,14 +92,7 @@ Frames the dual-degree background as **Mathematics × AI Systems** rather than t
 
 ### Research — `focus.html`
 
-Research questions are organized around:
-
-- Multimodal RAG
-- Agentic Systems
-- Evaluation & Interpretability
-- Multimodal Interaction
-
-Each direction includes method, evidence and a current bottleneck / next-step section.
+Research questions are organized around Multimodal RAG, Agentic Systems, Evaluation & Interpretability, and Multimodal Interaction. Each direction includes method, evidence and a current bottleneck / next-step section.
 
 ### Contact — `contact.html`
 
@@ -114,7 +100,7 @@ Research collaboration, AI engineering projects, open-source collaboration and i
 
 ## Evidence Assets V4
 
-Projects now include repository-grounded visual proof rather than prose-only descriptions.
+Projects include repository-grounded visual proof rather than prose-only descriptions.
 
 ```text
 assets/evidence/
@@ -133,20 +119,90 @@ styles-evidence-v4.css
 evidence-v4.js
 ```
 
-It provides:
-
-- project architecture diagrams
-- benchmark / ablation visualization
-- evidence-node and document-graph visualization
-- multi-agent workflow visualization
-- HITL / asynchronous AI-infrastructure visualization
-- realtime multimodal session visualization
-- direct `SOURCE` links to public repository documents
-- `CODE / BENCHMARK / EXPERIMENTS / ARCHITECTURE` evidence bars
-- zoomable visual-proof modal
-- source links inside Research proof blocks
+It provides architecture diagrams, benchmark / ablation visualization, evidence-node and graph views, workflow diagrams, direct source links, evidence bars and a zoomable proof modal.
 
 These diagrams are explanatory assets derived from public repository documentation, not fabricated screenshots.
+
+## Project Showcase V5
+
+V5 adds a second proof layer that distinguishes three evidence types explicitly:
+
+1. **REAL PRODUCT SCREEN** — an actual interface screenshot already published in the source repository.
+2. **PROJECT ASSET** — a genuine visual/product asset from the repository, clearly labeled as *not* a UI screenshot.
+3. **RUNTIME / SOURCE PROOF** — direct links to experiment runners, services, state protocols, components or documentation that verify the implementation.
+
+This distinction is intentional: repositories without verified product screenshots do not receive manufactured screenshots just to make the portfolio look fuller.
+
+### MultiRank-RAG
+
+The repository currently provides stronger research/runtime evidence than UI screenshots, so V5 shows:
+
+- `scripts/40_run_main_experiment.py`
+- `backend/services/pipeline.py`
+- `backend/services/retrieval.py`
+- `docs/PUBLIC_BENCHMARK_RESULTS.md`
+
+This complements the V4 architecture, evidence-node and ablation visuals.
+
+### Kongming
+
+The repository does not currently expose a formal UI-screenshot set. V5 therefore separates:
+
+**Project assets**
+- `public/kongming-ip.png`
+- `public/avatars/interviewer/interview-room.png`
+
+from **implementation proof**
+- `src/lib/agentRuntime.ts`
+- `src/lib/agents.ts`
+- `src/lib/matchEngine.ts`
+- `docs/08-multi-agent-multimodal-architecture.md`
+
+The visual assets are explicitly labeled as project assets, not interface screenshots.
+
+### AI Homework System
+
+V5 uses real product screenshots already published in the repository README, including:
+
+- platform overview
+- teacher workspace
+- AI grading + teacher review
+- teaching assistant
+
+The same section also links the documented HITL workflow, default 8-worker Redis setup, MinIO signed-URL storage and Theia + Judge0 execution chain.
+
+### Interactive Avatar
+
+V5 uses real product screens already stored in:
+
+```text
+frontend/public/intro-real/
+```
+
+Selected screens cover:
+
+- Create
+- Rig Assist
+- Scene
+- Realtime Interact
+- Dashboard
+
+Runtime proof links directly to:
+
+- `frontend/src/audio/voiceWsClient.js`
+- `frontend/src/components/avatar/InteractiveAvatarScene.jsx`
+- `frontend/src/components/avatar/GestureDetector.jsx`
+- `frontend/src/hooks/useSessionMachine.js`
+
+Showcase screenshots support lazy loading, source links, image-failure fallback, bilingual captions and a large-screen modal.
+
+V5 implementation:
+
+```text
+styles-showcase-v5.css
+showcase-v5.js
+showcase-v5-guard.js
+```
 
 ## MultiRank-RAG public evidence
 
@@ -176,10 +232,11 @@ Key results:
 
 ```text
 styles.css              # stable layout / typography / shared components
-styles-ai.css            # LLM Systems visual identity
-styles-ai-v2.css         # semantic trace / research-console motion
-styles-content-v3.css    # research narrative / case-study hierarchy
-styles-evidence-v4.css   # visual proof / evidence gallery
+styles-ai.css           # LLM Systems visual identity
+styles-ai-v2.css        # semantic trace / research-console motion
+styles-content-v3.css   # research narrative / case-study hierarchy
+styles-evidence-v4.css  # visual proof / evidence gallery
+styles-showcase-v5.css  # real screens / runtime proof / project showcase
 ```
 
 Runtime layers:
@@ -190,6 +247,8 @@ script.js
 cyy-ai-v2.js
 content-v3-fixes.js
 evidence-v4.js
+showcase-v5.js
+showcase-v5-guard.js
 ```
 
 ## CYY Research Assistant
