@@ -1,6 +1,6 @@
 /* CYY companion + AI systems enhancement loader.
    The stable base runtime remains in script-core.js; this file layers the
-   current research-console motion system and the local Research Assistant. */
+   current research-console motion system, portfolio storytelling and the local Research Assistant. */
 (() => {
   document.documentElement.classList.add('cyy-ai-mode');
 
@@ -8,10 +8,12 @@
   cleanupStyle.textContent = '.cyy-ai-mode .petal-canvas,.cyy-ai-mode .ink-layer{display:none!important}';
   document.head.appendChild(cleanupStyle);
 
-  const refinementStyle = document.createElement('link');
-  refinementStyle.rel = 'stylesheet';
-  refinementStyle.href = 'styles-ai-v2.css?v=20260904.2';
-  document.head.appendChild(refinementStyle);
+  ['styles-ai-v2.css?v=20260904.2', 'styles-content-v3.css?v=20260904.1'].forEach((href) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  });
 
   const sources = [
     'cyy-ai-v2.js?v=20260904.2',
