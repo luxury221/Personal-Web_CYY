@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#d8d1c5" />
+  <script>try{sessionStorage.getItem('cyy-cover-label')&&document.documentElement.classList.add('cover-hold')}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f0e8'/%3E%3Ccircle cx='16' cy='16' r='12.5' fill='none' stroke='%2321484c' stroke-width='2'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='14' fill='%2321484c' font-family='serif'%3E%E6%99%BA%3C/text%3E%3C/svg%3E" />
+  <meta property="og:title" content="方向 · Yaoyang Chen — 检索增强生成 · LLM 智能体 · 全栈工程" />
+  <meta property="og:description" content="检索增强生成 · LLM 智能体 · 全栈工程 — AI 方向学生开发者个人主页" />
+  <meta property="og:type" content="website" />
+  <title>Focus · Yaoyang Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500&display=swap" /></noscript>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+  <div class="page-transition" id="pageTransition"><span class="transition-index">CYY / 26</span><span class="transition-title" id="transitionTitle">FOCUS</span></div>
+  <header class="site-header">
+    <a class="wordmark" href="index.html" data-transition-label="HOME">CYY / 26</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html" data-transition-label="HOME" data-index="00" data-zh="首页" data-en="Home">首页</a>
+      <a href="profile.html" data-transition-label="PROFILE" data-index="01" data-zh="简介" data-en="Profile">简介</a>
+      <a href="experience.html" data-transition-label="EXPERIENCE" data-index="02" data-zh="经历" data-en="Experience">经历</a>
+      <a href="education.html" data-transition-label="EDUCATION" data-index="03" data-zh="训练" data-en="Training">训练</a>
+      <a href="focus.html" class="active" aria-current="page" data-transition-label="FOCUS" data-index="04" data-zh="方向" data-en="Focus">方向</a>
+      <a href="contact.html" data-transition-label="CONTACT" data-index="05" data-zh="联系" data-en="Contact">联系</a>
+    </nav>
+    <button id="langToggle" class="language-toggle" type="button">EN</button>
+  </header>
+  <main class="subpage">
+    <section class="subpage-hero">
+      <div class="sub-index">04</div>
+      <div><p class="sub-kicker decode">FOCUS</p><h1 class="sub-title" data-zh="方向" data-en="Focus">方向</h1></div>
+      <p class="sub-lead" data-zh="检索、推理、构建——一条正在成形的专业轴线。" data-en="Retrieve, reason, build — a professional axis still taking shape.">检索、推理、构建——一条正在成形的专业轴线。</p>
+    </section>
+    <section class="sub-content" data-margin="SEC. 04 — FOCUS">
+      <div></div>
+      <div class="content-main content-main--wide">
+        <div class="slide-index">
+          <nav class="slide-tabs" aria-label="Capability index">
+            <button class="slide-tab active" type="button" data-slide="0">
+              <span>01</span>
+              <span class="slide-tab-label"><b>RETRIEVE</b><small data-zh="检索增强" data-en="Retrieval-Augmented Generation">检索增强</small></span>
+            </button>
+            <button class="slide-tab" type="button" data-slide="1">
+              <span>02</span>
+              <span class="slide-tab-label"><b>REASON</b><small data-zh="推理与验证" data-en="Reasoning & Verification">推理与验证</small></span>
+            </button>
+            <button class="slide-tab" type="button" data-slide="2">
+              <span>03</span>
+              <span class="slide-tab-label"><b>BUILD</b><small data-zh="工程落地" data-en="Engineering Delivery">工程落地</small></span>
+            </button>
+          </nav>
+          <div class="slide-meta">
+            <p class="slide-progress"><b>01</b> / 03</p>
+            <span class="slide-hint" data-zh="拖拽切换" data-en="DRAG">拖拽切换</span>
+          </div>
+        </div>
+        <div class="slide-slider" data-deck>
+          <div class="slide-track">
+        <article class="slide-panel content-block" id="focus-01">
+          <span class="panel-ghost" aria-hidden="true">01</span>
+          <p class="focus-no">01 / RETRIEVE</p>
+          <h2 data-zh="检索增强" data-en="Retrieval-Augmented Generation">检索增强</h2>
+          <p data-zh="检索的起点是语料：岗位数据、简历字段、文档切片与召回口径。以 LlamaIndex 编排索引，Qdrant 向量召回与 BM25 关键词召回并行，再用 CrossEncoder 做二阶段重排；每个岗位保留官方来源与内容哈希，让每条结论都能回链到证据。" data-en="Retrieval begins with the corpus: job postings, resume fields, document chunks, and recall criteria. LlamaIndex orchestrates the index, Qdrant vector recall runs beside BM25 keyword recall, and a CrossEncoder reranks in a second stage; every posting keeps its official source and content hash, so each conclusion links back to evidence.">检索的起点是语料：岗位数据、简历字段、文档切片与召回口径。以 LlamaIndex 编排索引，Qdrant 向量召回与 BM25 关键词召回并行，再用 CrossEncoder 做二阶段重排；每个岗位保留官方来源与内容哈希，让每条结论都能回链到证据。</p>
+          <p class="focus-tags"><span>LLAMAINDEX</span><span>QDRANT</span><span>BM25</span><span>CROSSENCODER</span><span>HYBRID RETRIEVAL</span><span>EVIDENCE LINKING</span></p>
+        </article>
+        <article class="slide-panel content-block" id="focus-02">
+          <span class="panel-ghost" aria-hidden="true">02</span>
+          <p class="focus-no">02 / REASON</p>
+          <h2 data-zh="推理与验证" data-en="Reasoning & Verification">推理与验证</h2>
+          <p data-zh="推理必须可验证：证据 Gate 未通过就不生成结论，评分必须逐条引用简历证据，面试判断要过一致性核验；回到模型内部，用线性探针与 14 项不确定性特征给「鲁棒性」一个可检验的判据。细节密度决定可信度。" data-en="Reasoning must be verifiable: no conclusion before the evidence Gate passes, every score anchored to cited resume evidence, every interview judgment through consistency checks; inside the model, linear probes and 14 uncertainty features give robustness a testable criterion. Credibility lives in the detail.">推理必须可验证：证据 Gate 未通过就不生成结论，评分必须逐条引用简历证据，面试判断要过一致性核验；回到模型内部，用线性探针与 14 项不确定性特征给「鲁棒性」一个可检验的判据。细节密度决定可信度。</p>
+          <p class="focus-tags"><span>EVIDENCE GATE</span><span>AGENT ORCHESTRATION</span><span>CONSISTENCY CHECK</span><span>LINEAR PROBE</span><span>UNCERTAINTY</span></p>
+        </article>
+        <article class="slide-panel content-block" id="focus-03">
+          <span class="panel-ghost" aria-hidden="true">03</span>
+          <p class="focus-no">03 / BUILD</p>
+          <h2 data-zh="工程落地" data-en="Engineering Delivery">工程落地</h2>
+          <p data-zh="交付检验上述一切：React 19 与 Three.js 撑起交互前端，FastAPI 与 WebSocket 承接实时语音，十余个 verify 回归脚本守住评分与成长闭环，离线评测容器保证提交可复现。真实约束教我的第一课，是系统只有在能跑、能测、能复现时才算存在。" data-en="Delivery tests all of it: React 19 and Three.js carry the interactive frontend, FastAPI and WebSocket handle realtime voice, a dozen verify regression scripts guard scoring and the growth loop, and the offline evaluation container keeps submissions reproducible. Real constraints teach the first lesson: a system exists only when it runs, gets tested, and reproduces.">交付检验上述一切：React 19 与 Three.js 撑起交互前端，FastAPI 与 WebSocket 承接实时语音，十余个 verify 回归脚本守住评分与成长闭环，离线评测容器保证提交可复现。真实约束教我的第一课，是系统只有在能跑、能测、能复现时才算存在。</p>
+          <p class="focus-tags"><span>REACT 19</span><span>THREE.JS</span><span>FASTAPI</span><span>WEBSOCKET</span><span>REGRESSION TESTS</span><span>OFFLINE EVAL</span></p>
+        </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span>CYY / 26</span>
+      <span data-zh="中国" data-en="CHINA">中国</span>
+      <span>© 2026 YAOYANG CHEN</span>
+      <a class="to-top" href="#top"><span data-zh="返回顶部" data-en="BACK TO TOP">返回顶部</span>&nbsp;↑</a>
+    </div>
+    <div class="footer-colophon">
+      <span class="colophon-left"><svg class="colophon-seal" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#9a8060"/><circle cx="12" cy="12" r="8" fill="none" stroke="#9a8060" stroke-width=".6"/><text x="12" y="15.5" text-anchor="middle" font-size="8.5" fill="#9a8060" font-family="'Noto Serif SC',serif">智</text></svg><span>TYPE — PLAYFAIR DISPLAY · NOTO SERIF SC · DM MONO</span></span>
+      <span>EDITION — CYY / 26 · 2026</span>
+    </div>
+  </footer>
+  <script src="assets/vendor/gsap.bundle.min.js"></script>
+  <script src="script-core.js?v=20260904"></script>
+  <script src="script.js"></script>
+</body>
+</html>

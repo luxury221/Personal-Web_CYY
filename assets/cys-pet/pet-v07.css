@@ -1,0 +1,218 @@
+/* CYS Archive Companion — v0.7 layered continuous motion renderer */
+
+.cys-pet-root[data-renderer="layered-motion"] .cys-pet-character {
+  animation: none !important;
+}
+
+.cys-v07-rig {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  transform-origin: 50% 100%;
+}
+
+.cys-v07-rig.is-paused *,
+.cys-v07-rig.is-paused .cys-v07-set {
+  animation-play-state: paused !important;
+}
+
+.cys-v07-set {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(.997);
+  transition:
+    opacity .3s cubic-bezier(.2,.75,.2,1),
+    transform .34s cubic-bezier(.2,.75,.2,1),
+    filter .3s ease;
+  will-change: opacity, transform;
+}
+
+.cys-v07-set.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cys-v07-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 100%;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+  will-change: transform, filter, opacity;
+}
+
+/* The same transparent pose is split into three gently feathered bands.
+   This is intentionally conservative: it creates independent head/torso/base
+   motion without pretending a flattened WebP is a true skeletal rig. */
+.cys-v07-layer--upper {
+  clip-path: inset(0 0 61% 0);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 91%, transparent 100%);
+  transform-origin: 50% 92%;
+}
+
+.cys-v07-layer--torso {
+  clip-path: inset(36% 0 31% 0);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  transform-origin: 50% 82%;
+}
+
+.cys-v07-layer--lower {
+  clip-path: inset(64% 0 0 0);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 100%);
+  transform-origin: 50% 100%;
+}
+
+/* Neutral continuous life: extremely restrained breathing and balance shift. */
+.cys-v07-rig[data-motion-state="idle"] .cys-v07-set.is-active .cys-v07-layer--upper {
+  animation: cys-v07-idle-upper 6.4s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="idle"] .cys-v07-set.is-active .cys-v07-layer--torso {
+  animation: cys-v07-idle-torso 5.2s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="idle"] .cys-v07-set.is-active .cys-v07-layer--lower {
+  animation: cys-v07-idle-lower 7.2s ease-in-out infinite;
+}
+
+.cys-v07-rig[data-motion-state="wave"] .cys-v07-set.is-active .cys-v07-layer--upper,
+.cys-v07-rig[data-motion-state="success"] .cys-v07-set.is-active .cys-v07-layer--upper,
+.cys-v07-rig[data-motion-state="wake"] .cys-v07-set.is-active .cys-v07-layer--upper,
+.cys-v07-rig[data-motion-state="point"] .cys-v07-set.is-active .cys-v07-layer--upper {
+  animation: cys-v07-wave-upper 1.65s cubic-bezier(.45,0,.28,1) infinite;
+}
+.cys-v07-rig[data-motion-state="wave"] .cys-v07-set.is-active .cys-v07-layer--torso,
+.cys-v07-rig[data-motion-state="success"] .cys-v07-set.is-active .cys-v07-layer--torso,
+.cys-v07-rig[data-motion-state="wake"] .cys-v07-set.is-active .cys-v07-layer--torso,
+.cys-v07-rig[data-motion-state="point"] .cys-v07-set.is-active .cys-v07-layer--torso {
+  animation: cys-v07-wave-torso 1.65s cubic-bezier(.45,0,.28,1) infinite;
+}
+
+.cys-v07-rig[data-motion-state="read"] .cys-v07-set.is-active .cys-v07-layer--upper,
+.cys-v07-rig[data-motion-state="working"] .cys-v07-set.is-active .cys-v07-layer--upper {
+  animation: cys-v07-read-upper 3.25s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="read"] .cys-v07-set.is-active .cys-v07-layer--torso,
+.cys-v07-rig[data-motion-state="working"] .cys-v07-set.is-active .cys-v07-layer--torso {
+  animation: cys-v07-read-torso 3.7s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="working"] .cys-v07-set.is-active .cys-v07-layer--upper {
+  animation-duration: 2.3s;
+}
+
+.cys-v07-rig[data-motion-state="thinking"] .cys-v07-set.is-active .cys-v07-layer--upper,
+.cys-v07-rig[data-motion-state="error"] .cys-v07-set.is-active .cys-v07-layer--upper {
+  animation: cys-v07-think-upper 3.4s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="thinking"] .cys-v07-set.is-active .cys-v07-layer--torso,
+.cys-v07-rig[data-motion-state="error"] .cys-v07-set.is-active .cys-v07-layer--torso {
+  animation: cys-v07-think-torso 4.15s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="error"] .cys-v07-set.is-active {
+  filter: saturate(.88);
+}
+
+.cys-v07-rig[data-motion-state="sleep"] .cys-v07-set.is-active .cys-v07-layer--upper {
+  animation: cys-v07-sleep-upper 6.2s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="sleep"] .cys-v07-set.is-active .cys-v07-layer--torso {
+  animation: cys-v07-sleep-torso 5.6s ease-in-out infinite;
+}
+.cys-v07-rig[data-motion-state="sleep"] .cys-v07-set.is-active {
+  filter: saturate(.82) brightness(.985);
+}
+
+.cys-v07-rig[data-motion-state="dragging"] .cys-v07-layer {
+  animation: none !important;
+}
+
+/* A subtle floor shadow now breathes against the motion phase, so the figure
+   feels anchored instead of floating as one rectangular sprite. */
+.cys-pet-root[data-renderer="layered-motion"] .cys-pet-character::after {
+  animation: cys-v07-shadow 5.2s ease-in-out infinite;
+}
+.cys-pet-root[data-renderer="layered-motion"][data-state="sleep"] .cys-pet-character::after {
+  animation-duration: 6.2s;
+  opacity: .72;
+}
+.cys-pet-root[data-renderer="layered-motion"][data-state="dragging"] .cys-pet-character::after {
+  animation: none;
+}
+
+@keyframes cys-v07-idle-upper {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  40% { transform: translate3d(.3px, -1.15px, 0) rotate(.16deg); }
+  72% { transform: translate3d(-.2px, -.45px, 0) rotate(-.08deg); }
+}
+@keyframes cys-v07-idle-torso {
+  0%, 100% { transform: translate3d(0,0,0) scaleY(1); }
+  50% { transform: translate3d(0,-.35px,0) scaleY(1.0045); }
+}
+@keyframes cys-v07-idle-lower {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(.18px,0,0); }
+}
+
+@keyframes cys-v07-wave-upper {
+  0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  28% { transform: translate3d(.8px,-1.6px,0) rotate(.42deg); }
+  55% { transform: translate3d(-.35px,-1px,0) rotate(-.18deg); }
+  78% { transform: translate3d(.35px,-.55px,0) rotate(.16deg); }
+}
+@keyframes cys-v07-wave-torso {
+  0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  42% { transform: translate3d(.38px,-.55px,0) rotate(.08deg); }
+  72% { transform: translate3d(-.18px,-.2px,0) rotate(-.04deg); }
+}
+
+@keyframes cys-v07-read-upper {
+  0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  38% { transform: translate3d(-.25px,.72px,0) rotate(-.22deg); }
+  68% { transform: translate3d(.12px,.35px,0) rotate(-.08deg); }
+}
+@keyframes cys-v07-read-torso {
+  0%, 100% { transform: translate3d(0,0,0) scaleY(1); }
+  50% { transform: translate3d(0,-.28px,0) scaleY(1.0035); }
+}
+
+@keyframes cys-v07-think-upper {
+  0%, 100% { transform: translate3d(0,0,0) rotate(-.08deg); }
+  50% { transform: translate3d(-.5px,-.72px,0) rotate(-.46deg); }
+}
+@keyframes cys-v07-think-torso {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(-.18px,-.35px,0) rotate(-.05deg); }
+}
+
+@keyframes cys-v07-sleep-upper {
+  0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(.16px,.85px,0) rotate(.12deg); }
+}
+@keyframes cys-v07-sleep-torso {
+  0%, 100% { transform: translate3d(0,0,0) scaleY(1); }
+  50% { transform: translate3d(0,.35px,0) scaleY(.9975); }
+}
+
+@keyframes cys-v07-shadow {
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: .78; }
+  50% { transform: translateX(-50%) scaleX(.965); opacity: .64; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cys-v07-layer,
+  .cys-v07-set,
+  .cys-pet-root[data-renderer="layered-motion"] .cys-pet-character::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

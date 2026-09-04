@@ -1,0 +1,172 @@
+/* CYS Archive Companion — v0.6 interaction shell */
+
+/* The v0.5 root transform accidentally made mobile fixed panels behave like
+   transformed descendants. Keep the pet untransformed at rest; GSAP can still
+   apply an inline transform during the home-card morph. */
+.cys-pet-root { transform: none; will-change: opacity; }
+
+.cys-pet-render-stage,
+.cys-pet-renderer-host {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.cys-pet-render-stage { pointer-events: none; }
+.cys-pet-renderer-host {
+  display: none;
+  pointer-events: none;
+  overflow: visible;
+}
+.cys-pet-renderer-host > canvas,
+.cys-pet-renderer-host > svg,
+.cys-pet-renderer-host > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+.cys-pet-root:not([data-renderer="sprite-crossfade"]) .cys-pet-render-stage { display: none; }
+.cys-pet-root:not([data-renderer="sprite-crossfade"]) .cys-pet-renderer-host { display: block; }
+
+/* Clampable floating UI. JS writes a small translate offset only when the pet
+   has been dragged unusually high/low in the viewport. */
+.cys-pet-bubble.is-visible {
+  transform: translateY(var(--cys-bubble-shift-y, 0px));
+}
+.cys-pet-panel.is-open {
+  transform: translateY(var(--cys-panel-shift-y, 0px));
+}
+
+.cys-pet-context {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  min-height: 31px;
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(109,101,88,.22);
+  background: rgba(255,255,255,.12);
+  color: var(--cys-pet-muted);
+}
+.cys-pet-context span {
+  font: 8px/1 "DM Mono", monospace;
+  letter-spacing: .12em;
+  color: var(--cys-pet-gold);
+}
+.cys-pet-context b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 9px/1.25 "DM Mono", "Noto Sans SC", monospace;
+  letter-spacing: .045em;
+  font-weight: 400;
+  color: rgba(36,48,52,.72);
+}
+
+.cys-pet-panel-tools {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.cys-pet-panel-sub { grid-row: 2; }
+.cys-pet-panel-minimize,
+.cys-pet-panel-close {
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.cys-pet-panel-minimize {
+  border: 0;
+  background: transparent;
+  color: var(--cys-pet-muted);
+  padding: 0;
+  cursor: pointer;
+  font: 14px/1 "DM Mono", monospace;
+}
+.cys-pet-panel-minimize:hover,
+.cys-pet-panel-close:hover { background: rgba(33,72,76,.06); color: var(--cys-pet-accent); }
+
+.cys-pet-character:focus-visible,
+.cys-pet-action:focus-visible,
+.cys-pet-submit:focus-visible,
+.cys-pet-panel-close:focus-visible,
+.cys-pet-panel-minimize:focus-visible,
+.cys-pet-summon:focus-visible {
+  outline: 1px solid var(--cys-pet-accent);
+  outline-offset: 3px;
+}
+
+.cys-pet-summon {
+  position: fixed;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 861;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(154,128,96,.5);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.55), transparent 42%),
+    rgba(242,237,228,.96);
+  box-shadow: 0 12px 30px rgba(49,48,43,.13);
+  color: var(--cys-pet-gold);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(7px) scale(.94);
+  transition: opacity .22s ease, transform .24s cubic-bezier(.2,.75,.2,1), visibility 0s linear .24s;
+  font: 500 10px/1 "Playfair Display", serif;
+  letter-spacing: .04em;
+}
+.cys-pet-summon::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(154,128,96,.35);
+  border-radius: 50%;
+}
+.cys-pet-summon.is-left { right: auto; left: max(12px, env(safe-area-inset-left)); }
+.cys-pet-summon.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+.cys-pet-summon:hover { transform: translateY(-2px); box-shadow: 0 15px 34px rgba(49,48,43,.16); }
+
+.cys-pet-root.is-minimized {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 720px) {
+  .cys-pet-bubble.is-visible,
+  .cys-pet-panel.is-open { transform: none; }
+  .cys-pet-summon {
+    width: 42px;
+    height: 42px;
+    right: max(8px, env(safe-area-inset-right));
+    bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  .cys-pet-summon.is-left { left: max(8px, env(safe-area-inset-left)); }
+}
+
+@media (prefers-contrast: more) {
+  .cys-pet-panel,
+  .cys-pet-bubble,
+  .cys-pet-action,
+  .cys-pet-summon { border-color: rgba(36,48,52,.62); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cys-pet-summon,
+  .cys-pet-bubble,
+  .cys-pet-panel { transition: none !important; }
+}
