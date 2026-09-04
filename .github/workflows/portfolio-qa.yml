@@ -1,0 +1,75 @@
+name: Portfolio QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            script-core.js
+            script.js
+            content-v3-fixes.js
+            cyy-ai-v2.js
+            evidence-v4.js
+            showcase-v5.js
+            showcase-v5-guard.js
+            final-v6.js
+            assets/cys-pet/pet.js
+            assets/cys-pet/research-assistant.js
+            assets/cys-pet/research-greetings.js
+          )
+          for file in "${files[@]}"; do
+            echo "node --check $file"
+            node --check "$file"
+          done
+
+      - name: Check V6 contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f styles-final-v6.css
+          test -f final-v6.js
+          test -f robots.txt
+          grep -q "styles-final-v6.css" script.js
+          grep -q "final-v6.js" script.js
+          grep -q "0.678 → 0.878" README.md
+          grep -q "retriever fixed.*BM25\|fixed \*\*BM25\*\*" README.md
+
+      - name: Smoke-test static pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8000 --bind 127.0.0.1 >/tmp/cyy-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+
+          for attempt in {1..20}; do
+            if curl -fsS http://127.0.0.1:8000/index.html >/dev/null; then
+              break
+            fi
+            sleep 0.25
+          done
+
+          pages=(index.html profile.html experience.html education.html focus.html contact.html)
+          assets=(styles.css styles-ai.css styles-final-v6.css script-core.js script.js final-v6.js)
+
+          for path in "${pages[@]}" "${assets[@]}"; do
+            echo "GET /$path"
+            curl -fsS "http://127.0.0.1:8000/$path" >/dev/null
+          done
