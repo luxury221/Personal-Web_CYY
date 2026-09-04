@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#d8d1c5" />
   <script>try{sessionStorage.getItem('cyy-cover-label')&&document.documentElement.classList.add('cover-hold')}catch(e){}</script>
   <meta property="og:title" content="About · Yaoyang Chen — LLM Systems" />
-  <meta property="og:description" content="陈耀洋｜重庆邮电大学｜LLM Systems · RAG · Agent Engineering" />
+  <meta property="og:description" content="陈耀洋｜重庆邮电大学｜LLM Systems · RAG · Agentic Systems · Evaluation" />
   <meta property="og:type" content="website" />
   <title>About · Yaoyang Chen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,7 +37,7 @@
     <section class="subpage-hero">
       <div class="sub-index">01</div>
       <div><p class="sub-kicker decode">ABOUT / SYSTEMS MINDSET</p><h1 class="sub-title" data-zh="关于" data-en="About">关于</h1></div>
-      <p class="sub-lead" data-zh="把大模型当作系统中的一个不确定组件，而不是答案本身。" data-en="Treat the language model as one uncertain component inside a system, not as the answer itself.">把大模型当作系统中的一个不确定组件，而不是答案本身。</p>
+      <p class="sub-lead" data-zh="把大模型看作一个有能力、也有不确定性的组件；真正值得设计的是它周围的证据、状态、工具、边界与评测。" data-en="Treat the language model as a capable but uncertain component; the real design problem is the evidence, state, tools, boundaries and evaluation around it.">把大模型看作一个有能力、也有不确定性的组件；真正值得设计的是它周围的证据、状态、工具、边界与评测。</p>
     </section>
 
     <section class="sub-content" data-margin="SEC. 01 — ABOUT">
@@ -54,39 +54,52 @@
       </aside>
 
       <div class="content-main">
-        <article class="content-block">
+        <article class="content-thesis">
           <span class="system-label">POSITIONING</span>
           <h2>Yaoyang Chen / 陈耀洋</h2>
-          <p data-zh="我是一名面向 LLM Systems 方向学习和开发的本科生。相比“让模型生成更多内容”，我更关注如何把模型放进有数据来源、有状态、有工具、有边界、有评测的完整系统。MultiRank-RAG 研究复杂文档中的多模态证据检索与排序；孔明职配把 Agent、RAG、长期记忆和证据化决策放进求职工作流；AI Homework System 处理 Human-in-the-loop 与异步 AI 基础设施；Interactive Avatar 则把语言模型推进实时语音、3D 和手势交互环境。" data-en="I am an undergraduate focused on LLM systems. Rather than asking models to generate more content, I care about placing them inside complete systems with provenance, state, tools, boundaries and evaluation. MultiRank-RAG studies multimodal evidence retrieval and ranking in complex documents; Kongming combines agents, RAG, memory and evidence-based decisions in a career workflow; AI Homework System explores human-in-the-loop AI infrastructure; Interactive Avatar pushes language models into realtime speech, 3D and gesture interaction.">我是一名面向 LLM Systems 方向学习和开发的本科生。相比“让模型生成更多内容”，我更关注如何把模型放进有数据来源、有状态、有工具、有边界、有评测的完整系统。MultiRank-RAG 研究复杂文档中的多模态证据检索与排序；孔明职配把 Agent、RAG、长期记忆和证据化决策放进求职工作流；AI Homework System 处理 Human-in-the-loop 与异步 AI 基础设施；Interactive Avatar 则把语言模型推进实时语音、3D 和手势交互环境。</p>
+          <p data-zh="我是一名以 LLM Systems 为主线学习和开发的本科生。相比把更大的模型接进更多页面，我更关心模型进入真实系统之后会暴露出的结构性问题：证据是否可靠、状态是否一致、工具调用是否可控、指标是否真的变好、失败是否能够被复现。" data-en="I am an undergraduate building around LLM systems. Rather than wiring larger models into more interfaces, I focus on the structural problems that appear when models enter real systems: whether evidence is reliable, state is consistent, tool use is controllable, gains are measurable, and failures are reproducible.">我是一名以 LLM Systems 为主线学习和开发的本科生。相比把更大的模型接进更多页面，我更关心模型进入真实系统之后会暴露出的结构性问题：证据是否可靠、状态是否一致、工具调用是否可控、指标是否真的变好、失败是否能够被复现。</p>
+          <p class="thesis-quote" data-zh="Building LLM systems around evidence, reasoning and measurable improvement." data-en="Building LLM systems around evidence, reasoning and measurable improvement.">Building LLM Systems around evidence, reasoning and measurable improvement.</p>
+          <div class="thesis-meta"><span>EVIDENCE FIRST</span><span>CONTROLLED REASONING</span><span>MEASURABLE GAIN</span><span>SYSTEM DELIVERY</span></div>
+        </article>
+
+        <article class="content-block">
+          <span class="system-label">CURRENT RESEARCH GOAL</span>
+          <h2 data-zh="我现在真正想解决的问题" data-en="The Problems I Want to Keep Solving">我现在真正想解决的问题</h2>
+          <p data-zh="当前我希望继续研究复杂多模态环境下，检索、结构化记忆与评测机制如何提升大模型系统的可靠性与可解释性。项目不是彼此独立的 Demo，而是分别从文档检索、Agent 工作流、AI 基础设施和实时交互四个角度验证这条主线。" data-en="My current goal is to study how retrieval, structured memory and evaluation can improve the reliability and interpretability of LLM systems in complex multimodal environments. The projects are not isolated demos; they probe the same axis through document retrieval, agent workflows, AI infrastructure and realtime interaction.">当前我希望继续研究复杂多模态环境下，检索、结构化记忆与评测机制如何提升大模型系统的可靠性与可解释性。项目不是彼此独立的 Demo，而是分别从文档检索、Agent 工作流、AI 基础设施和实时交互四个角度验证这条主线。</p>
+          <div class="research-goal-grid">
+            <section class="research-goal-card"><span>01 / EVIDENCE</span><h3 data-zh="证据如何进入系统" data-en="How Evidence Enters">证据如何进入系统</h3><p data-zh="在文本、表格、图片和跨页结构中保留来源与关系，让生成结果能够回到可检查的 evidence。" data-en="Preserve provenance and relations across text, tables, figures and cross-page structure so generations can return to inspectable evidence.">在文本、表格、图片和跨页结构中保留来源与关系，让生成结果能够回到可检查的 evidence。</p></section>
+            <section class="research-goal-card"><span>02 / CONTROL</span><h3 data-zh="推理如何被约束" data-en="How Reasoning Is Controlled">推理如何被约束</h3><p data-zh="通过显式状态、角色边界、工具协议与证据 Gate，减少 Agent 在关键决策中的自由漂移。" data-en="Use explicit state, role boundaries, tool protocols and evidence gates to reduce agent drift in critical decisions.">通过显式状态、角色边界、工具协议与证据 Gate，减少 Agent 在关键决策中的自由漂移。</p></section>
+            <section class="research-goal-card"><span>03 / EVALUATION</span><h3 data-zh="改进如何被证明" data-en="How Improvement Is Proven">改进如何被证明</h3><p data-zh="固定候选、设置负对照、做逐层消融并保留失败案例，让“更复杂”只有在实验支持时才被称为“更好”。" data-en="Fix candidates, keep negative controls, run staged ablations and preserve failures so more complexity is called better only when experiments support it.">固定候选、设置负对照、做逐层消融并保留失败案例，让“更复杂”只有在实验支持时才被称为“更好”。</p></section>
+          </div>
         </article>
 
         <article class="content-block">
           <span class="system-label">WORKING PRINCIPLES</span>
-          <h2 data-zh="我如何做 AI 系统" data-en="How I Build AI Systems">我如何做 AI 系统</h2>
+          <h2 data-zh="我如何做 AI 系统" data-en="How I Build AI Systems">我如何做 AI 系谊</h2>
           <div class="profile-principles">
             <section class="profile-principle">
               <span>01 / EVIDENCE</span><h3>Evidence First</h3>
-              <p data-zh="先确认依据是否足够，再生成结论；让答案、评分和 Agent 决策能够回到具体来源。" data-en="Verify that evidence is sufficient before generating conclusions; answers, scores and agent decisions should trace back to concrete sources.">先确认依据是否足够，再生成结论；让答案、评分和 Agent 决策能够回到具体来源。</p>
+              <p data-zh="先确认依据是否足够，再生成结论；答案、评分和 Agent 决策应尽量回到具体来源，而不是只给出“模型认为”。" data-en="Verify that evidence is sufficient before generating conclusions; answers, scores and agent decisions should trace back to concrete sources instead of ending at “the model thinks”.">先确认依据是否足够，再生成结论；答案、评分和 Agent 决策应尽量回到具体来源，而不是只给出“模型认为”。</p>
             </section>
             <section class="profile-principle">
               <span>02 / EVALUATION</span><h3>Measure the Gain</h3>
-              <p data-zh="固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把复杂度包装成创新。" data-en="Control baselines, run ablations and preserve failure cases. If metrics do not support a gain, added complexity should not be marketed as innovation.">固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把复杂度包装成创新。</p>
+              <p data-zh="固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把额外模块和复杂度包装成创新。" data-en="Control baselines, run ablations and preserve failure cases. If metrics do not support a gain, extra modules and complexity should not be marketed as innovation.">固定对照条件、做消融、保留失败案例；如果指标不支持改进，就不把额外模块和复杂度包装成创新。</p>
             </section>
             <section class="profile-principle">
               <span>03 / DELIVERY</span><h3>Ship the System</h3>
-              <p data-zh="模型能力必须进入能跑、能测、能部署、能回归的系统，工程约束本身也是研究问题的一部分。" data-en="Model capability must land in systems that run, test, deploy and regress reliably; engineering constraints are part of the research problem.">模型能力必须进入能跑、能测、能部署、能回归的系统，工程约束本身也是研究问题的一部分。</p>
+              <p data-zh="模型能力必须进入能跑、能测、能部署、能回归的系统；性能、延迟、异步任务、数据边界与 Human-in-the-loop 都是方法的一部分。" data-en="Model capability must land in systems that run, test, deploy and regress reliably; performance, latency, async work, data boundaries and human-in-the-loop control are part of the method.">模型能力必须进入能跑、能测、能部署、能回归的系统；性能、延迟、异步任务、数据边界与 Human-in-the-loop 都是方法的一部分。</p>
             </section>
           </div>
         </article>
 
         <article class="content-block timeline-block">
           <span class="system-label">CURRENT TRAJECTORY</span>
-          <h2 data-zh="正在形成的技术主线" data-en="A Technical Axis in Formation">正在形成的技术主线</h2>
+          <h2 data-zh="正在形成的技术主线" data-enen="A Technical Axis in Formation" data-en="A Technical Axis in Formation">正在形成的技术主线</h2>
           <div class="timeline">
             <div class="timeline-item"><span class="timeline-date">2026.05</span><p>MultiRank-RAG · Multimodal evidence nodes / GraphRAG / MultiRank / evidence-chain evaluation.</p></div>
             <div class="timeline-item"><span class="timeline-date">2026.07</span><p data-zh="孔明职配 · 多 Agent、岗位 RAG、长期记忆与证据化决策。" data-en="Kongming · multi-agent orchestration, job RAG, long-term memory and evidence-based decisions.">孔明职配 · 多 Agent、岗位 RAG、长期记忆与证据化决策。</p></div>
             <div class="timeline-item"><span class="timeline-date">2026.08</span><p>Interactive Avatar · realtime speech / 3D / gesture-based multimodal interaction.</p></div>
-            <div class="timeline-item"><span class="timeline-date">NOW</span><p data-zh="继续围绕 Multimodal RAG、Agentic Systems 与 Evaluation 构建研究型项目。" data-en="Continuing research-oriented projects around multimodal RAG, agentic systems and evaluation.">继续围绕 Multimodal RAG、Agentic Systems 与 Evaluation 构建研究型项目。</p></div>
+            <div class="timeline-item"><span class="timeline-date">NOW</span><p data-zh="把重心继续放在 Multimodal RAG、Agentic Systems、Evaluation 与可复现系统研究上。" data-en="Continuing to concentrate on multimodal RAG, agentic systems, evaluation and reproducible systems research.">把重心继续放在 Multimodal RAG、Agentic Systems、Evaluation 与可复现系统研究上。</p></div>
           </div>
         </article>
       </div>
