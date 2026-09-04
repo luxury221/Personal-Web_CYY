@@ -4,7 +4,7 @@
   'use strict';
 
   const ROOT = 'https://github.com/';
-  const isEn = () => document.documentElement.lang?.toLower().startsWith('en');
+  const isEn = () => document.documentElement.lang?.toLowerCase().startsWith('en');
 
   const assets = {
     multirankArchitecture: {
@@ -29,7 +29,7 @@
       src: 'assets/evidence/kongming-agent-flow.svg',
       titleZh: '多 Agent Workflow / Structured State', titleEn: 'Multi-Agent Workflow / Structured State',
       noteZh: '六类角色通过共享 Context / Event / Artifact 传递状态。', noteEn: 'Six roles pass state through shared Context / Event / Artifact.',
-      href: `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agen%74-multimodal-architecture.md`, source: '08-multi-agent-multimodal-architecture.md'
+      href: `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`, source: '08-multi-agent-multimodal-architecture.md'
     }
   };
 
@@ -109,6 +109,15 @@
     target?.insertAdjacentElement('afterend', gallery);
   }
 
+  function addResearchSource(id, label, href) {
+    const panel = document.getElementById(id);
+    const proof = panel?.querySelector('.research-proof');
+    if (!proof || proof.querySelector('.research-proof-source')) return;
+    const source = link(`${label} ↗`, href);
+    source.className = 'research-proof-source';
+    proof.appendChild(source);
+  }
+
   let modal;
   function ensureModal() {
     if (modal) return modal;
@@ -148,36 +157,40 @@
   function enhanceProjects() {
     const multi = document.getElementById('case-01');
     const kongming = document.getElementById('case-02');
-    if (!multi && !kongming) return;
+    if (multi || kongming) {
+      addEvidenceBar(multi, [
+        ['CODE', `${ROOT}luxury221/MultiRank-RAG`],
+        ['BENCHMARK / V0–V5', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/PUBLIC_BENCHMARK_RESULTS.md`],
+        ['EXPERIMENTS', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/EXPERIMENTS.md`],
+        ['ARCHITECTURE', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/ARCHITECTURE.md`]
+      ]);
+      gallery(multi, {
+        titleZh: '把方法、结构和结果放到同一组证据里',
+        titleEn: 'Method, architecture and results in one evidence set',
+        noteZh: '图示内容直接根据 MultiRank-RAG 仓库架构文档与公开 benchmark 报告整理。',
+        noteEn: 'Visuals are derived directly from the MultiRank-RAG architecture and public benchmark documentation.',
+        after: '.evidence-strip',
+        items: [[assets.multirankArchitecture, true], [assets.multirankAblation, false], [assets.multirankNode, false]]
+      });
 
-    addEvidenceBar(multi, [
-      ['CODE', `${ROOT}luxury221/MultiRank-RAG`],
-      ['BENCHMARK / V0–V5', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/PUBLIC_BENCHMARK_RESULTS.md`],
-      ['EXPERIMENTS', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/EXPERIMENTS.md`],
-      ['ARCHITECTURE', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/ARCHITECTURE.md`]
-    ]);
-    gallery(multi, {
-      titleZh: '把方法、结构和结果放到同一组证据里',
-      titleEn: 'Method, architecture and results in one evidence set',
-      noteZh: '图示内容直接根据 MultiRank-RAG 仓库架构文档与公开 benchmark 报告整理。',
-      noteEn: 'Visuals are derived directly from the MultiRank-RAG architecture and public benchmark documentation.',
-      after: '.evidence-strip',
-      items: [[assets.multirankArchitecture, true], [assets.multirankAblation, false], [assets.multirankNode, false]]
-    });
+      addEvidenceBar(kongming, [
+        ['CODE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent`],
+        ['AGENT ARCHITECTURE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`],
+        ['OCR DESIGN', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/12-ocr-integration.md`]
+      ]);
+      gallery(kongming, {
+        titleZh: 'Agent 不是数量展示，而是职责与状态边界',
+        titleEn: 'Agents are role and state boundaries, not a count',
+        noteZh: 'Workflow 对应项目文档中输入层、编排层、智能体层、产物层与展示层的分层设计。',
+        noteEn: 'The workflow maps to the documented input, orchestration, agent, artifact and presentation layers.',
+        after: '.project-story-grid',
+        items: [[assets.kongmingFlow, true]]
+      });
+    }
 
-    addEvidenceBar(kongming, [
-      ['CODE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent`],
-      ['AGENT ARCHITECTURE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`],
-      ['OCR DESIGN', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/12-ocr-integration.md`]
-    ]);
-    gallery(kongming, {
-      titleZh: 'Agent 不是数量展示，而是职责与状态边界',
-      titleEn: 'Agents are role and state boundaries, not a count',
-      noteZh: 'Workflow 对应项目文档中输入层、编排层、智能体层、产物层与展示层的分层设计。',
-      noteEn: 'The workflow maps to the documented input, orchestration, agent, artifact and presentation layers.',
-      after: '.project-story-grid',
-      items: [[assets.kongmingFlow, true]]
-    });
+    addResearchSource('research-01', 'SOURCE / PUBLIC BENCHMARK', `${ROOT}luxury221/MultiRank-RAG/blob/main/docs/PUBLIC_BENCHMARK_RESULTS.md`);
+    addResearchSource('research-02', 'SOURCE / AGENT ARCHITECTURE', `${ROOT}lljjcc426/Kongming-Student-Job-Matching-Agent/blob/main/docs/08-multi-agent-multimodal-architecture.md`);
+    addResearchSource('research-04', 'SOURCE / AI-AVATAR', `${ROOT}WaterXiao-git/AI-Avatar`);
   }
 
   function boot() {
