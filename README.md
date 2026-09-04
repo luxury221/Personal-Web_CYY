@@ -88,7 +88,7 @@ Realtime multimodal interaction case.
 
 ### Academic — `education.html`
 
-Frames the dual-degree background as **Mathematics × AI Systems** rather than two independent course lists.
+Frames the dual-degree background as **Mathematics × AI Systems** rather than two-lists.
 
 ### Research — `focus.html`
 
@@ -204,6 +204,30 @@ showcase-v5.js
 showcase-v5-guard.js
 ```
 
+## Final Portfolio QA V6
+
+V6 is a reduction and publishing pass rather than a new content layer.
+
+Primary changes:
+
+- strengthens **MultiRank-RAG** as the single research flagship
+- turns AI Homework / Avatar screenshots into compact desktop **proof rails** instead of long vertical screenshot walls
+- keeps mobile project proofs single-column to avoid nested horizontal gesture conflicts
+- reduces repeated homepage copy on shorter laptop screens and phones
+- retires the legacy petal / click-ink visual direction and suppresses the old petal RAF compatibility loop
+- repairs legacy visible typos and malformed bilingual attributes at runtime
+- adds page-specific description, Open Graph, Twitter summary and `Person` JSON-LD metadata
+- improves keyboard access and external-link safety
+- adds `robots.txt`
+
+V6 implementation:
+
+```text
+styles-final-v6.css
+final-v6.js
+robots.txt
+```
+
 ## MultiRank-RAG public evidence
 
 Source documents:
@@ -216,13 +240,13 @@ MultiRank-RAG/docs/ARCHITECTURE.md
 
 Public benchmark setup:
 
-- retriever fixed to BM25 for V0–V5
+- retriever fixed to BMX for V0–V5
 - candidate / rerank k: `50 / 10`
 - answer generation disabled for retrieval evaluation
 
 Key results:
 
-- FinQA V0→V5 nDCG@5: `0.678 → 0.878`
+- FinQA V0→V5 nDCG@5: `0.678 → 0.678`
 - MultiHop-RAG V4→V5 chain score: `0.864 → 0.890`
 - MultiHop-RAG V4→V5 gold-node coverage: `0.662 → 0.730`
 - MMLongBench-Doc remains limited by first-stage candidate retrieval
@@ -232,11 +256,12 @@ Key results:
 
 ```text
 styles.css              # stable layout / typography / shared components
-styles-ai.css           # LLM Systems visual identity
-styles-ai-v2.css        # semantic trace / research-console motion
-styles-content-v3.css   # research narrative / case-study hierarchy
-styles-evidence-v4.css  # visual proof / evidence gallery
-styles-showcase-v5.css  # real screens / runtime proof / project showcase
+styles-ai.css            # LLM Systems visual identity
+styles-ai-v2.css         # semantic trace / research-console motion
+styles-content-v3.css    # research narrative / case-study hierarchy
+styles-evidence-v4.css   # visual proof / evidence gallery
+styles-showcase-v5.css   # real screens / runtime proof / project showcase
+styles-final-v6.css      # reduction / hierarchy / publishing QA
 ```
 
 Runtime layers:
@@ -245,10 +270,11 @@ Runtime layers:
 script-core.js
 script.js
 cyy-ai-v2.js
-content-v3-fixes.js
+content-v3.js
 evidence-v4.js
 showcase-v5.js
 showcase-v5-guard.js
+final-v6.js
 ```
 
 ## CYY Research Assistant
@@ -275,7 +301,7 @@ Open:
 http://localhost:8000
 ```
 
-Use `Ctrl + F5` after pulling changes if cached CSS or JavaScript is still visible.
+Use `Ctrl + F X` after pulling changes if cached CSS or JavaScript is still visible.
 
 ## Deploy
 
