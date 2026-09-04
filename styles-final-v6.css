@@ -37,9 +37,7 @@
   font: 7px/1 "DM Mono",monospace;
   letter-spacing: .12em;
 }
-#case-01 .project-lede {
-  position: relative;
-}
+#case-01 .project-lede { position: relative; }
 #case-01 .project-lede::before {
   content: "PRIMARY / RESEARCH FLAGSHIP";
   position: absolute;
@@ -66,7 +64,7 @@
   grid-template-columns: none;
   gap: 12px;
   overflow-x: auto;
-  overscroll-bebinavior-x: contain;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
   scrollbar-width: thin;
   padding: 2px 2px 12px;
@@ -80,9 +78,7 @@
   min-width: 0;
 }
 #case-03 .product-screen-frame,
-#case-04 .product-screen-frame {
-  aspect-ratio: 16 / 10;
-}
+#case-04 .product-screen-frame { aspect-ratio: 16 / 10; }
 #case-03 .product-screen-frame img,
 #case-04 .product-screen-frame img {
   width: 100%;
