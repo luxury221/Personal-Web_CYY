@@ -1,7 +1,14 @@
 /* CYY Research Assistant 2.0 — evidence result UI */
-.cys-pet-root[data-assistant="research"] .cys-pet-panel {
+.cys-pet-root[data-assistant^="research"] .cys-pet-panel {
   width: min(372px, 86vw);
+  max-height: min(78vh, 680px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(33,72,76,.28) transparent;
 }
+.cys-pet-root[data-assistant^="research"] .cys-pet-panel::-webkit-scrollbar { width: 5px; }
+.cys-pet-root[data-assistant^="research"] .cys-pet-panel::-webkit-scrollbar-thumb { background: rgba(33,72,76,.24); }
 
 .cys-ra-query {
   display: flex;
@@ -172,7 +179,10 @@
 }
 
 @media (max-width: 720px) {
-  .cys-pet-root[data-assistant="research"] .cys-pet-panel { width: min(350px, 88vw); }
+  .cys-pet-root[data-assistant^="research"] .cys-pet-panel {
+    width: min(350px, 88vw);
+    max-height: 72vh;
+  }
   .cys-ra-result p,
   .cys-ra-answer p { font-size: 10px; }
 }
