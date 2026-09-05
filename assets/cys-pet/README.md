@@ -1,90 +1,79 @@
-# CYS Archive Companion — Web Pet v0.7.1
+# CYY Research Assistant — Web Pet v0.8
 
-This folder contains the website-integrated CYS Archive Companion for the static portfolio site.
+This folder contains the website-integrated **CYY Research Assistant**, a lightweight chibi mascot derived from Yaoyang Chen's own visual identity rather than the previous unrelated female character.
 
-## Runtime layout
+## Character direction
 
-- `pet.js` — v0.5 core state machine, Agent bridge, drag/sleep/page events.
-- `pet.css` — core visual layer and legacy sprite renderer styles.
-- `pet-v06.js` / `pet-v06.css` — v0.6 interaction shell, page context, minimize/restore, viewport fitting and renderer-v2 bridge.
-- `pet-v061.js` — v0.6.1 behavior correction: mouse/hover suppression, home-only welcome, simplified labels and stable transition pose.
-- `pet-v062.js` — v0.6.2 semantic action director: stable page/region actions, dwell gating and duplicate-trigger suppression.
-- `pet-v07.js` / `pet-v07.css` — v0.7 layered continuous-motion renderer.
-- `rive/` — v0.7.1 production handoff for the true Rive character.
+The current mascot keeps a small set of recognizable personal features:
 
-The public site still includes only the shared `script.js` entry. It loads the site runtime and companion layers in order, so no HTML page needs duplicate pet markup.
+- fluffy black hair;
+- black rectangular glasses;
+- navy / cream / muted-red knitwear palette;
+- restrained student / research-assistant styling;
+- transparent WebP artwork optimized for the small floating companion size.
+
+The visual goal is **personal research identity first, mascot cuteness second**. It should read as a compact CYY research companion inside the Editorial AI × Research Console portfolio rather than as an unrelated anime character.
+
+## Current pose assets
+
+```text
+assets/cys-pet/
+├─ idle.webp       # neutral standing pose
+├─ wave.webp       # greeting / wake / success
+├─ thinking.webp   # thinking / error
+├─ point.webp      # presentation / direction pose
+├─ read.webp       # tablet / reading / working
+└─ sleep.webp      # current quiet-rest fallback
+```
+
+All six files now use the CYY character. The previous female artwork is no longer referenced by these pose paths.
+
+Current runtime semantics:
+
+- `idle` → `idle.webp`
+- `wave / wake / success` → `wave.webp`
+- `read / working` → `read.webp`
+- `thinking / error` → `thinking.webp`
+- `sleep` → `sleep.webp`
+- `point` has a dedicated `point.webp` asset available for the next renderer mapping cleanup
+
+The existing v0.7 layered renderer still preserves the prior semantic trigger policy and pseudo-rig motion. The dedicated `point.webp` is now clean and ready to replace the old wave alias when the consolidated runtime is next refactored.
+
+## Runtime architecture
+
+The public site uses the consolidated `script.js` entry. It contains the historical pet layers in order:
+
+1. core state machine and Agent bridge;
+2. interaction shell / minimize / restore / viewport fitting;
+3. behavior correction and semantic action director;
+4. layered continuous-motion renderer;
+5. research-assistant retrieval and greeting layer.
+
+The supporting CSS remains split under `assets/cys-pet/` for easier visual maintenance.
 
 ## Trigger policy
 
-Character pose changes remain tied to meaningful events:
+Character pose changes stay tied to meaningful events:
 
-- home page: welcome sentence and entry action;
+- home page: one welcome action;
 - subpage entry: one silent page-specific action;
-- content region: one action after the region remains dominant for a short dwell;
-- character click: explicit `wave` action while opening/closing the archive panel;
+- content region: action only after a meaningful dwell;
+- character click: explicit greeting interaction;
 - Agent lifecycle: `thinking / working / success / error` overrides lower-priority page actions;
 - mouse movement, character hover, nav hover, fast scrolling and random idle timers do not visibly switch poses;
-- 90-second sleep/wake and drag/snap remain intact.
+- sleep/wake and drag/snap remain intact.
 
-## v0.7 layered-motion renderer
+## UI identity
 
-v0.7 mounts through the existing `CYSPet.mountRenderer()` bridge and replaces the visible two-sprite crossfade renderer with `layered-motion`.
-
-The current WebP artwork is still flattened, so this remains a **pseudo-rig rather than a skeletal rig**. Each pose is split into feathered upper / torso / lower bands with independent, very small continuous motion. The goal is to reduce rigid-bitmap movement while preserving the current artwork until final layered art is available.
-
-Current continuous loops:
-
-- `idle` — slow breathing and balance shift;
-- `wave / wake / success / point` — upper-body greeting rhythm with anchored lower body;
-- `read / working` — slow reading/nodding rhythm, with a faster working cadence;
-- `thinking / error` — restrained head/upper-body tilt;
-- `sleep` — slow settling/breathing motion;
-- `dragging` — motion loops pause so the figure remains stable under the pointer.
-
-State changes cross-fade between pose sets. The old `point.webp` remains bypassed because of its colour/glitch artifact; semantic `point` uses the stable wave artwork.
-
-## v0.7.1 Rive production handoff
-
-The repository now contains an explicit Rive contract under `assets/cys-pet/rive/`:
+The user-facing assistant identity is:
 
 ```text
-rive/
-├─ manifest.json
-├─ RIG_SPEC.md
-└─ rive-adapter.js
+CYY / RESEARCH ASSISTANT
 ```
 
-`manifest.json` freezes the artboard, part names, animation names and state-machine inputs. `RIG_SPEC.md` defines the production layer hierarchy, pivots, motion limits and the first five approval animations: `idle`, `blink`, `wave`, `thinking`, and `read`.
+The minimized restore control is visually labeled `CYY`.
 
-`rive-adapter.js` is a dormant renderer adapter scaffold. It is deliberately **not loaded by the website yet** because the actual `cys-companion.riv` asset has not been authored. Once the Rive file exists, the adapter can translate the existing semantic website states into the Rive state machine without rewriting page triggers, context awareness, panel logic, drag/sleep behavior or the Agent bridge.
-
-Target final asset path:
-
-```text
-assets/cys-pet/rive/cys-companion.riv
-```
-
-The Rive state machine name is fixed as:
-
-```text
-CYS Companion
-```
-
-Inputs:
-
-- numbers: `lookX`, `lookY`, `energy`
-- booleans: `isWorking`, `isSleeping`, `isDragging`
-- triggers: `wave`, `read`, `think`, `success`, `error`, `wake`
-
-Mouse hover intentionally has no animation input. The current product policy keeps the character quiet unless a meaningful page/section/click/Agent event occurs.
-
-## UI cleanup retained
-
-- speech bubble header: `Yaoyang Chen` only;
-- no public web/version line in the panel;
-- home-only default welcome sentence;
-- no hover/nav chatter;
-- page/section context, minimize/restore, keyboard focus and viewport clamping remain available.
+Internal CSS classes and the global API still keep the historical `cys-pet-*` / `CYSPet` names for backward compatibility. These are implementation identifiers only and do not represent the public character identity.
 
 ## Public API
 
@@ -97,8 +86,8 @@ CYSPet.minimize();
 CYSPet.restore();
 CYSPet.isMinimized();
 CYSPet.refit();
-CYSPet.renderer();      // layered-motion until the .riv asset is mounted
-CYSPet.motionEngine();  // layered-webp
+CYSPet.renderer();
+CYSPet.motionEngine();
 ```
 
 Agent lifecycle:
@@ -110,6 +99,34 @@ CYSPet.agent.success('已找到相关经历。');
 CYSPet.agent.error('读取失败，请稍后重试。');
 ```
 
-## Final Rive path
+## Rive production path
 
-The next production task is artwork, not more WebP motion logic. The neutral character must be redrawn/exported as genuinely separated eyes, eyelids, pupils, face, front/back hair, torso, arms, hands, legs and archive-book parts with fully painted overlap regions. That layered artwork can then be rigged to the contract in `rive/RIG_SPEC.md` and exported as `cys-companion.riv`.
+The current WebP artwork is still flattened, so the layered renderer is a **pseudo-rig rather than a true skeletal rig**. The repository keeps the future Rive contract under:
+
+```text
+assets/cys-pet/rive/
+├─ manifest.json
+├─ RIG_SPEC.md
+└─ rive-adapter.js
+```
+
+A future production-quality version should redraw the CYY mascot as genuine separated layers:
+
+- eyes / eyelids / pupils;
+- front and back hair;
+- face;
+- torso;
+- left / right upper and lower arms;
+- hands;
+- legs;
+- optional tablet / research-card prop.
+
+That layered artwork can then be rigged without changing the website's page-context, Agent lifecycle, panel, drag, sleep or routing logic.
+
+Target final asset path remains:
+
+```text
+assets/cys-pet/rive/cys-companion.riv
+```
+
+The next meaningful upgrade should therefore be **true layered art + Rive rigging**, not additional flattened WebP motion hacks.
