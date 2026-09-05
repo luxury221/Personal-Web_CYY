@@ -1,4 +1,4 @@
-/* CYS Archive Companion — v0.6 interaction shell */
+/* CYY Research Assistant — v0.6 interaction shell */
 
 /* The v0.5 root transform accidentally made mobile fixed panels behave like
    transformed descendants. Keep the pet untransformed at rest; GSAP can still
@@ -121,7 +121,7 @@
   visibility: hidden;
   transform: translateY(7px) scale(.94);
   transition: opacity .22s ease, transform .24s cubic-bezier(.2,.75,.2,1), visibility 0s linear .24s;
-  font: 500 10px/1 "Playfair Display", serif;
+  font-size: 0;
   letter-spacing: .04em;
 }
 .cys-pet-summon::before {
@@ -130,6 +130,14 @@
   inset: 5px;
   border: 1px solid rgba(154,128,96,.35);
   border-radius: 50%;
+}
+.cys-pet-summon::after {
+  content: "CYY";
+  position: relative;
+  z-index: 1;
+  color: inherit;
+  font: 500 9px/1 "Playfair Display", serif;
+  letter-spacing: .035em;
 }
 .cys-pet-summon.is-left { right: auto; left: max(12px, env(safe-area-inset-left)); }
 .cys-pet-summon.is-visible {
