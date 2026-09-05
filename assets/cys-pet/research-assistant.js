@@ -224,7 +224,7 @@
   const runtime = { lastQuestion: '', lastResults: [], root: null };
 
   function lang() {
-    return document.documentElement.lang?.toLower().startsWith('en') ? 'en' : 'zh';
+    return document.documentElement.lang?.toLowerCase().startsWith('en') ? 'en' : 'zh';
   }
 
   function normalize(text) {

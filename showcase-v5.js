@@ -6,7 +6,7 @@
 
   const GH = 'https://github.com/';
   const RAW = 'https://raw.githubusercontent.com/';
-  const isEn = () => document.documentElement.lang?.toLower().startsWith('en');
+  const isEn = () => document.documentElement.lang?.toLowerCase().startsWith('en');
 
   const configs = {
     'case-01': {
@@ -61,7 +61,7 @@
       insertAfter: '.evidence-gallery',
       assets: [
         {
-          src: `${RAW}lljjcc426/Kongming-Student-Job-Matching-Agent/main/public/kongming-ip.png`,
+          src: 'assets/showcase/kongming/product-identity.jpg',
           titleZh: '孔明职配 · Product Identity',
           titleEn: 'Kongming · Product Identity',
           descZh: '仓库中的品牌 / IP 视觉资产；用于证明产品视觉体系，不代表界面截图。',
@@ -69,7 +69,7 @@
           href: `${GH}lljjcc426/Kongming-Student-Job-Matching-Agent/tree/main/public`
         },
         {
-          src: `${RAW}lljjcc426/Kongming-Student-Job-Matching-Agent/main/public/avatars/interviewer/interview-room.png`,
+          src: 'assets/showcase/kongming/interview-room.jpg',
           titleZh: 'Interview Environment Asset',
           titleEn: 'Interview Environment Asset',
           descZh: '模拟面试体验使用的真实场景资产；属于产品内容资产，不作为独立页面截图。',
@@ -112,10 +112,13 @@
     'case-03': {
       titleZh: '真实教学工作流界面',
       titleEn: 'Real Teaching Workflow Screens',
-      noteZh: '以下均来自项目 README 已公开的真实界面截图，用于把 HITL、教师工作台、批改与 AI 助手从架构描述落到实际产品。',
-      noteEn: 'All screens below are real product screenshots published in the project README, grounding the HITL workflow, teacher workspace, grading and assistant in the actual product.',
-      type: 'REAL PRODUCT SCREEN / REPOSITORY README',
+      noteZh: '仓库当前为私有，README 中的真实界面截图暂不可匿名访问；仓库公开后此区将恢复展示实际产品界面。',
+      noteEn: 'The repository is currently private, so its README product screenshots are not anonymously reachable; this section will show the real screens once the repository goes public.',
+      type: 'REAL PRODUCT SCREEN / PENDING PUBLIC RELEASE',
       insertAfter: '.evidence-gallery',
+      /* pythc/ai-homework-system is private, so its README user-attachment
+         images 404 for anonymous visitors. Re-enable these screens when the
+         repository goes public.
       screens: [
         {
           src: 'https://github.com/user-attachments/assets/96f9be8d-654c-489e-9b72-eb2e9ebc2440',
@@ -138,6 +141,8 @@
           descZh: '课程 / 作业数据上的对话式教学助手。', descEn: 'Conversational teaching assistant over course and assignment data.'
         }
       ],
+      */
+      screens: [],
       source: `${GH}pythc/ai-homework-system/blob/main/README.md`,
       runtime: [
         {
@@ -176,27 +181,27 @@
       insertAfter: '.evidence-gallery',
       screens: [
         {
-          src: `${RAW}WaterXiao-git/AI-Avatar/main/frontend/public/intro-real/create.png`,
+          src: 'assets/showcase/avatar/create.jpg',
           titleZh: '01 / Create', titleEn: '01 / Create',
           descZh: '文本、图片或预设角色进入 3D 生成流程。', descEn: 'Text, image or preset character enters the 3D generation flow.', wide: true
         },
         {
-          src: `${RAW}WaterXiao-git/AI-Avatar/main/frontend/public/intro-real/rig.png`,
+          src: 'assets/showcase/avatar/rig.jpg',
           titleZh: '02 / Rig Assist', titleEn: '02 / Rig Assist',
           descZh: '8 点位辅助标注、任务轮询与动作预览。', descEn: 'Eight-point assisted annotation, task polling and motion preview.'
         },
         {
-          src: `${RAW}WaterXiao-git/AI-Avatar/main/frontend/public/intro-real/scene.png`,
+          src: 'assets/showcase/avatar/scene.jpg',
           titleZh: '03 / Scene', titleEn: '03 / Scene',
           descZh: '场景选择、上传和生成后的预览配置。', descEn: 'Scene selection, upload and generated-scene preview configuration.'
         },
         {
-          src: `${RAW}WaterXiao-git/AI-Avatar/main/frontend/public/intro-real/full-interact.png`,
+          src: 'assets/showcase/avatar/full-interact.jpg',
           titleZh: '04 / Realtime Interact', titleEn: '04 / Realtime Interact',
           descZh: '3D 角色、实时语音和手势事件汇合的交互页面。', descEn: 'Interaction screen where 3D avatar, realtime voice and gesture events converge.'
         },
         {
-          src: `${RAW}WaterXiao-git/AI-Avatar/main/frontend/public/intro-real/dashboard.png`,
+          src: 'assets/showcase/avatar/dashboard.jpg',
           titleZh: '05 / Dashboard', titleEn: '05 / Dashboard',
           descZh: '模型、会话历史与数据回看的真实 Dashboard。', descEn: 'Real dashboard for models, session history and review.'
         }
