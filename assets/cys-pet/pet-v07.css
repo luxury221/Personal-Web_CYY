@@ -1,4 +1,4 @@
-/* CYS Archive Companion — v0.7 layered continuous motion renderer */
+/* CYY Research Assistant — v0.8 compatibility for layered continuous motion */
 
 .cys-pet-root[data-renderer="layered-motion"] .cys-pet-character {
   animation: none !important;
@@ -12,6 +12,18 @@
   pointer-events: none;
   overflow: visible;
   transform-origin: 50% 100%;
+}
+
+/* v0.7 temporarily aliased POINT to WAVE because the old female point sprite
+   contained a colour/glitch artifact. The v0.8 CYY artwork has a clean,
+   dedicated presentation pose. Keep the legacy JS mapping untouched for
+   compatibility, but visually override that single semantic state here. */
+.cys-pet-root[data-renderer="layered-motion"][data-state="point"] .cys-v07-rig {
+  background: url("point.webp") 50% 100% / contain no-repeat;
+  animation: cys-v08-point-rig 2.4s ease-in-out infinite;
+}
+.cys-pet-root[data-renderer="layered-motion"][data-state="point"] .cys-v07-set {
+  opacity: 0 !important;
 }
 
 .cys-v07-rig.is-paused *,
@@ -149,6 +161,11 @@
   animation: none;
 }
 
+@keyframes cys-v08-point-rig {
+  0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(0,-.7px,0) rotate(.10deg); }
+}
+
 @keyframes cys-v07-idle-upper {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
   40% { transform: translate3d(.3px, -1.15px, 0) rotate(.16deg); }
@@ -211,7 +228,8 @@
 @media (prefers-reduced-motion: reduce) {
   .cys-v07-layer,
   .cys-v07-set,
-  .cys-pet-root[data-renderer="layered-motion"] .cys-pet-character::after {
+  .cys-pet-root[data-renderer="layered-motion"] .cys-pet-character::after,
+  .cys-pet-root[data-renderer="layered-motion"][data-state="point"] .cys-v07-rig {
     animation: none !important;
     transition: none !important;
   }
