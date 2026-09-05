@@ -168,25 +168,19 @@ and re-run `pyftsubset` (see the comment at the top of `assets/fonts/fonts.css`)
 
 ## Styling / runtime architecture
 
-```text
-styles.css              # stable layout / typography / shared components
-styles-ai.css           # LLM Systems visual identity
-styles-ai-v2.css        # semantic trace / research-console motion
-styles-content-v3.css   # research narrative / case-study hierarchy
-styles-evidence-v4.css  # architecture / benchmark / evidence visuals
-styles-showcase-v5.css  # real screens / runtime proof
-styles-final-v6.css     # final hierarchy / reduction / publishing QA
-```
+The enhancement layers are consolidated into single files, with each former
+layer preserved as a banner-marked section in its original execution order
+(later sections intentionally patch earlier ones — do not reorder):
 
 ```text
-script-core.js
-script.js
-content-v3-fixes.js
-cyy-ai-v2.js
-evidence-v4.js
-showcase-v5.js
-showcase-v5-guard.js
-final-v6.js
+styles.css       # stable layout / typography / shared components
+styles-ai.css    # identity v1 -> semantic trace v2 -> narrative v3 ->
+                 # evidence v4 -> showcase v5 -> final QA v6 (banner sections)
+script-core.js   # stable base runtime (intro, transitions, decks, splits)
+script.js        # content-v3 fixes -> cyy-ai-v2 -> evidence-v4 ->
+                 # showcase-v5 (+ guard) -> final-v6 ->
+                 # pet chain: pet v0.5 -> v0.6 -> v0.6.1 -> v0.6.2 -> v0.7 ->
+                 # research-assistant 2.0 -> greetings (banner sections)
 ```
 
 ## CYY Research Assistant

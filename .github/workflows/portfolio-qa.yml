@@ -39,15 +39,22 @@ jobs:
             node --check "$file"
           done
 
-      - name: Check V6 contract
+      - name: Check architecture contract
         shell: bash
         run: |
           set -euo pipefail
-          test -f styles-final-v6.css
-          test -f final-v6.js
+          test -f styles-ai.css
           test -f robots.txt
-          grep -q "styles-final-v6.css" script.js
-          grep -q "final-v6.js" script.js
+          test -f assets/og-card.jpg
+          test -f sitemap.xml
+          # merged layer file must carry every layer banner, in order
+          for marker in "LAYER: content-v3-fixes" "LAYER: cyy-ai-v2.js" "LAYER: evidence-v4" "LAYER: showcase-v5.js" "LAYER: final-v6.js" "LAYER: pet.js" "LAYER: research-assistant.js"; do
+            grep -q "$marker" script.js
+          done
+          # the consolidated files must not reference the deleted layer scripts
+          if grep -qE "content-v3-fixes\.js|cyy-ai-v2\.js|evidence-v4\.js|showcase-v5\.js|final-v6\.js" script.js; then
+            echo "script.js still references deleted layer files"; exit 1
+          fi
           grep -q "0.678 → 0.878" README.md
           grep -q "retriever fixed.*BM25\|fixed \*\*BM25\*\*" README.md
 
@@ -67,7 +74,7 @@ jobs:
           done
 
           pages=(index.html profile.html experience.html education.html focus.html contact.html)
-          assets=(styles.css styles-ai.css styles-final-v6.css script-core.js script.js final-v6.js)
+          assets=(styles.css styles-ai.css script-core.js script.js)
 
           for path in "${pages[@]}" "${assets[@]}"; do
             echo "GET /$path"
