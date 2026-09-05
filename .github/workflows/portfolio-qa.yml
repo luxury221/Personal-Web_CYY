@@ -51,6 +51,34 @@ jobs:
           grep -q "0.678 → 0.878" README.md
           grep -q "retriever fixed.*BM25\|fixed \*\*BM25\*\*" README.md
 
+      - name: Validate CYY mascot WebP integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+
+          names = ('idle.webp', 'wave.webp', 'thinking.webp', 'point.webp', 'read.webp', 'sleep.webp')
+          root = Path('assets/cys-pet')
+
+          for name in names:
+              path = root / name
+              data = path.read_bytes()
+              if len(data) < 12:
+                  raise SystemExit(f'{path}: too short to be a WebP file ({len(data)} bytes)')
+              if data[:4] != b'RIFF' or data[8:12] != b'WEBP':
+                  raise SystemExit(f'{path}: invalid RIFF/WEBP signature')
+
+              declared = struct.unpack('<I', data[4:8])[0] + 8
+              if declared != len(data):
+                  raise SystemExit(
+                      f'{path}: truncated/corrupt WebP — RIFF declares {declared} bytes, actual {len(data)} bytes'
+                  )
+
+              print(f'OK {path}: {len(data)} bytes')
+          PY
+
       - name: Smoke-test static pages
         shell: bash
         run: |
