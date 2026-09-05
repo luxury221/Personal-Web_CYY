@@ -43,8 +43,9 @@ jobs:
           for marker in "LAYER: content-v3-fixes" "LAYER: cyy-ai-v2.js" "LAYER: evidence-v4" "LAYER: showcase-v5.js" "LAYER: final-v6.js" "LAYER: pet.js" "LAYER: research-assistant.js"; do
             grep -q "$marker" script.js
           done
-          # the consolidated files must not reference the deleted layer scripts
-          if grep -qE "content-v3-fixes\.js|cyy-ai-v2\.js|evidence-v4\.js|showcase-v5\.js|final-v6\.js" script.js; then
+          # the consolidated file must not LOAD the deleted layer scripts
+          # (quoted filenames = loader entries; LAYER banners are comments)
+          if grep -qE "['\"](content-v3-fixes|cyy-ai-v2|evidence-v4|showcase-v5|showcase-v5-guard|final-v6)\.js" script.js; then
             echo "script.js still references deleted layer files"; exit 1
           fi
           grep -q "0.678 → 0.878" README.md
