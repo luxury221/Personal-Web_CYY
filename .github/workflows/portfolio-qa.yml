@@ -24,15 +24,7 @@ jobs:
           files=(
             script-core.js
             script.js
-            content-v3-fixes.js
-            cyy-ai-v2.js
-            evidence-v4.js
-            showcase-v5.js
-            showcase-v5-guard.js
-            final-v6.js
-            assets/cys-pet/pet.js
-            assets/cys-pet/research-assistant.js
-            assets/cys-pet/research-greetings.js
+            tools/runtime-smoke.mjs
           )
           for file in "${files[@]}"; do
             echo "node --check $file"
