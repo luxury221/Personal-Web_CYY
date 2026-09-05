@@ -11,7 +11,7 @@ permissions:
 jobs:
   static-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
 
     steps:
       - name: Checkout
@@ -73,3 +73,13 @@ jobs:
             echo "GET /$path"
             curl -fsS "http://127.0.0.1:8000/$path" >/dev/null
           done
+
+      - name: Runtime smoke test (Chromium)
+        timeout-minutes: 8
+        shell: bash
+        run: |
+          cd tools
+          npm ci --silent
+          npx playwright-core install --with-deps chromium
+          cd ..
+          node tools/runtime-smoke.mjs

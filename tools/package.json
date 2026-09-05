@@ -1,0 +1,9 @@
+{
+  "name": "cyy-portfolio-tools",
+  "private": true,
+  "description": "CI tooling for the portfolio runtime smoke test.",
+  "type": "module",
+  "dependencies": {
+    "playwright-core": "1.49.1"
+  }
+}

@@ -138,7 +138,7 @@ Changes include:
 - retirement of the legacy petal / click-ink visual direction
 - compatibility suppression of the old petal RAF loop
 - runtime repair for legacy visible typos and malformed bilingual attributes
-- page-specific descriptions, Open Graph metadata, Twitter summary metadata and `Person` JSON-LD
+- page-specific descriptions, Open Graph metadata, Twitter large-image metadata and `Person` JSON-LD
 - keyboard-access improvements and safer external links
 - `robots.txt`
 
@@ -149,6 +149,22 @@ styles-final-v6.css
 final-v6.js
 robots.txt
 ```
+
+## Runtime smoke test & self-hosted fonts
+
+The Portfolio QA workflow runs a real-browser smoke test (`tools/runtime-smoke.mjs`,
+Playwright + headless Chromium): every page is loaded, and the test fails on any
+uncaught exception, genuine `console.error`, failed local request, missing shell
+structure, or a dead enhancement layer (e.g. the showcase mount check on
+`experience.html`). This exists because `node --check` cannot catch runtime
+errors such as a mistyped method name that kills an IIFE silently.
+
+All webfonts are self-hosted under `assets/fonts/`: the Latin subsets plus
+site-charset subsets of **Noto Sans SC / Noto Serif SC** as variable fonts
+(wght axis preserved, ~530KB total, zero external font requests). The CJK
+subsets cover the 826 characters actually used across HTML + JS
+(`tools/font-chars.txt`). After adding new site copy, re-collect the charset
+and re-run `pyftsubset` (see the comment at the top of `assets/fonts/fonts.css`).
 
 ## Styling / runtime architecture
 
