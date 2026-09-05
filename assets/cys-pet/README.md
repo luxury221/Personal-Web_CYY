@@ -23,21 +23,25 @@ assets/cys-pet/
 ├─ thinking.webp   # thinking / error
 ├─ point.webp      # presentation / direction pose
 ├─ read.webp       # tablet / reading / working
-└─ sleep.webp      # current quiet-rest fallback
+└─ sleep.webp      # quiet-rest fallback
 ```
 
 All six files now use the CYY character. The previous female artwork is no longer referenced by these pose paths.
 
 Current runtime semantics:
 
-- `idle` → `idle.webp`
+- `idle / hover / dragging` → `idle.webp`
 - `wave / wake / success` → `wave.webp`
 - `read / working` → `read.webp`
 - `thinking / error` → `thinking.webp`
 - `sleep` → `sleep.webp`
-- `point` has a dedicated `point.webp` asset available for the next renderer mapping cleanup
+- `point` → dedicated `point.webp`
 
-The existing v0.7 layered renderer still preserves the prior semantic trigger policy and pseudo-rig motion. The dedicated `point.webp` is now clean and ready to replace the old wave alias when the consolidated runtime is next refactored.
+### Point-state compatibility
+
+The historical v0.7 JavaScript renderer temporarily aliases `point` to `wave.webp` because the old point artwork had a colour/glitch artifact. The new CYY point artwork is clean, so `pet-v07.css` now applies a state-specific compatibility override: while the semantic state is `point`, the dedicated `point.webp` is rendered directly and the legacy wave layers are hidden.
+
+This keeps the consolidated runtime backward-compatible while making the visible state mapping correct. A future runtime refactor can remove the historical JavaScript alias entirely.
 
 ## Runtime architecture
 
@@ -58,6 +62,7 @@ Character pose changes stay tied to meaningful events:
 - home page: one welcome action;
 - subpage entry: one silent page-specific action;
 - content region: action only after a meaningful dwell;
+- page/navigation guidance: dedicated presentation pose;
 - character click: explicit greeting interaction;
 - Agent lifecycle: `thinking / working / success / error` overrides lower-priority page actions;
 - mouse movement, character hover, nav hover, fast scrolling and random idle timers do not visibly switch poses;
@@ -129,4 +134,4 @@ Target final asset path remains:
 assets/cys-pet/rive/cys-companion.riv
 ```
 
-The next meaningful upgrade should therefore be **true layered art + Rive rigging**, not additional flattened WebP motion hacks.
+The next meaningful animation upgrade should therefore be **true layered art + Rive rigging**, not additional flattened WebP motion hacks.
