@@ -160,11 +160,23 @@
     });
   }
 
+  /* On #case-01 content-v3 expands .case-links with the same proof links the
+     V4 evidence bar carries, so the bar renders as a duplicate row directly
+     beneath it. Keep the bar only where it adds links the row lacks. */
+  function dedupeEvidenceBars() {
+    document.querySelectorAll('.slide-panel').forEach((panel) => {
+      const links = panel.querySelector('.case-links');
+      const bar = panel.querySelector('.evidence-bar');
+      if (links && bar && links.children.length > 1) bar.remove();
+    });
+  }
+
   function run() {
     applyPublishingMeta();
     repairContentTypos();
     improveAccessibility();
     markProofRails();
+    dedupeEvidenceBars();
     stopLegacyPetalRAF();
   }
 

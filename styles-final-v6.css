@@ -148,3 +148,22 @@
   #case-03 .product-screen-grid,
   #case-04 .product-screen-grid { scroll-behavior: auto; }
 }
+
+/* -------------------------- Layout repairs -------------------------- */
+
+/* The evidence range number (".678→.878") wrapped inside its 75px cell and
+   visually merged with the next metric's number. Give the range column room
+   and keep metric numbers on one line. */
+@media (min-width: 721px) {
+  .home-proof { grid-template-columns: .7fr 1.32fr .84fr .84fr; }
+}
+.home-proof-item span { white-space: nowrap; }
+.home-proof-item strong { font-size: 13.5px; letter-spacing: .05em; }
+
+/* The six-node pipeline needed ~600px inside a ~490px panel and scrolled
+   behind a hidden scrollbar, silently cutting the MULTIRANK/CHAIN nodes.
+   Wrap the flow into two visible rows instead. */
+.pipeline-flow { flex-wrap: wrap; row-gap: 10px; overflow-x: visible; }
+
+/* CJK + Latin mixed leads could strand a single word on its own line. */
+.sub-lead { text-wrap: pretty; }
