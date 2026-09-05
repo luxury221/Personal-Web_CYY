@@ -58,7 +58,8 @@
     ensureMeta('meta[property="og:title"]', { property: 'og:title' }).setAttribute('content', meta.ogTitle);
     ensureMeta('meta[property="og:description"]', { property: 'og:description' }).setAttribute('content', meta.description);
     ensureMeta('meta[property="og:type"]', { property: 'og:type' }).setAttribute('content', 'website');
-    ensureMeta('meta[name="twitter:card"]', { name: 'twitter:card' }).setAttribute('content', 'summary');
+    ensureMeta('meta[name="twitter:card"]', { name: 'twitter:card' }).setAttribute('content', 'summary_large_image');
+    ensureMeta('meta[name="twitter:image"]', { name: 'twitter:image' }).setAttribute('content', 'https://luxury221.github.io/Personal-Web_CYY/assets/og-card.jpg');
     ensureMeta('meta[name="twitter:title"]', { name: 'twitter:title' }).setAttribute('content', meta.ogTitle);
     ensureMeta('meta[name="twitter:description"]', { name: 'twitter:description' }).setAttribute('content', meta.description);
 

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>OG card generator — open at 1200×630 and screenshot</title>
+  <link rel="stylesheet" href="../assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@500;600&display=swap" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body {
+      font-family: "Noto Sans SC", sans-serif;
+      background:
+        radial-gradient(900px 420px at 82% 18%, rgba(214,223,219,.55), transparent 62%),
+        linear-gradient(118deg, #efeae1 0%, #e9e3d8 52%, #e2dbce 100%);
+      color: #243034;
+      position: relative;
+    }
+    .grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(36,48,52,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36,48,52,.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .ink-block {
+      position: absolute; right: 72px; top: 64px; width: 148px; height: 148px;
+      background: linear-gradient(150deg, #31585a, #21484c);
+      box-shadow: 0 18px 44px rgba(33,72,76,.28);
+    }
+    .seal {
+      position: absolute; right: 196px; top: 288px; width: 92px; height: 92px;
+      border: 1.5px solid rgba(154,128,96,.85); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transform: rotate(-8deg);
+    }
+    .seal b { font-family: "Noto Serif SC", serif; font-size: 30px; color: #9a8060; font-weight: 500; }
+    .frame { position: absolute; inset: 26px; border: 1px solid rgba(36,48,52,.16); pointer-events: none; }
+    .top { position: absolute; left: 64px; right: 64px; top: 48px; display: flex; justify-content: space-between;
+      font-family: "DM Mono", monospace; font-size: 15px; letter-spacing: .16em; color: rgba(36,48,52,.62); }
+    .name { position: absolute; left: 64px; top: 128px; }
+    .name .zh { font-family: "Noto Serif SC", serif; font-weight: 600; font-size: 84px; line-height: 1.04; letter-spacing: .02em; }
+    .name .en { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #9a8060; margin-top: 14px; letter-spacing: .04em; }
+    .role { position: absolute; left: 64px; top: 322px; font-family: "DM Mono", monospace; font-size: 16.5px; letter-spacing: .2em; color: #21484c; }
+    .rule { position: absolute; left: 64px; top: 372px; width: 620px; height: 1px; background: rgba(36,48,52,.28); }
+    .thesis { position: absolute; left: 64px; top: 408px; width: 640px;
+      font-family: "Noto Serif SC", serif; font-size: 27px; line-height: 1.6; color: #243034; }
+    .thesis em { font-style: normal; color: #21484c; border-bottom: 2px solid rgba(33,72,76,.4); padding-bottom: 2px; }
+    .axis { position: absolute; right: 64px; bottom: 56px; text-align: right;
+      font-family: "DM Mono", monospace; color: rgba(36,48,52,.66); font-size: 13px; letter-spacing: .18em; line-height: 2; }
+    .axis b { display: block; font-size: 24px; color: #21484c; letter-spacing: .1em; margin-bottom: 6px; }
+    .bottom { position: absolute; left: 64px; bottom: 56px; font-family: "DM Mono", monospace;
+      font-size: 13px; letter-spacing: .18em; color: rgba(36,48,52,.6); }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="frame"></div>
+  <div class="ink-block"></div>
+  <div class="seal"><b>智</b></div>
+  <div class="top"><span>CYY / 26</span><span>ARCHIVE / 2026</span></div>
+  <div class="name">
+    <div class="zh">陈耀洋</div>
+    <div class="en">Yaoyang Chen</div>
+  </div>
+  <div class="role">LLM SYSTEMS · MULTIMODAL RAG · AGENTIC SYSTEMS · EVALUATION</div>
+  <div class="rule"></div>
+  <div class="thesis">Building LLM systems around <em>evidence</em>, <em>reasoning</em> and <em>measurable improvement</em>.</div>
+  <div class="bottom">PORTFOLIO · CHONGQING · CHINA</div>
+  <div class="axis"><b>R³</b>RETRIEVE · REASON · BUILD</div>
+</body>
+</html>

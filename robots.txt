@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://luxury221.github.io/Personal-Web_CYY/sitemap.xml
