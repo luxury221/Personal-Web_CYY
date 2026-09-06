@@ -24,7 +24,7 @@ import process from 'node:process';
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const PORT = 8123;
 const BASE = `http://127.0.0.1:${PORT}`;
-const PAGES = ['index.html', 'profile.html', 'experience.html', 'education.html', 'focus.html', 'contact.html'];
+const PAGES = ['index.html', 'profile.html', 'experience.html', 'competitions.html', 'education.html', 'focus.html', 'contact.html'];
 const OPTIONAL_PROBES = ['/assets/archive-card.webp', '/assets/archive-card.png'];
 
 const MIME = {

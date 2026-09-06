@@ -1031,8 +1031,8 @@
       schema.textContent = JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
-        name: 'Yaoyang Chen',
-        alternateName: ['陈耀洋', 'CYY'],
+        name: '陈耀洋',
+        alternateName: ['Yaoyang Chen'],
         affiliation: {
           '@type': 'CollegeOrUniversity',
           name: 'Chongqing University of Posts and Telecommunications'
@@ -1186,14 +1186,14 @@
 
   const labels = {
     zh: {
-      profile: '简介', experience: '经历', education: '教育', focus: '方向', contact: '联系',
-      ask: '可以问我：项目、训练、方向或联系方式。',
-      placeholder: '问问 CYY…', thinking: 'THINKING', working: 'WORKING', here: '当前页'
+      profile: '简介', experience: '经历', competitions: '竞赛', education: '教育', focus: '方向', contact: '联系',
+      ask: '可以问我：项目、竞赛、训练、方向或联系方式。',
+      placeholder: '问问陈耀洋…', thinking: 'THINKING', working: 'WORKING', here: '当前页'
     },
     en: {
-      profile: 'Profile', experience: 'Experience', education: 'Education', focus: 'Focus', contact: 'Contact',
-      ask: 'Ask me about projects, training, focus, or contact.',
-      placeholder: 'Ask CYY…', thinking: 'THINKING', working: 'WORKING', here: 'HERE'
+      profile: 'Profile', experience: 'Experience', competitions: 'Awards', education: 'Education', focus: 'Focus', contact: 'Contact',
+      ask: 'Ask me about projects, competitions, training, focus, or contact.',
+      placeholder: 'Ask Yaoyang Chen…', thinking: 'THINKING', working: 'WORKING', here: 'HERE'
     }
   };
 
@@ -1202,6 +1202,7 @@
     '': { state: 'wave', zh: '欢迎来到我的个人档案。想先看哪一部分？', en: 'Welcome to my archive. Where would you like to begin?' },
     'profile.html': { state: 'read', zh: '这里是个人简介与档案时间线。', en: 'This page holds the profile and archive timeline.' },
     'experience.html': { state: 'point', zh: '这里记录四组 AI 项目：RAG、智能体、数字人与可解释性。可以拖拽切换案例。', en: 'Four AI projects live here — RAG, agents, digital human, interpretability. Drag the deck to switch cases.' },
+    'competitions.html': { state: 'success', zh: '这里是竞赛与获奖记录：从建模到开源再到 Kaggle。', en: 'Competitions and awards live here — modeling, open source and Kaggle.' },
     'education.html': { state: 'read', zh: '这里按方向归档训练轨迹与技术栈。', en: 'Training directions and toolchains are archived here.' },
     'focus.html': { state: 'thinking', zh: '这里是持续深化的三个方向：检索、推理、构建。', en: 'Three directions keep deepening here — retrieve, reason, build.' },
     'contact.html': { state: 'wave', zh: '如果你想交流 RAG、智能体或工程实践，可以从这里联系。', en: 'For RAG, agents, or engineering conversations, you can reach out here.' }
@@ -1210,6 +1211,7 @@
   const navMessages = {
     'profile.html': ['查看个人简介与时间线。', 'Open the profile and timeline.'],
     'experience.html': ['这里是实践经历档案。', 'Open the practice archive.'],
+    'competitions.html': ['查看竞赛与获奖记录。', 'Open competitions and awards.'],
     'education.html': ['查看训练方向与技术栈。', 'Open training and toolchains.'],
     'focus.html': ['查看关注方向与研究问题。', 'Open focus and research questions.'],
     'contact.html': ['查看联系方式。', 'Open contact details.']
@@ -1241,23 +1243,24 @@
 
   const root = document.createElement('aside');
   root.className = 'cys-pet-root is-hidden';
-  root.setAttribute('aria-label', 'CYY Archive Companion');
+  root.setAttribute('aria-label', '陈耀洋 Archive Companion');
   root.dataset.state = 'boot';
   root.hidden = true;
   root.innerHTML = `
     <div class="cys-pet-bubble" role="status" aria-live="polite">
-      <div class="cys-pet-bubble-head"><span>01 / CYY</span><button class="cys-pet-bubble-close" type="button" aria-label="Close">×</button></div>
+      <div class="cys-pet-bubble-head"><span>01 / 陈耀洋</span><button class="cys-pet-bubble-close" type="button" aria-label="Close">×</button></div>
       <p class="cys-pet-bubble-text"></p>
     </div>
     <section class="cys-pet-panel" aria-label="Archive Companion panel">
       <div class="cys-pet-panel-head">
-        <div class="cys-pet-panel-title">CYY · ARCHIVE COMPANION</div>
+        <div class="cys-pet-panel-title">陈耀洋 · ARCHIVE COMPANION</div>
         <button class="cys-pet-panel-close" type="button" aria-label="Close">×</button>
         <div class="cys-pet-panel-sub">AGENT / RETRIEVAL / RESEARCH · v0.5 WEB</div>
       </div>
       <div class="cys-pet-actions">
         <button class="cys-pet-action" type="button" data-pet-route="profile.html" data-label="PROFILE"><b>PROFILE</b><span data-pet-label="profile"></span></button>
         <button class="cys-pet-action" type="button" data-pet-route="experience.html" data-label="EXPERIENCE"><b>EXPERIENCE</b><span data-pet-label="experience"></span></button>
+        <button class="cys-pet-action" type="button" data-pet-route="competitions.html" data-label="AWARDS"><b>AWARDS</b><span data-pet-label="competitions"></span></button>
         <button class="cys-pet-action" type="button" data-pet-route="education.html" data-label="EDUCATION"><b>EDUCATION</b><span data-pet-label="education"></span></button>
         <button class="cys-pet-action" type="button" data-pet-route="focus.html" data-label="FOCUS"><b>FOCUS</b><span data-pet-label="focus"></span></button>
         <button class="cys-pet-action" type="button" data-pet-route="contact.html" data-label="CONTACT"><b>CONTACT</b><span data-pet-label="contact"></span></button>
@@ -1267,8 +1270,8 @@
         <p class="cys-pet-hint"></p>
       </form>
     </section>
-    <div class="cys-pet-character" role="button" tabindex="0" aria-label="Open CYY Archive Companion">
-      <img class="cys-pet-sprite is-active" data-pet-sprite="0" alt="CYY Archive Companion" draggable="false" />
+    <div class="cys-pet-character" role="button" tabindex="0" aria-label="打开陈耀洋的档案助手">
+      <img class="cys-pet-sprite is-active" data-pet-sprite="0" alt="陈耀洋的档案助手形象" draggable="false" />
       <img class="cys-pet-sprite" data-pet-sprite="1" alt="" aria-hidden="true" draggable="false" />
       <span class="cys-pet-sparkle" aria-hidden="true"></span>
       <span class="cys-pet-sleep-mark" aria-hidden="true">Z z</span>
@@ -2233,6 +2236,7 @@
   const pageState = {
     profile: 'read',
     experience: 'read',
+    competitions: 'success',
     education: 'read',
     focus: 'thinking',
     contact: 'wave'
@@ -2821,6 +2825,7 @@
   const ROUTES = {
     about: ['profile.html', 'ABOUT'],
     projects: ['experience.html', 'PROJECTS'],
+    awards: ['competitions.html', 'AWARDS'],
     academic: ['education.html', 'ACADEMIC'],
     research: ['focus.html', 'RESEARCH'],
     contact: ['contact.html', 'CONTACT']
@@ -2828,12 +2833,12 @@
 
   const COPY = {
     zh: {
-      title: 'CYY · RESEARCH ASSISTANT',
+      title: '陈耀洋 · RESEARCH ASSISTANT',
       sub: 'LOCAL RETRIEVAL / EVIDENCE ROUTING / TOP-K TRACE',
-      head: 'CYY / RESEARCH',
-      hint: '可以问我：最强的 RAG 项目、Agent、AI 系统工程、研究方向、学校或技术栈。',
-      placeholder: '检索 CYY 的项目与研究…',
-      labels: ['关于', '项目', '学术', '研究', '联系'],
+      head: '陈耀洋 / RESEARCH',
+      hint: '可以问我：最强的 RAG 项目、Agent、AI 系统工程、竞赛获奖、研究方向、学校或技术栈。',
+      placeholder: '检索陈耀洋的项目与研究…',
+      labels: ['关于', '项目', '竞赛', '学术', '研究', '联系'],
       quick: ['最强的 RAG 项目', '做过哪些 Agent？', '研究方向是什么？'],
       found: 'EVIDENCE FOUND',
       answer: 'SYNTHESIZED ANSWER',
@@ -2844,12 +2849,12 @@
       source: 'SOURCE'
     },
     en: {
-      title: 'CYY · RESEARCH ASSISTANT',
+      title: '陈耀洋 · RESEARCH ASSISTANT',
       sub: 'LOCAL RETRIEVAL / EVIDENCE ROUTING / TOP-K TRACE',
-      head: 'CYY / RESEARCH',
-      hint: 'Ask about the strongest RAG project, agents, AI systems, research, academic background, or stack.',
-      placeholder: 'Retrieve CYY projects and research…',
-      labels: ['About', 'Projects', 'Academic', 'Research', 'Contact'],
+      head: '陈耀洋 / RESEARCH',
+      hint: 'Ask about the strongest RAG project, agents, AI systems, competition awards, research, academic background, or stack.',
+      placeholder: 'Retrieve Yaoyang Chen’s projects and research…',
+      labels: ['About', 'Projects', 'Awards', 'Academic', 'Research', 'Contact'],
       quick: ['Strongest RAG project', 'What agents have you built?', 'Research interests'],
       found: 'EVIDENCE FOUND',
       answer: 'SYNTHESIZED ANSWER',
@@ -2870,8 +2875,8 @@
         en: 'Research flagship for complex-PDF multimodal RAG: unified evidence nodes, hybrid retrieval, GraphRAG, MultiRank reranking and evidence-chain self-correction.'
       },
       answer: {
-        zh: '目前最能代表 CYY 大模型方向的是 MultiRank-RAG。它不仅做回答生成，而是把复杂文档解析、跨模态证据组织、GraphRAG、多路召回、自适应重排与证据链验证放进同一条可评测链路。',
-        en: 'MultiRank-RAG is currently the strongest representation of CYY’s LLM direction. It combines complex-document parsing, cross-modal evidence organization, GraphRAG, multi-route retrieval, adaptive reranking and evidence-chain verification in one measurable pipeline.'
+        zh: '目前最能代表陈耀洋大模型方向的是 MultiRank-RAG。它不仅做回答生成，而是把复杂文档解析、跨模态证据组织、GraphRAG、多路召回、自适应重排与证据链验证放进同一条可评测链路。',
+        en: 'MultiRank-RAG is currently the strongest representation of Yaoyang Chen’s LLM direction. It combines complex-document parsing, cross-modal evidence organization, GraphRAG, multi-route retrieval, adaptive reranking and evidence-chain verification in one measurable pipeline.'
       },
       facts: [
         ['FINQA nDCG@5', '.878'],
@@ -3005,6 +3010,28 @@
       ]
     },
     {
+      id: 'awards', type: 'AWARDS', route: 'awards', state: 'success',
+      title: { zh: '竞赛与获奖记录', en: 'Competitions & Awards' },
+      summary: {
+        zh: '八项竞赛奖励：三项国家二等奖、一项国家三等奖、一项省级二等奖与三枚 Kaggle 铜牌。',
+        en: 'Eight competition awards: three national second prizes, one national third prize, one provincial second prize and three Kaggle bronze medals.'
+      },
+      answer: {
+        zh: '竞赛记录覆盖三条线：建模类（统计建模国家二等奖、数学竞赛省级二等奖、数学能力挑战赛国家三等奖）、工程开源类（中国大学生计算机设计大赛国家二等奖、CCF 开源大赛国家二等奖）与数据实战类（Kaggle NeuroGolf、BirdCLEF+ 2026、Pokémon 三枚铜牌）。',
+        en: 'The awards span three tracks: modeling (Statistical Modeling national second prize, Mathematics Competition provincial second prize, Mathematics Ability Challenge national third prize), engineering/open source (China Collegiate Computing Contest national second prize, CCF Open-Source Competition national second prize), and data practice (three Kaggle bronze medals in NeuroGolf, BirdCLEF+ 2026 and Pokémon).'
+      },
+      facts: [
+        ['NATIONAL 2ND', '×3'],
+        ['KAGGLE BRONZE', '×3'],
+        ['TOTAL AWARDS', '8']
+      ],
+      keywords: [
+        ['竞赛', 9], ['获奖', 9], ['奖', 6], ['比赛', 8], ['awards', 9], ['award', 8], ['competition', 8], ['kaggle', 10],
+        [' medal', 6], ['铜牌', 8], ['国二', 8], ['国家二等奖', 9], ['统计建模', 7], ['计算机设计', 7], ['ccf', 8], ['开源', 5],
+        ['数学', 6], ['neurogolf', 9], ['birdclef', 9], ['pokemon', 8], ['pokémon', 8]
+      ]
+    },
+    {
       id: 'about', type: 'PROFILE', route: 'about', state: 'point',
       title: { zh: 'Yaoyang Chen / 陈耀洋', en: 'Yaoyang Chen / 陈耀洋' },
       summary: {
@@ -3116,7 +3143,7 @@
 
   function resultLabel(doc) {
     if (doc.type === 'PROJECT') return `PROJECT / ${doc.id.toUpperCase()}`;
-    return `${doc.type} / CYY`;
+    return `${doc.type} / 陈耀洋`;
   }
 
   function synthesize(results) {
@@ -3210,7 +3237,7 @@
   function decorate(root) {
     if (root.dataset.assistant === 'research-v2') return;
     root.dataset.assistant = 'research-v2';
-    root.setAttribute('aria-label', 'CYY Research Assistant');
+    root.setAttribute('aria-label', '陈耀洋 Research Assistant');
     runtime.root = root;
 
     const title = root.querySelector('.cys-pet-panel-title');
@@ -3241,7 +3268,7 @@
       actions.forEach((button, index) => {
         const bold = button.querySelector('b');
         const label = button.querySelector('span');
-        const key = ['ABOUT', 'PROJECTS', 'ACADEMIC', 'RESEARCH', 'CONTACT'][index];
+        const key = ['ABOUT', 'PROJECTS', 'AWARDS', 'ACADEMIC', 'RESEARCH', 'CONTACT'][index];
         if (bold) bold.textContent = key;
         if (label) label.textContent = c.labels[index] || key;
         button.dataset.label = key;
@@ -3375,4 +3402,60 @@
     observer.disconnect();
   });
   observer.observe(document.body, { childList: true, subtree: true });
+})();
+
+/* ================  LAYER: cert-gallery.js?v=1.0.0               */
+/* Competitions page certificate archive: click a card to open the
+   full certificate in a lightbox. Reuses .showcase-modal styles. */
+(() => {
+  'use strict';
+  const grid = document.querySelector('.cert-grid');
+  if (!grid || grid.dataset.certGalleryReady === '1') return;
+  grid.dataset.certGalleryReady = '1';
+
+  let modal = null;
+  let lastTrigger = null;
+
+  function ensureModal() {
+    if (modal) return modal;
+    modal = document.createElement('div');
+    modal.className = 'showcase-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.innerHTML = '<button class="showcase-modal-close" type="button" aria-label="Close">×</button><div class="showcase-modal-inner"><img alt="" /></div>';
+    modal.querySelector('.showcase-modal-close').addEventListener('click', closeCert);
+    modal.addEventListener('click', (event) => { if (event.target === modal) closeCert(); });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('is-open')) closeCert();
+    });
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  function openCert(src, alt, trigger) {
+    const m = ensureModal();
+    lastTrigger = trigger || null;
+    const img = m.querySelector('img');
+    img.src = src;
+    img.alt = alt || '';
+    m.classList.add('is-open');
+    document.body.classList.add('showcase-modal-open');
+    m.querySelector('.showcase-modal-close').focus({ preventScroll: true });
+  }
+
+  function closeCert() {
+    if (!modal || !modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    document.body.classList.remove('showcase-modal-open');
+    if (lastTrigger) {
+      try { lastTrigger.focus({ preventScroll: true }); } catch (_) { /* noop */ }
+      lastTrigger = null;
+    }
+  }
+
+  grid.addEventListener('click', (event) => {
+    const btn = event.target.closest('.cert-thumb');
+    if (!btn) return;
+    openCert(btn.dataset.certSrc, btn.dataset.certAlt, btn);
+  });
 })();

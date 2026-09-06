@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#d8d1c5" />
   <script>try{sessionStorage.getItem('cyy-cover-label')&&document.documentElement.classList.add('cover-hold')}catch(e){}</script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f0e8'/%3E%3Ccircle cx='16' cy='16' r='12.5' fill='none' stroke='%2321484c' stroke-width='2'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' fill='%2321484c' font-family='monospace'%3ECYY%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f0e8'/%3E%3Ccircle cx='16' cy='16' r='12.5' fill='none' stroke='%2321484c' stroke-width='2'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='14' fill='%2321484c' font-family='serif'%3E%E8%80%80%3C/text%3E%3C/svg%3E" />
   <meta property="og:title" content="Projects · Yaoyang Chen — LLM Systems Portfolio" />
   <meta property="og:description" content="Research and engineering case studies: MultiRank-RAG、Kongming、AI Homework System、Interactive Avatar" />
   <meta property="og:type" content="website" />
@@ -19,19 +19,20 @@
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <noscript></noscript>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="styles-ai.css?v=20260905" />
+  <link rel="stylesheet" href="styles-ai.css?v=20260906.1" />
 </head>
 <body id="top">
-  <div class="page-transition" id="pageTransition"><span class="transition-index">CYY / 26</span><span class="transition-title" id="transitionTitle">PROJECTS</span></div>
+  <div class="page-transition" id="pageTransition"><span class="transition-index">陈耀洋 / 26</span><span class="transition-title" id="transitionTitle">PROJECTS</span></div>
   <header class="site-header">
-    <a class="wordmark" href="index.html" data-transition-label="HOME">CYY / 26</a>
+    <a class="wordmark" href="index.html" data-transition-label="HOME">陈耀洋 / 26</a>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html" data-transition-label="HOME" data-index="00" data-zh="首页" data-en="Home">首页</a>
       <a href="profile.html" data-transition-label="ABOUT" data-index="01" data-zh="关于" data-en="About">关于</a>
       <a href="experience.html" class="active" aria-current="page" data-transition-label="PROJECTS" data-index="02" data-zh="项目" data-en="Projects">项目</a>
-      <a href="education.html" data-transition-label="ACADEMIC" data-index="03" data-zh="学术" data-en="Academic">学术</a>
-      <a href="focus.html" data-transition-label="RESEARCH" data-index="04" data-zh="研究" data-en="Research">研究</a>
-      <a href="contact.html" data-transition-label="CONTACT" data-index="05" data-zh="联系" data-en="Contact">联系</a>
+      <a href="competitions.html" data-transition-label="AWARDS" data-index="03" data-zh="竞赛" data-en="Awards">竞赛</a>
+      <a href="education.html" data-transition-label="ACADEMIC" data-index="04" data-zh="学术" data-en="Academic">学术</a>
+      <a href="focus.html" data-transition-label="RESEARCH" data-index="05" data-zh="研究" data-en="Research">研究</a>
+      <a href="contact.html" data-transition-label="CONTACT" data-index="06" data-zh="联系" data-en="Contact">联系</a>
     </nav>
     <button id="langToggle" class="language-toggle" type="button">EN</button>
   </header>
@@ -56,7 +57,7 @@
         <div class="slide-index">
           <nav class="slide-tabs" aria-label="Project index">
             <button class="slide-tab active" type="button" data-slide="0"><span>01</span><span class="slide-tab-label"><b>MULTIRANK-RAG</b><small>RESEARCH FLAGSHIP</small></span></button>
-            <button class="slide-tab" type="button" data-slide="1"><span>02</span><span class="slide-tab-label"><b data-zh="孔明职配" data-en="KONGMING AGENT">孔杰职配</b><small>AGENTIC SYSTEM</small></span></button>
+            <button class="slide-tab" type="button" data-slide="1"><span>02</span><span class="slide-tab-label"><b data-zh="孔明职配" data-en="KONGMING AGENT">孔明职配</b><small>AGENTIC SYSTEM</small></span></button>
             <button class="slide-tab" type="button" data-slide="2"><span>03</span><span class="slide-tab-label"><b>AI HOMEWORK</b><small>AI INFRASTRUCTURE</small></span></button>
             <button class="slide-tab" type="button" data-slide="3"><span>04</span><span class="slide-tab-label"><b>INTERACTIVE AVATAR</b><small>MULTIMODAL REALTIME</small></span></button>
           </nav>
@@ -67,7 +68,7 @@
           <div class="slide-track">
             <article class="slide-panel" id="case-01">
               <div class="case-head"><span class="case-no">CASE 01 / RETRIEVE</span><div class="case-title"><h2>MultiRank-RAG</h2><p class="case-role" data-zh="复杂 PDF 多模态 RAG · GraphRAG · 证据链问答系统" data-en="Multimodal RAG · GraphRAG · evidence-chain QA for complex PDFs">复杂 PDF 多模态 RAG · GraphRAG · 证据链问答系统</p></div><span class="case-date">2026</span></div>
-              <p class="case-file"><span>TYPE — <i>PERSONAL RESEARCH & ENGINEERING</i></span><span>CORE — <i>MULTIMODAL RAG · GRAPHRADI · RERANK</i></span><span>STATUS — <i>PUBLIC / REPRODUCIBLE</i></span></p>
+              <p class="case-file"><span>TYPE — <i>PERSONAL RESEARCH & ENGINEERING</i></span><span>CORE — <i>MULTIMODAL RAG · GRAPHRAG · RERANK</i></span><span>STATUS — <i>PUBLIC / REPRODUCIBLE</i></span></p>
 
               <div class="project-lede">
                 <div class="project-lede-copy">
@@ -148,9 +149,9 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="footer-row"><span>CYY / 26</span><span>LLM SYSTEMS · PROJECT CASE STUDIES</span><span>© 2026 YMLYANG CHEN</span><a class="to-top" href="#top"><span data-zh="返回顶部" data-en="BACK TO TOP">返回顶部</span>&nbsp;↑</a></div><div class="footer-colophon"><span>PROBLEM → INSIGHT → SYSTEM → EVIDENCE → NEXT</span><span>EDITION — CYY / 26 · 2026</span></div></footer>
+  <footer class="site-footer"><div class="footer-row"><span>陈耀洋 / 26</span><span>LLM SYSTEMS · PROJECT CASE STUDIES</span><span>© 2026 YAOYANG CHEN</span><a class="to-top" href="#top"><span data-zh="返回顶部" data-en="BACK TO TOP">返回顶部</span>&nbsp;↑</a></div><div class="footer-colophon"><span>PROBLEM → INSIGHT → SYSTEM → EVIDENCE → NEXT</span><span>EDITION — 陈耀洋 / 26 · 2026</span></div></footer>
   <script src="assets/vendor/gsap.bundle.min.js"></script>
-  <script src="script-core.js?v=20260904"></script>
-  <script src="script.js?v=20260905"></script>
+  <script src="script-core.js?v=20260906.1"></script>
+  <script src="script.js?v=20260906.1"></script>
 </body>
 </html>

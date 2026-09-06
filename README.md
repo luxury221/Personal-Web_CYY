@@ -20,6 +20,7 @@ The portfolio is designed to show why a problem matters, what was actually built
 - `index.html` — Home / research thesis and selected evidence
 - `profile.html` — About / systems mindset
 - `experience.html` — Projects / four flagship systems
+- `competitions.html` — Awards / competitions and honors ledger
 - `education.html` — Academic / Mathematics × AI Systems
 - `focus.html` — Research / current research questions
 - `contact.html` — Contact / collaboration and internship channel
@@ -183,7 +184,7 @@ script.js        # content-v3 fixes -> cyy-ai-v2 -> evidence-v4 ->
                  # research-assistant 2.0 -> greetings (banner sections)
 ```
 
-## CYY Research Assistant
+## Research Assistant
 
 The companion remains under:
 

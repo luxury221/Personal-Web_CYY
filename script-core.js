@@ -357,7 +357,7 @@ function initCoverContinue() {
 
 function teardownScrollNarrative() {
   if (hasGsap() && typeof window.ScrollTrigger !== 'undefined') {
-    activeTriggers.forEach((trigger) => trigger.kill());
+    activeTriggers.forEach((trigger) => trigger?.kill?.());
   }
   activeTriggers = [];
   if (typeof window.SplitText !== 'undefined') {
@@ -1075,7 +1075,11 @@ function initCursor() {
 
   let hovered = null;
   let frameBusy = false;
+  let dotX = -100;
+  let dotY = -100;
   window.addEventListener('mousemove', (event) => {
+    dotX = event.clientX;
+    dotY = event.clientY;
     /* Stir the water along the pointer path. */
     if (typeof stirWater === 'function' && Math.hypot(event.clientX - lastStir.x, event.clientY - lastStir.y) > 6) {
       lastStir.x = event.clientX;

@@ -74,7 +74,7 @@ body { font-variant-numeric: tabular-nums; }
   backdrop-filter: blur(16px);
 }
 .wordmark {
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", "Noto Sans SC", monospace;
   font-size: 13px;
   letter-spacing: .12em;
   text-decoration: none;
@@ -356,10 +356,10 @@ body { font-variant-numeric: tabular-nums; }
   overflow: hidden;
 }
 .archive-cys {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(100px, 11vw, 190px);
-  line-height: .82;
-  letter-spacing: -.085em;
+  font-family: "Noto Serif SC", "Playfair Display", serif;
+  font-size: clamp(58px, 6.2vw, 104px);
+  line-height: 1.04;
+  letter-spacing: .06em;
   color: var(--accent);
 }
 .archive-seal {
@@ -1112,7 +1112,7 @@ html.cover-hold .page-transition { transform: none; }
   .home-copy-grid { grid-template-columns: 1fr; gap: 18px; }
   .home-visual { min-height: 330px; }
   .archive-card-home { min-height: 330px; }
-  .archive-cys { font-size: clamp(80px, 25vw, 132px); }
+  .archive-cys { font-size: clamp(46px, 16vw, 72px); }
   .archive-seal { left: 51%; top: 42%; }
   .archive-axis { gap: 8px; }
   .home-bottom { grid-template-columns: 1fr; gap: 8px; }
@@ -1224,12 +1224,12 @@ html.cover-hold .page-transition { transform: none; }
   pointer-events: none;
 }
 
-/* CYY adaptation: the display name is a 12-character Latin name instead of a
-   3-character CJK name, so the homepage title scales down to stay inside the
-   left column at every breakpoint. */
+/* Display name is the 3-character CJK name 陈耀洋, so it can carry the hero
+   scale again; spacing is relaxed because tight Latin tracking reads badly
+   on CJK glyphs. */
 .home-name-zh {
-  font-size: clamp(40px, 11.5vw, 66px);
-  letter-spacing: -.02em;
+  font-size: clamp(72px, 9vw, 138px);
+  letter-spacing: .015em;
 }
 
 /* CYY adaptation: at phone widths the card's min-height paired with its

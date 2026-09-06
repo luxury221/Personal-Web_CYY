@@ -42,7 +42,7 @@ body::after {
 }
 .home-left { position: relative; }
 .home-left::before {
-  content: "RESEARCH NODE / CYY-26";
+  content: "RESEARCH NODE / 陈耀洋-26";
   position: absolute;
   left: -2px;
   top: -56px;
@@ -135,8 +135,8 @@ body::after {
 .archive-document span:first-child { color: var(--accent); }
 .archive-cys-mask { left: 7%; top: 18%; }
 .archive-cys {
-  font-size: clamp(68px, 7vw, 116px);
-  letter-spacing: -.045em;
+  font-size: clamp(52px, 5.6vw, 92px);
+  letter-spacing: .06em;
   color: var(--accent);
   opacity: .96;
 }
@@ -1667,12 +1667,19 @@ body.showcase-modal-open { overflow: hidden; }
 .slide-tab[data-slide="0"]::after {
   content: "FLAGSHIP";
   position: absolute;
+  left: auto;
+  bottom: auto;
   right: 10px;
   top: 8px;
+  height: auto;
+  background: none;
   color: var(--brass,#9a8060);
   font: 7px/1 "DM Mono",monospace;
   letter-spacing: .12em;
 }
+/* The tag above occupies ::after, so the active underline for this tab
+   comes from an inset shadow aligned with the other tabs' underlines. */
+.slide-tab[data-slide="0"].active { box-shadow: inset 0 -1px 0 var(--ink); }
 #case-01 .project-lede { position: relative; }
 #case-01 .project-lede::before {
   content: "PRIMARY / RESEARCH FLAGSHIP";
@@ -1746,6 +1753,89 @@ body.showcase-modal-open { overflow: hidden; }
 /* Old decorative layers are retired in V6. */
 .petal-canvas,
 .ink-layer { display: none !important; }
+
+/* -------------------------- Awards ledger (competitions page) -------------------------- */
+.award-ledger { margin-top: 22px; border-top: 1px solid var(--line); }
+.award-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.award-row > span { font-family: "DM Mono", monospace; font-size: 10px; color: var(--gold); }
+.award-name b { display: block; font-weight: 500; font-size: 16px; }
+.award-name small {
+  display: block;
+  margin-top: 4px;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: var(--muted);
+}
+.award-tier {
+  justify-self: end;
+  font-family: "DM Mono", "Noto Sans SC", monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: var(--accent);
+  border: 1px solid rgba(33, 72, 76, .24);
+  padding: 5px 7px;
+  white-space: nowrap;
+}
+.award-tier.is-bronze { color: #8a5a2b; border-color: rgba(138, 90, 43, .38); }
+@media (max-width: 720px) {
+  .award-row { grid-template-columns: 28px minmax(0, 1fr); row-gap: 10px; }
+  .award-tier { grid-column: 2; justify-self: start; }
+}
+
+/* -------------------------- Certificate archive (competitions page) -------------------------- */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+.cert-card { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.cert-thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: #f7f3ea;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+.cert-thumb img { display: block; width: 100%; height: auto; transition: transform .5s ease; }
+.cert-thumb:hover img,
+.cert-thumb:focus-visible img { transform: scale(1.035); }
+.cert-card figcaption { display: flex; flex-direction: column; gap: 3px; }
+.cert-card figcaption b { font-weight: 500; font-size: 13.5px; letter-spacing: .02em; }
+.cert-card figcaption small {
+  font-family: "DM Mono", "Noto Sans SC", monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: var(--muted);
+}
+.cert-card.is-pending .cert-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  aspect-ratio: 3 / 2;
+  border: 1px dashed rgba(33, 72, 76, .35);
+  background: transparent;
+  color: var(--muted);
+  text-align: center;
+  padding: 14px;
+}
+.cert-card.is-pending .cert-pending b { font-weight: 500; font-size: 13px; letter-spacing: .28em; }
+.cert-card.is-pending .cert-pending small { font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .16em; }
+@media (max-width: 720px) {
+  .cert-grid { grid-template-columns: 1fr; gap: 18px; }
+}
 
 @media (max-width: 1180px) {
   .home-copy-grid { grid-template-columns: minmax(110px,.34fr) minmax(0,1fr); gap: 22px; }
