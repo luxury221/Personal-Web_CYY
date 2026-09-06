@@ -1017,7 +1017,7 @@ html.cover-hold .page-transition { transform: none; }
 }
 .marquee-track span {
   white-space: nowrap;
-  padding-right: 24px;
+  padding-right: 0;
   font-family: "DM Mono", monospace;
   font-size: 10px;
   letter-spacing: .16em;

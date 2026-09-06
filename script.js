@@ -1161,7 +1161,7 @@
 
   if (window.CYSPet?.version) return;
 
-  const VERSION = '0.5.0';
+  const VERSION = '0.5.0.1';
   const ASSET = 'assets/cys-pet/';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
@@ -2966,7 +2966,7 @@
         en: 'Controlled ablations, robustness prediction, linear probes, uncertainty features and offline reproducible evaluation.'
       },
       answer: {
-        zh: '在评测上，CYY 更关注“为什么有效”而不只是“能不能跑”：固定候选集做消融、保留失败案例，并用 Probe、不确定性和离线容器检查鲁棒性与复现性。',
+        zh: '在评测上，陈耀洋更关注“为什么有效”而不只是“能不能跑”：固定候选集做消融、保留失败案例，并用 Probe、不确定性和离线容器检查鲁棒性与复现性。',
         en: 'For evaluation, the focus is on why a method works rather than merely whether it runs: controlled candidate sets, preserved failure cases, probes, uncertainty measures and offline containers for robustness and reproducibility.'
       },
       facts: [['ABLATION', 'V0–V5'], ['PROBE', 'LINEAR'], ['RUNTIME', 'OFFLINE']],
@@ -3039,8 +3039,8 @@
         en: 'Undergraduate focused on LLM systems, guided by Evidence First · Measure the Gain · Ship the System.'
       },
       answer: {
-        zh: 'CYY 的核心定位是 LLM Systems × RAG × Agent Engineering，强调把模型放进有数据来源、有状态、有工具、有边界和有评测的完整系统。',
-        en: 'CYY is positioned around LLM Systems × RAG × Agent Engineering, with an emphasis on complete systems that have provenance, state, tools, boundaries and evaluation.'
+        zh: '陈耀洋的核心定位是 LLM Systems × RAG × Agent Engineering，强调把模型放进有数据来源、有状态、有工具、有边界和有评测的完整系统。',
+        en: 'Yaoyang Chen is positioned around LLM Systems × RAG × Agent Engineering, with an emphasis on complete systems that have provenance, state, tools, boundaries and evaluation.'
       },
       facts: [['METHOD', 'R³'], ['FOCUS', 'LLM SYSTEMS'], ['PRINCIPLE', 'EVIDENCE FIRST']],
       keywords: [['陈耀洋', 10], ['yaoyang', 10], ['是谁', 7], ['介绍', 6], ['about', 6], ['profile', 6], ['who', 4], ['定位', 5]]
@@ -3458,4 +3458,110 @@
     if (!btn) return;
     openCert(btn.dataset.certSrc, btn.dataset.certAlt, btn);
   });
+})();
+
+/* ================  LAYER: pet-dodge.js?v=1.0.0               */
+/* Default-dock collision avoidance: while the companion sits at its default
+   dock (the user has not pinned a custom spot), test the dock rectangle against
+   readable content. If the dock is covered, step up to a raised berth; if both
+   berths are covered, step back (translucent) instead of sitting on text or
+   blocking links. A user-dragged position always wins. */
+(() => {
+  'use strict';
+  const root = document.querySelector('.cys-pet-root');
+  if (!root || root.dataset.dodgeReady === '1') return;
+  root.dataset.dodgeReady = '1';
+
+  const TEXT_SEL = 'p, h1, h2, h3, h4, li, figcaption, blockquote, td, th, dt, dd, a, button, span, small, b, .award-row, .cert-card, .metric-card, .home-proof-item';
+  const STORE_KEY = 'cys-pet-position-v1';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let timer = 0;
+  let currentTop = null;
+
+  function userPinned() {
+    try { return !!JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); }
+    catch (_) { return false; }
+  }
+
+  function overlapArea(a, b) {
+    const ix = Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left));
+    const iy = Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+    return ix * iy;
+  }
+
+  function meaningfulHit(berth, el) {
+    if (el.closest('.cys-pet-root, .cys-pet-summon, .page-transition')) return false;
+    const r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return false;
+    const area = overlapArea(berth, r);
+    if (area < 500) return false;
+    if (el.tagName === 'A' || el.tagName === 'BUTTON') return true; /* blocked clicks */
+    const len = (el.textContent || '').trim().length;
+    if (/^(P|H1|H2|H3|H4|LI|BLOCKQUOTE|FIGCAPTION|TD|TH)$/.test(el.tagName) && len > 12) return true;
+    return area > 900;
+  }
+
+  function berthOccupied(berth) {
+    for (const el of document.querySelectorAll(TEXT_SEL)) {
+      if (meaningfulHit(berth, el)) return true;
+    }
+    return false;
+  }
+
+  function evaluate() {
+    if (root.hidden || root.classList.contains('is-minimized') || root.classList.contains('is-dragging')) return;
+    if (document.querySelector('.cys-pet-panel.is-open')) return;
+
+    if (userPinned()) {
+      root.classList.remove('is-dodged');
+      return;
+    }
+
+    const rect = root.getBoundingClientRect();
+    if (!rect.width) return;
+
+    const height = rect.height;
+    const berthRect = (top) => ({ left: rect.left, right: rect.left + rect.width, top, bottom: top + height });
+    const berths = [
+      Math.max(76, innerHeight - height - 12),        /* default low dock */
+      Math.max(76, innerHeight * 0.54 - height / 2)   /* raised berth */
+    ];
+
+    let chosen = -1;
+    if (!reduceMotion) {
+      if (!berthOccupied(berthRect(berths[0]))) chosen = 0;
+      else if (!berthOccupied(berthRect(berths[1]))) chosen = 1;
+    }
+
+    root.classList.add('is-auto-move');
+    if (chosen === 0) {
+      root.classList.remove('is-dodged');
+      if (currentTop !== null) {
+        root.style.top = '';
+        root.style.bottom = '';
+        currentTop = null;
+      }
+    } else if (chosen === 1) {
+      root.classList.remove('is-dodged');
+      if (Math.abs((currentTop === null ? rect.top : currentTop) - berths[1]) > 4) {
+        root.style.top = berths[1] + 'px';
+        root.style.bottom = 'auto';
+        currentTop = berths[1];
+      }
+    } else {
+      /* both berths (or movement) unavailable — step back instead of covering text */
+      root.classList.add('is-dodged');
+    }
+    setTimeout(() => root.classList.remove('is-auto-move'), 620);
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(evaluate, 260);
+  }
+
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule);
+  addEventListener('load', () => setTimeout(evaluate, 1400));
+  setTimeout(evaluate, 2800);
 })();

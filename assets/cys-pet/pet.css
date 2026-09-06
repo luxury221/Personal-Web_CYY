@@ -19,8 +19,8 @@ body.cys-pet-hovering .cursor-frame { opacity: 0 !important; }
   right: clamp(12px, 2.1vw, 28px);
   bottom: max(12px, env(safe-area-inset-bottom));
   z-index: 860;
-  width: clamp(118px, 10.8vw, 158px);
-  height: clamp(194px, 17.8vw, 250px);
+  width: clamp(110px, 10vw, 146px);
+  height: clamp(180px, 16.5vw, 232px);
   pointer-events: none;
   opacity: 0;
   transform: translate3d(var(--pet-x), var(--pet-y), 0) scale(var(--pet-scale));
