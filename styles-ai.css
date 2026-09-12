@@ -1885,4 +1885,6 @@ body.showcase-modal-open { overflow: hidden; }
 .cys-pet-root.is-auto-move {
   transition: top .55s cubic-bezier(.22, .61, .36, 1), opacity .32s ease, filter .3s ease;
 }
-.cys-pet-root.is-dodged { opacity: .38; }
+/* doubled class: pet.css is runtime-injected after this file, so .is-ready(opacity:1)
+   would otherwise win the cascade at equal specificity */
+.cys-pet-root.cys-pet-root.is-dodged { opacity: .38; }
