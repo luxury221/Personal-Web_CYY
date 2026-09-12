@@ -1664,24 +1664,6 @@ body.showcase-modal-open { overflow: hidden; }
   position: relative;
   flex-grow: 1.16;
 }
-/* The FLAGSHIP corner tag belongs to the projects deck only — on the research
-   deck the same selector painted the tag over the "MULTIMODAL RAG" label. */
-.projects-page .slide-tab[data-slide="0"]::after {
-  content: "FLAGSHIP";
-  position: absolute;
-  left: auto;
-  bottom: auto;
-  right: 10px;
-  top: 8px;
-  height: auto;
-  background: none;
-  color: var(--brass,#9a8060);
-  font: 7px/1 "DM Mono",monospace;
-  letter-spacing: .12em;
-}
-/* The tag above occupies ::after, so the active underline for this tab
-   comes from an inset shadow aligned with the other tabs' underlines. */
-.projects-page .slide-tab[data-slide="0"].active { box-shadow: inset 0 -1px 0 var(--ink); }
 #case-01 .project-lede { position: relative; }
 #case-01 .project-lede::before {
   content: "PRIMARY / RESEARCH FLAGSHIP";
@@ -1843,7 +1825,6 @@ body.showcase-modal-open { overflow: hidden; }
 @media (max-width: 1180px) {
   .home-copy-grid { grid-template-columns: minmax(110px,.34fr) minmax(0,1fr); gap: 22px; }
   .home-thesis span { max-width: 650px; }
-  .projects-page .slide-tab[data-slide="0"]::after { display: none; }
 }
 
 @media (max-width: 720px) {

@@ -1106,7 +1106,9 @@ function initCursor() {
   document.addEventListener('mouseover', (event) => {
     const target = event.target.closest('a, button');
     if (target === hovered) return;
-    if (!target) { clearHover(); return; }
+    /* Deck tabs mark their own selected state with an ink underline; the
+       bracket frame duplicates it and renders glitchy on top. */
+    if (!target || target.closest('.slide-tabs')) { clearHover(); return; }
     hovered = target;
     frameBusy = true;
     const r = target.getBoundingClientRect();
