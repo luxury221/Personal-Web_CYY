@@ -93,7 +93,7 @@ body::after {
   letter-spacing: .08em;
 }
 .home-proof-item span { font-size: 16px; color: var(--ink); }
-.home-proof-item small { margin-top: 6px; font-size: 8px; line-height: 1.5; color: var(--muted); }
+.home-proof-item small { margin-top: 6px; font-size: 8px; line-height: 1.5; color: var(--muted); font-family: "DM Mono", "Noto Sans SC", monospace; }
 .home-proof-item strong { font-weight: 500; color: var(--accent); }
 
 /* -------------------------- LLM research dossier card -------------------------- */
