@@ -3375,7 +3375,7 @@
 
   const replacements = {
     zh: new Map([
-      ['欢迎来到我的个人档案。想先看哪一部分？', '欢迎来到 CYY Research Assistant。你可以直接问我项目、RAG、Agent 或研究方向。'],
+      ['欢迎来到我的个人档案。想先看哪一部分？', '欢迎来到陈耀洋的研究助手。你可以直接问我项目、RAG、Agent 或研究方向。'],
       ['这里是个人简介与档案时间线。', '这里是 About：个人定位、技术方法和当前轨迹。'],
       ['这里记录四组 AI 项目：RAG、智能体、数字人与可解释性。可以拖拽切换案例。', '这里是四个旗舰 AI 系统：MultiRank-RAG、孔明职配、AI Homework System 与 Interactive Avatar。可以拖拽查看 Pipeline 和证据。'],
       ['这里按方向归档训练轨迹与技术栈。', '这里是 Academic：双学位、数学与 AI 训练，以及阶段性成果。'],
@@ -3383,7 +3383,7 @@
       ['如果你想交流 RAG、智能体或工程实践，可以从这里联系。', '这里保留科研合作、项目协作和实习机会的联系入口。']
     ]),
     en: new Map([
-      ['Welcome to my archive. Where would you like to begin?', 'Welcome to CYY Research Assistant. Ask directly about projects, RAG, agents, or research.'],
+      ['Welcome to my archive. Where would you like to begin?', 'Welcome to the Yaoyang Chen research assistant. Ask directly about projects, RAG, agents, or research.'],
       ['This page holds the profile and archive timeline.', 'This is About: positioning, working principles, and the current technical trajectory.'],
       ['Four AI projects live here — RAG, agents, digital human, interpretability. Drag the deck to switch cases.', 'Four flagship AI systems live here: MultiRank-RAG, Kongming, AI Homework System, and Interactive Avatar. Drag to inspect their pipelines and evidence.'],
       ['Training directions and toolchains are archived here.', 'This is Academic: dual-degree training, mathematics, AI systems, and selected recognition.'],
