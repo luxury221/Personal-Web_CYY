@@ -840,7 +840,7 @@ html.cover-hold .page-transition { transform: none; }
   border-bottom: 1px solid var(--line);
 }
 .course-list span { font-family: "DM Mono", monospace; font-size: 10px; color: var(--gold); }
-.course-list p { margin: 0; font-family: "Noto Serif SC", serif; font-size: clamp(20px,2vw,32px); }
+.course-list p, .course-list a.recognition-link { margin: 0; font-family: "Noto Serif SC", serif; font-size: clamp(20px,2vw,32px); }
 .metric-large {
   font-family: "Playfair Display", serif;
   font-size: clamp(88px,12vw,190px);

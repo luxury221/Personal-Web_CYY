@@ -2993,6 +2993,25 @@
       ]
     },
     {
+      id: 'papers', type: 'PAPERS', route: 'research', state: 'working',
+      title: { zh: '论文在投', en: 'Papers under review' },
+      summary: {
+        zh: '两篇在投：JCT Series A 一作·通讯（孤独跑步者谱）、AML 二作（趋化衰减率二分）。',
+        en: 'Two under review: JCT Series A first and corresponding author (Lonely Runner spectrum) and AML second author (chemotaxis rate dichotomy).'
+      },
+      answer: {
+        zh: '数学方向有两篇在投：Journal of Combinatorial Theory, Series A 一作兼通讯，完整确定 1/4 以下的四速孤独跑步者谱并证实 Fan–Sun 加强谱猜想；Applied Mathematics Letters 二作，为信号依赖运动性的趋化模型建立质量加权阻尼并给出指数/代数衰减的速率二分。',
+        en: 'Two mathematics papers are under review: first and corresponding author in Journal of Combinatorial Theory, Series A (complete four-speed Lonely Runner spectrum below 1/4, confirming the sharpened Fan–Sun conjecture) and second author in Applied Mathematics Letters (mass-weighted damping with an exponential/algebraic rate dichotomy for chemotaxis).'
+      },
+      facts: [['JCT SERIES A', 'FIRST AUTHOR'], ['APPLIED MATH LETT', 'SECOND AUTHOR'], ['STATUS', 'UNDER REVIEW']],
+      keywords: [
+        ['论文', 10], ['paper', 10], ['投稿', 9], ['在投', 9], ['一作', 10], ['二作', 8], ['通讯', 8],
+        ['孤独跑步', 10], ['lonely runner', 10], ['jcta', 9], ['combinatorial', 8], ['组合', 8],
+        ['chemotaxis', 10], ['趋化', 10], ['aml', 8], ['applied mathematics', 8], ['数学', 6], ['math', 6],
+        ['证明', 7], ['proof', 7], ['谱', 7], ['spectrum', 7], ['期刊', 8], ['journal', 7]
+      ]
+    },
+    {
       id: 'stack', type: 'SYSTEM', route: 'academic', state: 'working',
       title: { zh: 'AI Systems Stack', en: 'AI Systems Stack' },
       summary: {
