@@ -1186,12 +1186,12 @@
 
   const labels = {
     zh: {
-      profile: '简介', experience: '经历', competitions: '竞赛', education: '教育', focus: '方向', contact: '联系',
+      index: '首页', profile: '简介', experience: '经历', competitions: '竞赛', education: '教育', focus: '方向', contact: '联系',
       ask: '可以问我：项目、竞赛、训练、方向或联系方式。',
       placeholder: '问问陈耀洋…', thinking: 'THINKING', working: 'WORKING', here: '当前页'
     },
     en: {
-      profile: 'Profile', experience: 'Experience', competitions: 'Awards', education: 'Education', focus: 'Focus', contact: 'Contact',
+      index: 'Home', profile: 'Profile', experience: 'Experience', competitions: 'Awards', education: 'Education', focus: 'Focus', contact: 'Contact',
       ask: 'Ask me about projects, competitions, training, focus, or contact.',
       placeholder: 'Ask Yaoyang Chen…', thinking: 'THINKING', working: 'WORKING', here: 'HERE'
     }
@@ -1970,12 +1970,17 @@
   let activeSection = '';
 
   function routeName() {
+    const zh = (document.documentElement.lang || '').startsWith('zh');
     const name = location.pathname.split('/').pop() || 'index.html';
-    const map = {
-      'index.html': 'HOME', 'profile.html': 'PROFILE', 'experience.html': 'EXPERIENCE',
-      'education.html': 'EDUCATION', 'focus.html': 'FOCUS', 'contact.html': 'CONTACT'
+    const zhMap = {
+      'index.html': '首页', 'profile.html': '关于', 'experience.html': '项目',
+      'competitions.html': '竞赛', 'education.html': '学术', 'focus.html': '研究', 'contact.html': '联系'
     };
-    return map[name] || 'ARCHIVE';
+    const enMap = {
+      'index.html': 'HOME', 'profile.html': 'PROFILE', 'experience.html': 'PROJECTS',
+      'competitions.html': 'AWARDS', 'education.html': 'ACADEMIC', 'focus.html': 'RESEARCH', 'contact.html': 'CONTACT'
+    };
+    return (zh ? zhMap[name] : enMap[name]) || 'ARCHIVE';
   }
 
   function labelForSection(el) {
@@ -2996,19 +3001,18 @@
       id: 'papers', type: 'PAPERS', route: 'research', state: 'working',
       title: { zh: '论文在投', en: 'Papers under review' },
       summary: {
-        zh: '两篇在投：JCT Series A 一作·通讯（孤独跑步者谱）、AML 二作（趋化衰减率二分）。',
-        en: 'Two under review: JCT Series A first and corresponding author (Lonely Runner spectrum) and AML second author (chemotaxis rate dichotomy).'
+        zh: '一篇在投：JCT Series A 一作·通讯（孤独跑步者谱，证实 Fan–Sun 加强谱猜想）。',
+        en: 'One under review: JCT Series A, first and corresponding author (Lonely Runner spectrum).'
       },
       answer: {
-        zh: '数学方向有两篇在投：Journal of Combinatorial Theory, Series A 一作兼通讯，完整确定 1/4 以下的四速孤独跑步者谱并证实 Fan–Sun 加强谱猜想；Applied Mathematics Letters 二作，为信号依赖运动性的趋化模型建立质量加权阻尼并给出指数/代数衰减的速率二分。',
-        en: 'Two mathematics papers are under review: first and corresponding author in Journal of Combinatorial Theory, Series A (complete four-speed Lonely Runner spectrum below 1/4, confirming the sharpened Fan–Sun conjecture) and second author in Applied Mathematics Letters (mass-weighted damping with an exponential/algebraic rate dichotomy for chemotaxis).'
+        zh: '数学方向有一篇在投：Journal of Combinatorial Theory, Series A 一作兼通讯，完整确定 1/4 以下的四速孤独跑步者谱，证实 Fan–Sun 加强谱猜想，并给出 a+b=c 反证定理；证明用两个傅里叶证书加精确的计算机辅助验证。',
+        en: 'One mathematics paper is under review: first and corresponding author in Journal of Combinatorial Theory, Series A — the complete four-speed Lonely Runner spectrum below 1/4, confirming the sharpened Fan–Sun conjecture, with an a+b=c inverse theorem; the proof uses two Fourier certificates plus exact computer-assisted verification.'
       },
-      facts: [['JCT SERIES A', 'FIRST AUTHOR'], ['APPLIED MATH LETT', 'SECOND AUTHOR'], ['STATUS', 'UNDER REVIEW']],
+      facts: [['JCT SERIES A', 'FIRST AUTHOR'], ['ROLE', 'CORRESPONDING'], ['STATUS', 'UNDER REVIEW']],
       keywords: [
-        ['论文', 10], ['paper', 10], ['投稿', 9], ['在投', 9], ['一作', 10], ['二作', 8], ['通讯', 8],
-        ['孤独跑步', 10], ['lonely runner', 10], ['jcta', 9], ['combinatorial', 8], ['组合', 8],
-        ['chemotaxis', 10], ['趋化', 10], ['aml', 8], ['applied mathematics', 8], ['数学', 6], ['math', 6],
-        ['证明', 7], ['proof', 7], ['谱', 7], ['spectrum', 7], ['期刊', 8], ['journal', 7]
+        ['论文', 10], ['paper', 10], ['投稿', 9], ['在投', 9], ['一作', 10], ['通讯', 8],
+        ['孤独跑步', 10], ['lonely runner', 10], ['jcta', 9], ['combinatorial', 8], ['组合', 8], ['fan', 6],
+        ['数学', 6], ['math', 6], ['证明', 7], ['proof', 7], ['谱', 7], ['spectrum', 7], ['期刊', 8], ['journal', 7]
       ]
     },
     {
@@ -3032,20 +3036,21 @@
       id: 'awards', type: 'AWARDS', route: 'awards', state: 'success',
       title: { zh: '竞赛与获奖记录', en: 'Competitions & Awards' },
       summary: {
-        zh: '八项竞赛奖励：三项国家二等奖、一项国家三等奖、一项省级二等奖与三枚 Kaggle 铜牌。',
-        en: 'Eight competition awards: three national second prizes, one national third prize, one provincial second prize and three Kaggle bronze medals.'
+        zh: '九项竞赛奖励：三项国家二等奖、一项国家三等奖、一项省级二等奖、一枚 Kaggle 银牌与三枚 Kaggle 铜牌。',
+        en: 'Nine competition awards: three national second prizes, one national third prize, one provincial second prize, one Kaggle silver medal and three Kaggle bronze medals.'
       },
       answer: {
-        zh: '竞赛记录覆盖三条线：建模类（统计建模国家二等奖、数学竞赛省级二等奖、数学能力挑战赛国家三等奖）、工程开源类（中国大学生计算机设计大赛国家二等奖、CCF 开源大赛国家二等奖）与数据实战类（Kaggle NeuroGolf、BirdCLEF+ 2026、Pokémon 三枚铜牌）。',
-        en: 'The awards span three tracks: modeling (Statistical Modeling national second prize, Mathematics Competition provincial second prize, Mathematics Ability Challenge national third prize), engineering/open source (China Collegiate Computing Contest national second prize, CCF Open-Source Competition national second prize), and data practice (three Kaggle bronze medals in NeuroGolf, BirdCLEF+ 2026 and Pokémon).'
+        zh: '竞赛记录覆盖三条线：建模类（统计建模国家二等奖、数学竞赛省级二等奖、数学能力挑战赛国家三等奖）、工程开源类（计算机设计大赛国家二等奖、CCF 开源大赛国家二等奖）与数据实战类（Kaggle NVIDIA Nemotron 银牌，NeuroGolf、BirdCLEF+ 2026、Pokémon 三枚铜牌）。',
+        en: 'The awards span three tracks: modeling (Statistical Modeling national second prize, Mathematics Competition provincial second prize, Mathematics Ability Challenge national third prize), engineering/open source (Computing Contest and CCF Open-Source national second prizes), and data practice (Kaggle NVIDIA Nemotron silver medal plus three bronze medals in NeuroGolf, BirdCLEF+ 2026 and Pokémon).'
       },
       facts: [
         ['NATIONAL 2ND', '×3'],
+        ['KAGGLE SILVER', '×1'],
         ['KAGGLE BRONZE', '×3'],
-        ['TOTAL AWARDS', '8']
+        ['TOTAL AWARDS', '9']
       ],
       keywords: [
-        ['竞赛', 9], ['获奖', 9], ['奖', 6], ['比赛', 8], ['awards', 9], ['award', 8], ['competition', 8], ['kaggle', 10],
+        ['竞赛', 9], ['获奖', 9], ['奖', 6], ['比赛', 8], ['awards', 9], ['award', 8], ['competition', 8], ['kaggle', 10], ['nvidia', 9], ['nemotron', 10], ['银牌', 9], ['silver', 8], ['铜牌', 7], ['bronze', 7],
         [' medal', 6], ['铜牌', 8], ['国二', 8], ['国家二等奖', 9], ['统计建模', 7], ['计算机设计', 7], ['ccf', 8], ['开源', 5],
         ['数学', 6], ['neurogolf', 9], ['birdclef', 9], ['pokemon', 8], ['pokémon', 8]
       ]

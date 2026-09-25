@@ -2047,3 +2047,44 @@ body.showcase-modal-open { overflow: hidden; }
   .bench-fill.f0 { width: 67.8%; }
   .bench-fill.f1 { width: 87.8%; }
 }
+.award-tier.is-silver { color: #66727d; border-color: rgba(102, 114, 125, .42); }
+
+/* -------------------------- Archive card refinement pass -------------------------- */
+/* brighter sheet against the page, calmer noise */
+.archive-card-home { box-shadow: 0 1px 0 rgba(255,255,255,.6) inset; }
+.archive-card-home .archive-paper-one { background: #f6f1e6; }
+.archive-card-home .archive-noise { opacity: .065; }
+
+/* technical-sheet inner frame */
+.archive-card-home::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border: 1px solid rgba(33, 72, 76, .10);
+  pointer-events: none;
+}
+
+/* corner watermark instead of a floating grey stain */
+.archive-card-home .archive-watermark {
+  right: -1.5%;
+  bottom: -6%;
+  font-size: clamp(150px, 15vw, 240px);
+  color: rgba(33, 72, 76, .05);
+}
+
+/* verification chop: transparent ink double-border, not a white floating card */
+.archive-card-home .archive-seal {
+  background: transparent;
+  border-color: rgba(33, 72, 76, .38);
+  color: rgba(33, 72, 76, .78);
+  width: clamp(62px, 5.6vw, 92px);
+  transform: rotate(-2.5deg);
+  backdrop-filter: none;
+}
+.archive-card-home .archive-seal::before { border-color: rgba(33, 72, 76, .18); }
+.archive-card-home .archive-seal strong { color: var(--accent); }
+
+/* graph: slightly more confident lines and node lift */
+.archive-card-home .graph-edge { background: linear-gradient(90deg, rgba(33, 72, 76, .62), rgba(33, 72, 76, .16)); }
+.archive-card-home .graph-node { box-shadow: 0 5px 14px rgba(36, 48, 52, .10); }
+.paper-card:only-child { grid-column: 1 / -1; }
