@@ -1058,32 +1058,6 @@ html.cover-hold .page-transition { transform: none; }
 .site-footer .to-top { color: var(--ink); text-decoration: none; transition: color .25s ease; }
 .site-footer .to-top:hover { color: var(--accent); }
 
-/* -------------------------- Custom cursor -------------------------- */
-/* Hovering interactive elements raises crop-mark corners around the target;
-   the cursor itself stays native. */
-.cursor-frame {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1999;
-  pointer-events: none;
-  opacity: 0;
-}
-.cursor-frame i {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  border: 0 solid var(--ink);
-}
-.cursor-frame i:nth-child(1) { top: 0; left: 0; border-top-width: 1.5px; border-left-width: 1.5px; }
-.cursor-frame i:nth-child(2) { top: 0; right: 0; border-top-width: 1.5px; border-right-width: 1.5px; }
-.cursor-frame i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 1.5px; border-left-width: 1.5px; }
-.cursor-frame i:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 1.5px; border-right-width: 1.5px; }
-.contact-page .cursor-frame i { border-color: var(--paper-light); }
-@media (pointer: coarse) {
-  .cursor-frame { display: none; }
-}
-
 @media (max-width: 1100px) {
   .home-cover { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
   .home-left { padding-left: 0; }

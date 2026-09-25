@@ -1061,74 +1061,6 @@ function initContactExtras() {
   }
 }
 
-/* ------------------------------ Custom cursor ------------------------------ */
-
-/* A quiet ink dot follows the pointer; hovering interactive elements shoots
-   crop-mark corners out of the dot to frame the target. */
-function initCursor() {
-  if (reduceMotion || !finePointer || !hasGsap()) return;
-
-  const frame = document.createElement('div');
-  frame.className = 'cursor-frame';
-  frame.innerHTML = '<i></i><i></i><i></i><i></i>';
-  document.body.append(frame);
-
-  let hovered = null;
-  let frameBusy = false;
-  let dotX = -100;
-  let dotY = -100;
-  window.addEventListener('mousemove', (event) => {
-    dotX = event.clientX;
-    dotY = event.clientY;
-    /* Stir the water along the pointer path. */
-    if (typeof stirWater === 'function' && Math.hypot(event.clientX - lastStir.x, event.clientY - lastStir.y) > 6) {
-      lastStir.x = event.clientX;
-      lastStir.y = event.clientY;
-      stirWater(event.clientX, event.clientY, 1, 14);
-    }
-  });
-
-  gsap.ticker.add(() => {
-    /* Track the framed element while it moves (magnetic nav, scroll). */
-    if (hovered && !frameBusy) {
-      const r = hovered.getBoundingClientRect();
-      gsap.set(frame, { left: r.left, top: r.top, width: r.width, height: r.height });
-    }
-  });
-
-  function clearHover() {
-    if (!hovered) return;
-    hovered = null;
-    frameBusy = false;
-    gsap.to(frame, { opacity: 0, duration: .16, ease: 'power1.out' });
-  }
-
-  document.addEventListener('mouseover', (event) => {
-    const target = event.target.closest('a, button');
-    if (target === hovered) return;
-    /* Deck tabs mark their own selected state with an ink underline; the
-       bracket frame duplicates it and renders glitchy on top. */
-    if (!target || target.closest('.slide-tabs')) { clearHover(); return; }
-    hovered = target;
-    frameBusy = true;
-    const r = target.getBoundingClientRect();
-    /* Brackets shoot out from the dot, then lock onto the element. */
-    gsap.set(frame, { left: dotX, top: dotY, width: 0, height: 0 });
-    gsap.to(frame, {
-      left: r.left,
-      top: r.top,
-      width: r.width,
-      height: r.height,
-      opacity: 1,
-      duration: .3,
-      ease: 'power3.out',
-      onComplete: () => { frameBusy = false; }
-    });
-  });
-
-  document.documentElement.addEventListener('mouseleave', clearHover);
-}
-
 /* ------------------------------ Magnetic nav ------------------------------ */
 
 function initMagneticNav() {
@@ -1261,7 +1193,6 @@ initCoverContinue();
 initScramble();
 initSlideDecks();
 initContactExtras();
-initCursor();
 initMagneticNav();
 initPetalDrift();
 initWaterRipple();
