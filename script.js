@@ -10,7 +10,7 @@
   document.documentElement.classList.add('cyy-ai-mode');
 
   const cleanupStyle = document.createElement('style');
-  cleanupStyle.textContent = '.cyy-ai-mode .petal-canvas,.cyy-ai-mode .ink-layer{display:none!important}';
+  cleanupStyle.textContent = '.cyy-ai-mode .ink-layer{display:none!important}';
   document.head.appendChild(cleanupStyle);
 })();
 
@@ -1090,31 +1090,6 @@
     });
   }
 
-  /*
-   * Compatibility cleanup for the legacy petal loop.
-   * The old effect is no longer part of the AI visual direction, but it is
-   * initialized by script-core.js before this enhancement layer runs.
-   * Suppress the loop's next RAF scheduling once, then restore native RAF.
-   */
-  function stopLegacyPetalRAF() {
-    const nativeRAF = window.requestAnimationFrame;
-    if (typeof nativeRAF !== 'function' || window.__cyyV6PetalStopped) return;
-    window.__cyyV6PetalStopped = true;
-
-    window.requestAnimationFrame = function cyyV6RAF(callback) {
-      try {
-        const source = Function.prototype.toString.call(callback);
-        if (source.includes('resting.forEach') && source.includes('petals.length')) return 0;
-      } catch (error) {}
-      return nativeRAF.call(window, callback);
-    };
-
-    window.setTimeout(() => {
-      window.requestAnimationFrame = nativeRAF;
-      document.querySelectorAll('.petal-canvas,.ink-layer').forEach((el) => el.remove());
-    }, 220);
-  }
-
   function markProofRails() {
     const english = document.documentElement.lang?.startsWith('en');
     document.querySelectorAll('#case-03 .product-screen-grid, #case-04 .product-screen-grid').forEach((grid) => {
@@ -1139,7 +1114,6 @@
     improveAccessibility();
     markProofRails();
     dedupeEvidenceBars();
-    stopLegacyPetalRAF();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, { once: true });

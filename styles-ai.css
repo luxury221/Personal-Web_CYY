@@ -1734,8 +1734,8 @@ body.showcase-modal-open { overflow: hidden; }
   outline-offset: 3px;
 }
 
-/* Old decorative layers are retired in V6. */
-.petal-canvas,
+/* Old decorative layers are retired in V6 — the petal drift returns by
+   user request (ported as-is from the demo repo); ink layers stay retired. */
 .ink-layer { display: none !important; }
 
 /* -------------------------- Awards ledger (competitions page) -------------------------- */
